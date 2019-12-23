@@ -10,7 +10,7 @@
     $ cd golang-cht
     $ present
 
-    Now open your browser at [http://localhost:3999/](http://localhost:3999/) and you should see the slide(s).
+Now open your browser at [http://localhost:3999/](http://localhost:3999/) and you should see the slide(s).
 
 ### (2) Open slides on any of the following links:
 
