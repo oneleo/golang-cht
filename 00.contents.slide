@@ -11,19 +11,105 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* About me
+* 關於我
 
-.image ./images/Sean.jpg 250 250
+.image ./images/01/01.00.01-Irara.jpg 250 250
 
-- 中華電信從研發替代役到正式職員
+- 中華電信學院培訓師
 
-- 大學時受 C 影響最深
+- 覺得 Java、Java Script、Python 沒有想像中來得好學、且效能與 C 語言有一大段距離
 
-- 覺得物聯網時代，沒有學個可支撐大數據的後端會被淘汰（能用此創業就太棒了！）
+- 起先是從 [[https://www.facebook.com/groups/269001993248363/][Go 程式語言]]、[[https://www.facebook.com/groups/1288435607857868/][Go 線上讀書會]]社群找到並開始接觸 Go 語言
 
-- 起先是從[[https://www.facebook.com/groups/1606498833013546/][線上 Unity 讀書會]]切入（因為呈現上要有個漂亮的、跨平台的前端）
+- 原先對 Go 語言不以為意，用了後驚為天人，這應該是我對 Go 語言的使用感想
 
-- 接著開始找尋適合自己的後端語言（無論 JavaScript 還是 Go 對我來說都是重頭學）
+# --------------------------------------------------
+
+* Go 是什麼？
+
+- 開發：由 Google 於 2009/11/10 推出，在程式語言界算是相當年輕（C 語言是 1969 年被開發出來）
+
+- 設計：由 [[https://zh.wikipedia.org/wiki/肯·汤普逊][Ken Thompson]]（C 語言發明者之一）、[[https://zh.wikipedia.org/wiki/羅勃·派克][Rob Pike]]、Robert Griesemer → 原來 Go 和 C 這麼近
+
+- 特色：[[https://zh.wikipedia.org/wiki/編譯語言][編譯式語言]]、[[https://zh.wikipedia.org/wiki/強弱型別][強型別]]（且有未用到的[[https://zh.wikipedia.org/wiki/变量_(程序设计)][變數]]、[[https://zh.wikipedia.org/wiki/软件包][套件]]會編譯失敗）、高效[[https://zh.wikipedia.org/wiki/垃圾回收_(計算機科學)][垃圾回收]]、可多[[https://zh.wikipedia.org/wiki/并发计算][並行計算]]、支援 [[https://zh.wikipedia.org/wiki/UTF-8][UTF-8]]
+
+- 公司：較有名的[[https://github.com/golangtw/jobs][臺灣企業]]有 [[http://17.media/][17 直播]]、[[https://kktix.com/][KKTIX]]、[[https://www.dcard.tw/][Dcard]]、[[https://www.linkedin.com/company/9549268/][雪豹科技]]、[[https://www.catchplay.com/][CATCHPLAY]]、[[https://www.rayark.com/][雷亞遊戲]]、[[http://careers.carousell.com/][旋轉拍賣]]、[[http://www.trendmicro.tw/][Trend Micro]]、[[https://www.jkos.com/][街口支付]]、[[https://www.mediatek.com/][聯發科技]]、[[https://www.itri.org.tw/][工研院]]、[[https://www.zyxel.com/][合勤科技]]、[[http://www.foxconn.com.tw/][鴻海精密]]等招募 Go 語言工程師
+
+- 服務：常見的有 [[https://github.com/moby/moby][Docker]]、[[https://github.com/kubernetes/kubernetes][Kubernetes]]、[[https://github.com/dropbox/godropbox][Dropbox]]、[[https://github.com/ethereum/go-ethereum][Go Ethereum]]、[[https://gitea.io/zh-tw/][Gitea]] 等均使用 Go 語言開發
+
+# --------------------------------------------------
+
+* 為什麼使用 Go？
+
+- [[http://127.0.0.1:3999/GTG22.slide#8][【Page. 08】]]爽度 V.S. 效能
+
+- [[http://127.0.0.1:3999/GTG22.slide#8][【Page. 08】]]存檔時自動排版（gofmt）
+
+- [[http://127.0.0.1:3999/GTG22.slide#10][【Page. 10】]]每列句尾不需用分號結束
+
+- [[http://127.0.0.1:3999/GTG22.slide#11][【Page. 11】]]內建說明文件產生器（godoc）
+
+- [[http://127.0.0.1:3999/GTG22.slide#12][【Page. 12】]]內建 Testing 工具（go test）
+
+- [[http://127.0.0.1:3999/GTG22.slide#13][【Page. 13】]]可撰寫投影片（present）
+
+- [[http://127.0.0.1:3999/GTG22.slide#26][【Page. 26】]]可將 C 語言嵌入到 Go 裡頭（cgo）✔
+
+- [[http://127.0.0.1:3999/GTG22.slide#18][【Page. 18】]]可撰寫手機 APP（gomobile）
+
+- [[http://127.0.0.1:3999/GTG22.slide#29][【Page. 29】]]可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）✔
+
+- 參考影片：2017/02/14[[https://youtu.be/AthOhhD0T6g][【線上讀書會】Golang 環境設定與安裝]]
+
+# --------------------------------------------------
+
+* 爽度 V.S. 效能
+
+- 「橫軸」：【執行效能】、「縱軸」：【開不開心】
+
+- 除了效能外，打扣時爽度也很重要！
+
+.image ./images/01/01.00.02-go-fast.png 401 600
+
+.link https://talks.golang.org/2014/gocon-tokyo.slide#28 refference: Go: 90% Perfect, 100% of the time.
+
+# --------------------------------------------------
+
+* 使用 IDE 存檔時自動排版（1／2）
+
+- 因為自動排版，所以使用的 space 和 tab 鍵最少（嚴格上只有 tab 鍵）
+
+- 因為自動排版，所以團隊能量可集中在解決問題上 → 而不是看別人程式碼看到火大
+
+.image ./images/01/01.00.03-tabs_spaces.jpg 400 608
+
+.link https://medium.com/@hoffa/400-000-github-repositories-1-billion-files-14-terabytes-of-code-spaces-or-tabs-7cfe0b5dd7fd#.z07eb1yuf refference: Medium @Hoffa
+
+# --------------------------------------------------
+
+* 使用 IDE 存檔時自動排版（2／2）
+
+- 存檔時自動排版：[[https://play.golang.org/p/uUANEh970a][線上 Demo]]
+
+- 直接執行排版指令（這邊以排版 layout.go 為例）
+
+  > cd "%USERPROFILE%\go\src\github.com\oneleo\golang-cht\code\01_layout\"
+
+  > go fmt layout.go
+
+.image ./images/GoFmtDemo.png 371 400
+
+# --------------------------------------------------
+
+* 程式每列句尾不需使用分號結束
+
+- PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
+
+- debug 時就是當局者迷，常常會忘了最基本的結尾
+
+- 但，至少寫 Golang 可以少 de 一種 bug…
+
+.image ./images/gofmt2.png 331 1000
 
 # --------------------------------------------------
 
