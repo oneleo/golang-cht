@@ -1,0 +1,405 @@
+Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 28 Mar 2020
+Tags: Golang
+
+陳敬翔
+中華電信學院, 資訊學系培訓師
+oneleo@cht.com.tw
+https://www.facebook.com/oneleo760823
+@oneleo760823
+
+# --------------------------------------------------
+
+* 1、在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 1、安裝 GCC、Make 編譯器的下載工具，請至 [[https://www.msys2.org/][MSYS2]] 網站下載【msys2-x86_64-*.exe】安裝程式
+
+.image ./images/99/02.00.02.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 2、執行安裝程式後點選下方的【Next】鈕
+
+.image ./images/99/02.00.03.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 3、直接點選【Next】鈕將 MSYS2 安裝在預設位置「C:\msys64」內
+
+.image ./images/99/02.00.04.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 4、直接點選【Next】鈕安裝 MSYS2，並設置 MSYS2 在「開始選單」的顯示名稱為預設的「MSYS2 64bit」
+
+.image ./images/99/02.00.05.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 5、安裝完成後直接點選【Finish】，並啟動 MSYS2（預設已勾選「Run MSYS2 64bit.」）
+
+.image ./images/99/02.00.06.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 7、初次執行 MSYS2 時要進行更新 MSYS2 核心套件
+
+- 請在「$」右方輸入指令【pacman -Syu --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行更新
+
+.image ./images/99/02.00.07.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 8、更新完成後顯示「close your terminal window instead of calling exit」訊息表示需將 MSYS2 重新啟動
+
+- 請點選右上角【X】鈕來關閉 MSYS2
+
+.image ./images/99/02.00.08.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 9、點選螢幕左下角的【開始選單】→ 點選左側的【MSYS2 64bit】→ 點選【MSYS2 MSYS】來啟動 MSYS2
+
+.image ./images/99/02.00.09.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 10、更新 MSYS2 一般套件
+
+- 請輸入指令【pacman -Su --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行更新
+
+.image ./images/99/02.00.10.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 11、使用 MSYS2 安裝 GCC、Make 編譯器
+
+- 請輸入指令【pacman -S mingw-w64-x86_64-gcc make --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行 GCC、Make 的安裝
+
+.image ./images/99/02.00.12.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 12、安裝完成 GCC、Make 後，可以在「C:\msys64\mingw64\bin」看到「gcc.exe」編譯器
+
+.image ./images/99/02.00.13.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 可以在「C:\msys64\usr\bin」看到「make.exe」編譯器
+
+.image ./images/99/02.00.14.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 13、接下來要讓 Windows 知道 gcc、make 編譯器的位置，所以要設置「環境變數」
+
+- 點選左下角的【開始選單】→ 點選左側的【Windows 系統】→ 點選【控制台】
+
+.image ./images/99/02.00.15.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 點選「控制台」的【系統及安全性】鈕
+
+.image ./images/99/02.00.16.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 點選【系統】鈕
+
+.image ./images/99/02.00.17.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 點選左側的【進階系統設定】鈕
+
+.image ./images/99/02.00.18.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 在「進階」頁面中，點選最下方的【環境變數(N)…】鈕
+
+.image ./images/99/02.00.19.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 為讓此 Windows 內的所有用者均可使用 GCC、Make 編譯器，請點選下方「系統變數(S)」下面的【新增(W)…】鈕
+
+.image ./images/99/02.00.20.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 首先建置 GCC 編譯器路徑變數，請在「變數名稱(N):」輸入【MINGW64】
+
+- 在「變數值(V):」輸入【C:\msys64\mingw64】→ 點選【確定】鈕
+
+.image ./images/99/02.00.21.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 再來建置 Make 編譯器路徑變數，請在「變數名稱(N):」輸入【MSYS64USR】
+
+- 在「變數值(V):」輸入【C:\msys64\usr】→ 點選【確定】鈕
+
+.image ./images/99/02.00.22.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+.image ./images/99/02.00.23.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 接著將建置好的 GCC、Make 編譯器路徑變數加入到「Path」變數中，讓 Windows 可使用「gcc.exe」及「make.exe」指令
+
+- 請點選下方「系統變數(S)」中的【Path】變數 → 再點選下面的【編輯(I)…】鈕
+
+.image ./images/99/02.00.24.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 接著點選右方【新增(N)】鈕
+
+.image ./images/99/02.00.25.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 會在下面出現可輸入的欄位，在此欄位輸入【%MINGW64%\bin】變數
+
+- 再一次點選右方的【新增(N)】鈕 → 並新增【%MSYS64USR%\bin】變數
+
+- 完成後點選最下方的【確定】鈕
+
+.image ./images/99/02.00.26.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 點選最下方的【確定】鈕
+
+.image ./images/99/02.00.27.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 點選最下方的【確定】鈕以完成 Windows 環境變數的設定
+
+.image ./images/99/02.00.28.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 14、最後要確認 Windows 可以執行「gcc.exe」及「make.exe」指令
+
+- 請在「開始選單」上按【滑鼠右鍵】→ 再點選【Windows PowerShell(I)】
+
+.image ./images/99/02.00.29.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+
+- 15、請在「PS C:\Users\user>」右方輸入【gcc -v】指令 → 並按下鍵盤的【Enter】鍵來查看 GCC 編譯器的版本
+
+- 接著請繼續輸入【make -v】指令 → 並按下鍵盤的【Enter】鍵來查看 Make 編譯器的版本
+
+.image ./images/99/02.00.30.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Android APP 軟體開發工具包：SDK、JDK、NDK
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Android APP 軟體開發工具包：SDK、JDK、NDK
+
+- 若要開發 Android APP，就要安裝 [[https://developer.android.com/studio][Android SDK]]、[[http://www.oracle.com/technetwork/java/javase/downloads][JDK]]、[[https://developer.android.com/ndk/downloads][NDK]]，才可將 Go 語言編譯成 Android apk 檔
+
+- JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
+
+.image ./images/99/99.03.01-go_mobile.jpg 338 600
+
+.link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1、安裝 JAVA
+
+2、安裝 NDK
+可以使用 UI 版的 sdkmanager 來安裝 NDK
+
+
+
+
+
+
+
+
+
+
+
+
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（1／7）
+
+- 若要編譯 Android APP，要安裝 [[https://developer.android.com/studio][Android SDK]]、[[http://www.oracle.com/technetwork/java/javase/downloads][JDK]]、[[https://developer.android.com/ndk/downloads][NDK]]，才可將 Go 語言編譯成 apk 檔
+
+- JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
+
+.image ./images/99/99.03.01-go_mobile.jpg 338 600
+
+.link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（2／7）
+
+- Windows 要特別注意 SDK、JDK、NDK 環境變數的設置（請參考本頁說明）
+
+- 1、[[https://developer.android.com/ndk/downloads][NDK 下載]]後解壓縮並放在 %USERPROFILE%\AppData\Local\Android 內
+
+- 2、為保彈性，將 JDK、NDK 建立捷徑後再設定 Windows 的環境變數，指令如下：
+    
+    > mklink /D /J "%USERPROFILE%\AppData\Local\Android\ndk"
+        "%USERPROFILE%\AppData\Local\Android\android-ndk-r14"
+    > mklink /D /J "C:\Program Files\Java\jdk" "C:\Program Files\Java\jdk1.8.0_121"
+
+- 3、設定 Windows 環境變數（要永久生效請至「系統」→「進階系統設定」→「環境變數」→「使用者變數」內設定）。
+
+    > set JAVA_HOME="C:\Program Files\Java\jdk"
+    > set ANDROID_SDK_HOME="%USERPROFILE%\AppData\Local\Android\sdk"
+    > set ANDROID_NDK_HOME="%USERPROFILE%\AppData\Local\Android\ndk"
+    > set PATH=%PATH%;%JAVA_HOME%\bin;%ANDROID_SDK_HOME%\build-tools;%ANDROID_SDK_HOME%\platform-tools
+    > set PATH=%PATH%;%ANDROID_SDK_HOME%\tools;%ANDROID_NDK_HOME%
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（4／7）
+
+- 1、安裝 GCC 編譯套件，請下載 [[http://tdm-gcc.tdragon.net/download][TDM-GCC]] 並安裝
+
+- 註：Windows 欲執行 GoMobile 範例，在 GoMobile 套件下載後（[[http://127.0.0.1:3999/GTG22.slide#22][Page 22]]），還要下載 GoMobile 相依套件（使用[[https://github.com/golang/dep][dep]]），指令如下：
+#> go get -u -v golang.org/x/exp/shiny/driver/gldriver
+#> go get -u -v golang.org/x/exp/shiny/screen
+    > go get -u -v github.com/golang/dep/...
+    > cd "%USERPROFILE%\go\src\golang.org\x\mobile\example\"
+    > dep init -v
+
+- 1、安裝完成 GCC 後請使用下面指令確認
+    $> gcc --version
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（5／7）
+
+- Go Mobile [[https://godoc.org/golang.org/x/mobile/cmd/gomobile][官網連結]]
+
+- 1、下載 GoMobile
+    $> go get -u -v golang.org/x/mobile/cmd/gomobile
+
+- 2、安裝 GoMobile 編譯工具
+    Windows: > gomobile init -v
+
+- 註：查看接在電腦上的 Android 設備（adb 相關指令可[[http://style77125tech.pixnet.net/blog/post/17556680-%5Bandroid%5D-%E4%BD%BF%E7%94%A8adb%E6%8C%87%E4%BB%A4][參考這篇]]）
+    $> adb devices      # 查詢目前有多少個 Android 裝置
+    $> adb kill-server  # 若無法查詢則關掉 adb 伺服器再試一次
+    $> adb help         # 顯示 adb 指令相關參數
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（6／7）
+
+- 在本機執行測試（Basic Example）
+    Windows: > cd "%USERPROFILE%\go\src\golang.org\x\mobile\example\basic"
+    MacBook: $ cd "$HOME/go/src/golang.org/x/mobile/example/basic"
+    $> go run main.go
+
+- 輸出成可安裝至 Android 手機內的 apk 檔
+    Windows: > gomobile build -target "android"
+                -o "%USERPROFILE%\go\src\golang.org\x\mobile\example\basic\basic.apk"
+                    golang.org/x/mobile/example/basic
+# > gomobile build -target "android" -o "%USERPROFILE%\go\src\golang.org\x\mobile\example\basic\basic.apk" golang.org/x/mobile/example/basic
+    MacBook: $ gomobile build -target "android"
+                -o "$HOME/go/src/golang.org/x/mobile/example/basic/basic.apk"
+                    golang.org/x/mobile/example/basic
+# $ gomobile build -target "android" -o "$HOME/go/src/golang.org/x/mobile/example/basic/basic.apk" golang.org/x/mobile/example/basic
+
+- 或將 apk 檔直接安裝在與之連接的 Android 手機
+    $> gomobile install golang.org/x/mobile/example/basic
+    $> gomobile install golang.org/x/mobile/example/flappy
+
+# --------------------------------------------------
+
+* 使用 Go Mobile 開發手機 APP（7／7）
+
+- 防爆展示影片，環境為 Windows
+
+.video ./videos/GoMobileFlappyDemo.mp4 video/mp4 425 _

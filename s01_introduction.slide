@@ -93,8 +93,8 @@ https://www.facebook.com/oneleo760823
 
 - 直接執行排版指令（這邊以排版 layout.go 為例）
 
-    > cd "$Env:USERPROFILE\go\src\github.com\oneleo\golang-cht\code\02_layout\"
-    > go fmt layout.go
+    > cd "$Env:USERPROFILE\go\src\github.com\oneleo\golang-cht\code\c02gofmt\"
+    > go fmt gofmt.go
 
 .image ./images/01/01.00.04-go_fmt_demo.png 371 400
 
@@ -112,38 +112,17 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 程式每列句尾不需使用分號結束
-
-- PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
-
-- debug 時就是當局者迷，常常會忘了最基本的結尾
-
-- 但，至少寫 Golang 可以少 de 一種 bug…
-
-.image ./images/gofmt2.png 331 1000
-
-# --------------------------------------------------
-
-* 內建說明文件產生器：使用 Fmt Package 為例：
-
-- 將 fmt 複製到【%USERPROFILE%\go\src】or【$HOME/go/src】內
-
-    Windows: > xcopy /I "c:\go\src\fmt" "%USERPROFILE%\go\src\MyFmt"
-    MacBook: $ cp -p -r "/usr/local/go/src/fmt" "$HOME/go/src/MyFmt"
-
-- 修改某 function 前面的註解（這邊以修改 func Errorf 前方的註解為例）
-
-    Windows: 用記事本修改 "%USERPROFILE%\go\src\MyFmt\print.go"
-    MacBook: $ vim "$HOME/go/src/MyFmt/print.go"
+* 內建說明文件產生器
 
 - 執行 GoDoc 指令
 
     > go get -u -v golang.org/x/tools/cmd/godoc
+    > cd "$Env:USERPROFILE\go\src\github.com\oneleo\golang-cht\code\c03godoc\"
+    > godoc -http=:6060
 
-    $> godoc -http=:6060
+- 至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 c03godoc 即可
 
-- 至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 MyFmt 即可
-
+.image ./images/01/01.00.05-semicolon.png 331 1000
 
 # --------------------------------------------------
 
