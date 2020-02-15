@@ -126,6 +126,14 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
+* 使用 Go Mobile 開發手機 APP
+
+    > go get -u -v golang.org/x/mobile/cmd/gomobile
+    > gomobile build -target "android" -o "$Env:USERPROFILE\Desktop\basic.apk" golang.org/x/mobile/example/basic
+    > gomobile build -target "android" -o "$Env:USERPROFILE\Desktop\flappy.apk" golang.org/x/mobile/example/flappy
+
+# --------------------------------------------------
+
 * 介紹完畢，感謝各位！
 
 # --------------------------------------------------
