@@ -11,7 +11,37 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 1、在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
+* 1、在 Windows 內安裝 Go 語言官方安裝程式
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 1、安裝 Go 語言安裝程式，請至 [[https://golang.org/][Golang]] 網站下載【go*.windows-amd64.msi】安裝程式
+
+- 請先點選官方網站的【Download Go】鈕
+
+.image ./images/99/99.01.03.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 2、接著請點選左側【go*.windows-amd64.msi】鈕
+
+.image ./images/99/99.01.04.png
+
+# --------------------------------------------------
+
+* 2、在 Windows 內安裝 Git 版本控管軟體
+
+# --------------------------------------------------
+
+* 3、在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+# --------------------------------------------------
+
+* 4、在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
 
 # --------------------------------------------------
 
@@ -19,7 +49,7 @@ https://www.facebook.com/oneleo760823
 
 - 1、安裝 GCC、Make 編譯器的下載工具，請至 [[https://www.msys2.org/][MSYS2]] 網站下載【msys2-x86_64-*.exe】安裝程式
 
-.image ./images/99/02.00.02.png
+.image ./images/99/99.04.02.png
 
 # --------------------------------------------------
 
@@ -27,7 +57,7 @@ https://www.facebook.com/oneleo760823
 
 - 2、執行安裝程式後，請點選下方的【Next】鈕
 
-.image ./images/99/02.00.03.png
+.image ./images/99/99.04.03.png
 
 # --------------------------------------------------
 
@@ -35,7 +65,7 @@ https://www.facebook.com/oneleo760823
 
 - 3、請直接點選【Next】鈕將 MSYS2 安裝在預設位置「C:\msys64」內
 
-.image ./images/99/02.00.04.png
+.image ./images/99/99.04.04.png
 
 # --------------------------------------------------
 
@@ -43,7 +73,7 @@ https://www.facebook.com/oneleo760823
 
 - 4、請直接點選【Next】鈕安裝 MSYS2，並設置 MSYS2 在「開始選單」的顯示名稱為預設的「MSYS2 64bit」
 
-.image ./images/99/02.00.05.png
+.image ./images/99/99.04.05.png
 
 # --------------------------------------------------
 
@@ -51,7 +81,7 @@ https://www.facebook.com/oneleo760823
 
 - 5、安裝完成後請直接點選【Finish】鈕，並啟動 MSYS2（預設已勾選「Run MSYS2 64bit.」）
 
-.image ./images/99/02.00.06.png
+.image ./images/99/99.04.06.png
 
 # --------------------------------------------------
 
@@ -61,7 +91,7 @@ https://www.facebook.com/oneleo760823
 
 - 請在「$」右方輸入指令【pacman -Syu --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行更新
 
-.image ./images/99/02.00.07.png
+.image ./images/99/99.04.07.png
 
 # --------------------------------------------------
 
@@ -71,7 +101,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選右上角【X】鈕來關閉 MSYS2
 
-.image ./images/99/02.00.08.png
+.image ./images/99/99.04.08.png
 
 # --------------------------------------------------
 
@@ -79,7 +109,7 @@ https://www.facebook.com/oneleo760823
 
 - 9、點選螢幕左下角的【開始選單】→ 點選左側的【MSYS2 64bit】→ 點選【MSYS2 MSYS】來啟動 MSYS2
 
-.image ./images/99/02.00.09.png
+.image ./images/99/99.04.09.png
 
 # --------------------------------------------------
 
@@ -89,7 +119,7 @@ https://www.facebook.com/oneleo760823
 
 - 請輸入指令【pacman -Su --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行更新
 
-.image ./images/99/02.00.10.png
+.image ./images/99/99.04.10.png
 
 # --------------------------------------------------
 
@@ -99,7 +129,7 @@ https://www.facebook.com/oneleo760823
 
 - 請輸入指令【pacman -S mingw-w64-x86_64-gcc make --noconfirm】→ 並按下鍵盤的【Enter】鍵來執行 GCC、Make 的安裝
 
-.image ./images/99/02.00.12.png
+.image ./images/99/99.04.12.png
 
 # --------------------------------------------------
 
@@ -111,7 +141,7 @@ https://www.facebook.com/oneleo760823
 
 - 請注意隨著 MSYS 版本不同，安裝路徑也會不同，請以當時的安裝路徑來設置「環境變數」
 
-.image ./images/99/02.00.13.png
+.image ./images/99/99.04.13.png
 
 # --------------------------------------------------
 
@@ -121,7 +151,7 @@ https://www.facebook.com/oneleo760823
 
 - 請注意隨著 MSYS 版本不同，安裝路徑也會不同，請以當時的安裝路徑來設置「環境變數」
 
-.image ./images/99/02.00.14.png
+.image ./images/99/99.04.14.png
 
 # --------------------------------------------------
 
@@ -129,7 +159,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選左下角的【開始選單】→ 點選左側的【Windows 系統】→ 點選【控制台】
 
-.image ./images/99/02.00.15.png
+.image ./images/99/99.04.15.png
 
 # --------------------------------------------------
 
@@ -137,7 +167,7 @@ https://www.facebook.com/oneleo760823
 
 - 點選「控制台」的【系統及安全性】鈕
 
-.image ./images/99/02.00.16.png
+.image ./images/99/99.04.16.png
 
 # --------------------------------------------------
 
@@ -145,7 +175,7 @@ https://www.facebook.com/oneleo760823
 
 - 點選【系統】鈕
 
-.image ./images/99/02.00.17.png
+.image ./images/99/99.04.17.png
 
 # --------------------------------------------------
 
@@ -153,7 +183,7 @@ https://www.facebook.com/oneleo760823
 
 - 點選左側的【進階系統設定】鈕
 
-.image ./images/99/02.00.18.png
+.image ./images/99/99.04.18.png
 
 # --------------------------------------------------
 
@@ -161,7 +191,7 @@ https://www.facebook.com/oneleo760823
 
 - 在「進階」頁面中，點選最下方的【環境變數(N)…】鈕
 
-.image ./images/99/02.00.19.png
+.image ./images/99/99.04.19.png
 
 # --------------------------------------------------
 
@@ -169,7 +199,7 @@ https://www.facebook.com/oneleo760823
 
 - 為讓此 Windows 內的所有用者均可使用 GCC、Make 編譯器，請點選下方「系統變數(S)」下面的【新增(W)…】鈕
 
-.image ./images/99/02.00.20.png
+.image ./images/99/99.04.20.png
 
 # --------------------------------------------------
 
@@ -179,7 +209,7 @@ https://www.facebook.com/oneleo760823
 
 - 在「變數值(V):」輸入【C:\msys64】→ 點選【確定】鈕
 
-.image ./images/99/02.00.21.png
+.image ./images/99/99.04.21.png
 
 # --------------------------------------------------
 
@@ -189,13 +219,13 @@ https://www.facebook.com/oneleo760823
 
 - 在「變數值(V):」輸入【%MSYS%\mingw64】→ 點選【確定】鈕
 
-.image ./images/99/02.00.22.png
+.image ./images/99/99.04.22.png
 
 # --------------------------------------------------
 
 * 在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make
 
-.image ./images/99/02.00.23.png
+.image ./images/99/99.04.23.png
 
 # --------------------------------------------------
 
@@ -205,7 +235,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選下方「系統變數(S)」中的【Path】變數 → 再點選下面的【編輯(I)…】鈕
 
-.image ./images/99/02.00.24.png
+.image ./images/99/99.04.24.png
 
 # --------------------------------------------------
 
@@ -213,7 +243,7 @@ https://www.facebook.com/oneleo760823
 
 - 接著點選右方【新增(N)】鈕
 
-.image ./images/99/02.00.25.png
+.image ./images/99/99.04.25.png
 
 # --------------------------------------------------
 
@@ -225,7 +255,7 @@ https://www.facebook.com/oneleo760823
 
 - 完成後點選最下方的【確定】鈕
 
-.image ./images/99/02.00.26.png
+.image ./images/99/99.04.26.png
 
 # --------------------------------------------------
 
@@ -233,7 +263,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選最下方的【確定】鈕
 
-.image ./images/99/02.00.27.png
+.image ./images/99/99.04.27.png
 
 # --------------------------------------------------
 
@@ -241,7 +271,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選最下方的【確定】鈕以完成 Windows 環境變數的設定
 
-.image ./images/99/02.00.28.png
+.image ./images/99/99.04.28.png
 
 # --------------------------------------------------
 
@@ -251,7 +281,7 @@ https://www.facebook.com/oneleo760823
 
 - 請在「開始選單」上按【滑鼠右鍵】→ 再點選【Windows PowerShell(I)】
 
-.image ./images/99/02.00.29.png
+.image ./images/99/99.04.29.png
 
 # --------------------------------------------------
 
@@ -261,23 +291,11 @@ https://www.facebook.com/oneleo760823
 
 - 接著請繼續輸入【make -v】指令 → 並按下鍵盤的【Enter】鍵來查看 Make 編譯器的版本
 
-.image ./images/99/02.00.30.png
+.image ./images/99/99.04.30.png
 
 # --------------------------------------------------
 
-* 在 Windows 內安裝 Android APP 軟體開發工具包：JDK、SDK、NDK
-
-# --------------------------------------------------
-
-* 在 Windows 內安裝 Android APP 軟體開發工具包：JDK、SDK、NDK
-
-- 若要開發 Android APP，就要安裝 [[https://www.oracle.com/java/technologies/javase-downloads.html][JDK]]、[[https://developer.android.com/studio][Android SDK]]、[[https://developer.android.com/ndk/downloads][Android NDK]]，才可將 Go 語言編譯成 Android apk 檔
-
-- JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
-
-.image ./images/99/99.02.01-go_mobile.jpg 338 600
-
-.link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
+* 5、在 Windows 內安裝 Android APP 軟體開發工具包：JDK、SDK、NDK
 
 # --------------------------------------------------
 
@@ -287,7 +305,7 @@ https://www.facebook.com/oneleo760823
 
 - 請先點選官方網站的【JDK Download】鈕
 
-.image ./images/99/99.02.03.png
+.image ./images/99/99.05.03.png
 
 # --------------------------------------------------
 
@@ -295,7 +313,7 @@ https://www.facebook.com/oneleo760823
 
 - 接著請將網頁向下捲動到「Java SE Development Kit」，並點選【jdk-*_windows-x64_bin.exe】鈕
 
-.image ./images/99/99.02.05.png
+.image ./images/99/99.05.05.png
 
 # --------------------------------------------------
 
@@ -305,7 +323,7 @@ https://www.facebook.com/oneleo760823
 
 - 再點選【Download jdk-*_windows-x64_bin.exe】鈕開始下載 JDK
 
-.image ./images/99/99.02.07.png
+.image ./images/99/99.05.07.png
 
 # --------------------------------------------------
 
@@ -313,7 +331,7 @@ https://www.facebook.com/oneleo760823
 
 - 執行安裝程式後，請點選下方的【Next >】鈕
 
-.image ./images/99/99.02.08.png
+.image ./images/99/99.05.08.png
 
 # --------------------------------------------------
 
@@ -321,7 +339,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Next >】鈕將 JDK 安裝在預設位置「C:\Program Files\Java\jdk-13.0.2\」內
 
-.image ./images/99/99.02.09.png
+.image ./images/99/99.05.09.png
 
 # --------------------------------------------------
 
@@ -329,7 +347,7 @@ https://www.facebook.com/oneleo760823
 
 - 安裝完成後請直接點選【Close】
 
-.image ./images/99/99.02.10.png
+.image ./images/99/99.05.10.png
 
 # --------------------------------------------------
 
@@ -339,7 +357,7 @@ https://www.facebook.com/oneleo760823
 
 - 請先點選官方網站的【DOWNLOAD ANDROID STUDIO】鈕
 
-.image ./images/99/99.03.03.png
+.image ./images/99/99.06.03.png
 
 # --------------------------------------------------
 
@@ -349,7 +367,7 @@ https://www.facebook.com/oneleo760823
 
 - 再點選【DOWNLOAD ANDROID STUDIO FOR WINDOWS】鈕開始下載 Android Studio
 
-.image ./images/99/99.03.04.png
+.image ./images/99/99.06.04.png
 
 # --------------------------------------------------
 
@@ -357,7 +375,7 @@ https://www.facebook.com/oneleo760823
 
 - 執行安裝程式後，請點選下方的【Next >】鈕
 
-.image ./images/99/99.03.06.png
+.image ./images/99/99.06.06.png
 
 # --------------------------------------------------
 
@@ -365,7 +383,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Next >】鈕來安裝預設的「Android Studio」、「Android Virtual Device」
 
-.image ./images/99/99.03.07.png
+.image ./images/99/99.06.07.png
 
 # --------------------------------------------------
 
@@ -373,7 +391,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Next >】鈕將 Android Studio 安裝在預設位置「C:\Program Files\Android\Android Studio」內
 
-.image ./images/99/99.03.08.png
+.image ./images/99/99.06.08.png
 
 # --------------------------------------------------
 
@@ -381,7 +399,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選【Install】鈕開始安裝 Android Studio
 
-.image ./images/99/99.03.09.png
+.image ./images/99/99.06.09.png
 
 # --------------------------------------------------
 
@@ -389,7 +407,7 @@ https://www.facebook.com/oneleo760823
 
 - 安裝完成後，請點選【Next >】鈕
 
-.image ./images/99/99.03.10.png
+.image ./images/99/99.06.10.png
 
 # --------------------------------------------------
 
@@ -397,7 +415,7 @@ https://www.facebook.com/oneleo760823
 
 - 安裝完成後請直接點選【Finish】鈕，並啟動 Android Studio（預設已勾選「Start Android Studio」）
 
-.image ./images/99/99.03.11.png
+.image ./images/99/99.06.11.png
 
 # --------------------------------------------------
 
@@ -405,7 +423,7 @@ https://www.facebook.com/oneleo760823
 
 - 因為沒有 Android Studio 環境設置檔，故請直接點選【OK】鈕，來使用預設的環境（預設已點選「Do not import settings」）
 
-.image ./images/99/99.03.12.png
+.image ./images/99/99.06.12.png
 
 # --------------------------------------------------
 
@@ -413,7 +431,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Don't send】鈕來避免 Google 匿名收集 Android Studio 的使用資料
 
-.image ./images/99/99.03.13.png
+.image ./images/99/99.06.13.png
 
 # --------------------------------------------------
 
@@ -421,7 +439,7 @@ https://www.facebook.com/oneleo760823
 
 - 此時會出現 Android Studio 設置精靈，請直接點選【Next】鈕繼續
 
-.image ./images/99/99.03.14.png
+.image ./images/99/99.06.14.png
 
 # --------------------------------------------------
 
@@ -429,7 +447,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Next】鈕來使用預設的「Standard」標準設置
 
-.image ./images/99/99.03.15.png
+.image ./images/99/99.06.15.png
 
 # --------------------------------------------------
 
@@ -437,7 +455,7 @@ https://www.facebook.com/oneleo760823
 
 - 請直接點選【Next】鈕來使用預設的「Light」佈景主題
 
-.image ./images/99/99.03.16.png
+.image ./images/99/99.06.16.png
 
 # --------------------------------------------------
 
@@ -445,7 +463,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選【Finish】鈕開始下載並安裝所選擇的 Android Studio 標準設置
 
-.image ./images/99/99.03.17.png
+.image ./images/99/99.06.17.png
 
 # --------------------------------------------------
 
@@ -453,7 +471,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選【Finish】鈕完成 Android Studio 標準設置安裝
 
-.image ./images/99/99.03.18.png
+.image ./images/99/99.06.18.png
 
 # --------------------------------------------------
 
@@ -463,7 +481,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選 Android Studio 下方的【Configure】鈕
 
-.image ./images/99/99.03.19.png
+.image ./images/99/99.06.19.png
 
 # --------------------------------------------------
 
@@ -471,7 +489,7 @@ https://www.facebook.com/oneleo760823
 
 - 再點選第 2 項的【SDK Manager】鈕
 
-.image ./images/99/99.03.20.png
+.image ./images/99/99.06.20.png
 
 # --------------------------------------------------
 
@@ -479,7 +497,7 @@ https://www.facebook.com/oneleo760823
 
 - 接著請點選上方的【SDK Tools】鈕
 
-.image ./images/99/99.03.21.png
+.image ./images/99/99.06.21.png
 
 # --------------------------------------------------
 
@@ -487,7 +505,7 @@ https://www.facebook.com/oneleo760823
 
 - 請勾選【NDK(Side by side)】鈕 → 再請點下方的【OK】鈕
 
-.image ./images/99/99.03.23.png
+.image ./images/99/99.06.23.png
 
 # --------------------------------------------------
 
@@ -495,7 +513,7 @@ https://www.facebook.com/oneleo760823
 
 - 確認完成要安裝的元件及硬碟使用空間後，請勾選【OK】鈕
 
-.image ./images/99/99.03.24.png
+.image ./images/99/99.06.24.png
 
 # --------------------------------------------------
 
@@ -505,7 +523,7 @@ https://www.facebook.com/oneleo760823
 
 - 註：Android NDK 預設會安裝在「%USERPROFILE%\AppData\Local\Android\Sdk」內
 
-.image ./images/99/99.03.26.png
+.image ./images/99/99.06.26.png
 
 # --------------------------------------------------
 
@@ -513,7 +531,7 @@ https://www.facebook.com/oneleo760823
 
 - 請點選【Finish】完成 Android NDK 的安裝
 
-.image ./images/99/99.03.27.png
+.image ./images/99/99.06.27.png
 
 # --------------------------------------------------
 
@@ -525,7 +543,7 @@ https://www.facebook.com/oneleo760823
 
 - 請注意隨著 JDK 版本不同，安裝路徑也會不同，請以當時的安裝路徑來設置「環境變數」
 
-.image ./images/99/99.03.29-jdk_folder.png
+.image ./images/99/99.06.29-jdk_folder.png
 
 # --------------------------------------------------
 
@@ -535,7 +553,7 @@ https://www.facebook.com/oneleo760823
 
 - 請注意隨著 Android SDK 版本不同，安裝路徑也會不同，請以當時的安裝路徑來設置「環境變數」
 
-.image ./images/99/99.03.30-sdk_folder.png
+.image ./images/99/99.06.30-sdk_folder.png
 
 # --------------------------------------------------
 
@@ -545,7 +563,7 @@ https://www.facebook.com/oneleo760823
 
 - 請注意隨著 Android NDK 版本不同，安裝路徑也會不同，請以當時的安裝路徑來設置「環境變數」
 
-.image ./images/99/99.03.31-ndk_folder.png
+.image ./images/99/99.06.31-ndk_folder.png
 
 # --------------------------------------------------
 
@@ -557,7 +575,7 @@ https://www.facebook.com/oneleo760823
 
 - 註：若希望採視窗界面來設置「環境變數」，請參考[[http://127.0.0.1:3999/s99_%20install_extensions.slide#2][【Page. 02】]]「1、在 Windows 內安裝 C/C++ 程式編譯器：GCC、Make」章節
 
-.image ./images/99/99.03.32.png
+.image ./images/99/99.06.32.png
 
 # --------------------------------------------------
 
@@ -567,14 +585,14 @@ https://www.facebook.com/oneleo760823
 
 - 註：輸入指令時不包含最左邊的「> 」字元，此字元表示這行是「要輸入的指令」
 
-    > $Env:JDK_TEMP = "C:\Program Files\Java\jdk-13.0.2"          # 請以實際安裝的 JDK 路徑來進行設置
-    > $Env:SDK_TEMP = "%USERPROFILE%\AppData\Local\Android\Sdk"   # 請以實際安裝的 SDK 路徑來進行設置
-    > $Env:NDK_TEMP = "%ANDROID_HOME%\ndk\21.0.6113669"           # 請以實際安裝的 NDK 路徑來進行設置
-    > [Environment]::SetEnvironmentVariable("JAVA_HOME", "$Env:JDK_TEMP", "Machine")
-    > [Environment]::SetEnvironmentVariable("ANDROID_HOME", "$Env:SDK_TEMP", "Machine")
-    > [Environment]::SetEnvironmentVariable("ANDROID_NDK_HOME", "$Env:NDK_TEMP", "Machine")
+    > $ENV:JDK_TEMP = "C:\Program Files\Java\jdk-13.0.2"          # 請以實際安裝的 JDK 路徑來進行設置
+    > $ENV:SDK_TEMP = "%USERPROFILE%\AppData\Local\Android\Sdk"   # 請以實際安裝的 SDK 路徑來進行設置
+    > $ENV:NDK_TEMP = "%ANDROID_HOME%\ndk\21.0.6113669"           # 請以實際安裝的 NDK 路徑來進行設置
+    > [Environment]::SetEnvironmentVariable("JAVA_HOME", "$ENV:JDK_TEMP", "Machine")
+    > [Environment]::SetEnvironmentVariable("ANDROID_HOME", "$ENV:SDK_TEMP", "Machine")
+    > [Environment]::SetEnvironmentVariable("ANDROID_NDK_HOME", "$ENV:NDK_TEMP", "Machine")
 
-.image ./images/99/99.03.33.png
+.image ./images/99/99.06.33.png
 
 # --------------------------------------------------
 
@@ -582,7 +600,7 @@ https://www.facebook.com/oneleo760823
 
 - 說明：此指令「[Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Java\jdk-13.0.2", "Machine")」等同於下圖的視窗設置
 
-.image ./images/99/99.03.34.png
+.image ./images/99/99.06.34.png
 
 # --------------------------------------------------
 
@@ -590,7 +608,7 @@ https://www.facebook.com/oneleo760823
 
 - 說明：此指令「[Environment]::SetEnvironmentVariable("ANDROID_HOME", "%USERPROFILE%\AppData\Local\Android\Sdk", "Machine")」等同於下圖的視窗設置
 
-.image ./images/99/99.03.35.png
+.image ./images/99/99.06.35.png
 
 # --------------------------------------------------
 
@@ -598,7 +616,7 @@ https://www.facebook.com/oneleo760823
 
 - 說明：此指令「[Environment]::SetEnvironmentVariable("ANDROID_NDK_HOME", "%ANDROID_HOME%\ndk\21.0.6113669", "Machine")」等同於下圖的視窗設置
 
-.image ./images/99/99.03.36.png
+.image ./images/99/99.06.36.png
 
 # --------------------------------------------------
 
@@ -606,13 +624,13 @@ https://www.facebook.com/oneleo760823
 
 - 前方指令輸入完成後，可以在 Windows 環境變數的視窗內看到設置結果
 
-.image ./images/99/99.03.37.png
+.image ./images/99/99.06.37.png
 
 # --------------------------------------------------
 
 * 在 Windows 內安裝 Android APP 軟體開發工具包：JDK、SDK、NDK
 
-.image ./images/99/99.03.38.png
+.image ./images/99/99.06.38.png
 
 # --------------------------------------------------
 

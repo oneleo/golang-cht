@@ -21,7 +21,7 @@ https://www.facebook.com/oneleo760823
 
 - 起先是從 [[https://www.facebook.com/groups/269001993248363/][Go 程式語言]]、[[https://www.facebook.com/groups/1288435607857868/][Go 線上讀書會]]社群找到並開始接觸 Go 語言
 
-- 原先對 Go 語言不以為意，用了後驚為天人，這應該是我對 Go 語言的使用感想
+- 原先對 Go 語言不以為意，用了後驚為天人，是我對 Go 語言的使用感想
 
 # --------------------------------------------------
 
@@ -41,29 +41,29 @@ https://www.facebook.com/oneleo760823
 
 * 為什麼使用 Go？
 
-- [[http://127.0.0.1:3999/GTG22.slide#8][【Page. 08】]]爽度 V.S. 效能
+- [[http://127.0.0.1:3999/s01_introduction.slide#5][【Page. 08】]]爽度 V.S. 效能
 
-- [[http://127.0.0.1:3999/GTG22.slide#8][【Page. 08】]]存檔時自動排版（gofmt）
+- [[http://127.0.0.1:3999/s01_introduction.slide#8][【Page. 08】]]存檔時自動排版（gofmt）
 
-- [[http://127.0.0.1:3999/GTG22.slide#10][【Page. 10】]]每列句尾不需用分號結束
+- [[http://127.0.0.1:3999/s01_introduction.slide#10][【Page. 10】]]每列句尾不需用分號結束
 
-- [[http://127.0.0.1:3999/GTG22.slide#11][【Page. 11】]]內建說明文件產生器（godoc）
+- [[http://127.0.0.1:3999/s01_introduction.slide#11][【Page. 11】]]內建說明文件產生器（godoc）
 
-- [[http://127.0.0.1:3999/GTG22.slide#12][【Page. 12】]]內建 Testing 工具（go test）
+- [[http://127.0.0.1:3999/s01_introduction.slide#12][【Page. 12】]]內建 Testing 工具（go test）
 
-- [[http://127.0.0.1:3999/GTG22.slide#13][【Page. 13】]]可撰寫投影片（present）
+- [[http://127.0.0.1:3999/s01_introduction.slide#13][【Page. 13】]]可撰寫投影片（present）
 
-- [[http://127.0.0.1:3999/GTG22.slide#26][【Page. 26】]]可將 C 語言嵌入到 Go 裡頭（cgo）✔
+- [[http://127.0.0.1:3999/s01_introduction.slide#26][【Page. 26】]]可將 C 語言嵌入到 Go 裡頭（cgo）✔
 
-- [[http://127.0.0.1:3999/GTG22.slide#18][【Page. 18】]]可撰寫手機 APP（gomobile）
+- [[http://127.0.0.1:3999/s01_introduction.slide#18][【Page. 18】]]可撰寫手機 APP（gomobile）
 
-- [[http://127.0.0.1:3999/GTG22.slide#29][【Page. 29】]]可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）✔
+- [[http://127.0.0.1:3999/s01_introduction.slide#29][【Page. 29】]]可控制微處理器周邊如 LED、馬達、按鈕等物件（gobot）✔
 
 - 參考影片：2017/02/14[[https://youtu.be/AthOhhD0T6g][【線上讀書會】Golang 環境設定與安裝]]
 
 # --------------------------------------------------
 
-* 爽度 V.S. 效能
+* （1）爽度 V.S. 效能
 
 - 「橫軸」：【執行效能】、「縱軸」：【開不開心】
 
@@ -75,7 +75,7 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 IDE 存檔時自動排版（1／2）
+* （2）使用 IDE 存檔時自動排版（1／2）
 
 - 因為自動排版，所以使用的 space 和 tab 鍵最少（嚴格上只有 tab 鍵）
 
@@ -87,20 +87,20 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 使用 IDE 存檔時自動排版（2／2）
+* （2）使用 IDE 存檔時自動排版（2／2）
 
 - 存檔時自動排版：[[https://play.golang.org/p/uUANEh970a][線上 Demo]]
 
 - 直接執行排版指令（這邊以排版 layout.go 為例）
 
-    > cd "$Env:USERPROFILE\go\src\github.com\oneleo\golang-cht\code\c02gofmt\"
-    > go fmt gofmt.go
+    > go get -u -v github.com/oneleo/golang-cht         # 下載本課程投影片與範例
+    > go fmt github.com\oneleo\golang-cht\code\c02gofmt # 將範例程式自動排版
 
 .image ./images/01/01.00.04-go_fmt_demo.png 371 400
 
 # --------------------------------------------------
 
-* 程式每列句尾不需使用分號結束
+* （3）程式每列句尾不需使用分號結束
 
 - PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
 
@@ -112,25 +112,386 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
-* 內建說明文件產生器
+* （4）官方工具：說明文件產生器
 
 - 執行 GoDoc 指令
 
-    > go get -u -v golang.org/x/tools/cmd/godoc
-    > cd "$Env:USERPROFILE\go\src\github.com\oneleo\golang-cht\code\c03godoc\"
-    > godoc -http=:6060
+    > go get -u -v golang.org/x/tools/cmd/godoc # 下載說明文件產生器
+    > go get -u -v github.com/oneleo/golang-cht # 下載本課程投影片及範例
+    > godoc -http=:6060                         # 啟動文件產生器
 
-- 至瀏覽器【http://localhost:6060】點選右上方【Packages】搜尋 c03godoc 即可
+- 至瀏覽器【http://127.0.0.1:6060】點選右上方【Packages】搜尋 c03godoc 即可
 
-.image ./images/01/01.00.05-semicolon.png 331 1000
+.image ./images/01/01.00.06-godoc.png
 
 # --------------------------------------------------
 
-* 使用 Go Mobile 開發手機 APP
+* （5）內建重要的 Testing 工具（go test）
+    > go get -u -v github.com/oneleo/golang-cht                         # 下載本課程投影片及範例
+    > go test -v -run . github.com\oneleo\golang-cht\code\c04mathtest   # 執行功能性測試
+    > go test -v -bench . github.com\oneleo\golang-cht\code\c04mathtest # 執行效能測試
 
-    > go get -u -v golang.org/x/mobile/cmd/gomobile
-    > gomobile build -target "android" -o "$Env:USERPROFILE\Desktop\basic.apk" golang.org/x/mobile/example/basic
-    > gomobile build -target "android" -o "$Env:USERPROFILE\Desktop\flappy.apk" golang.org/x/mobile/example/flappy
+- fib.go
+
+.code -numbers ./code/c04mathtest/fib.go /OMIT START/,/OMIT END/
+
+- fib_test.go
+
+.code -numbers ./code/c04mathtest/fib_test.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* （6）使用 Go 撰寫投影片（1／5）
+
+- Go present [[https://godoc.org/golang.org/x/tools/present/][官網說明文件]]
+
+- 安裝 go present
+
+    PS > go get -u -v golang.org/x/tools/cmd/present  # 下載官方 go 投影片工具
+    PS > go install golang.org/x/tools/cmd/present    # 安裝
+    PS > go get -u -v github.com/oneleo/golang-cht    # 下載本課程投影片及範例
+
+- 執行 present 指令
+
+    PS > cd "$ENV:GOPATH\src\github.com/oneleo/golang-cht"
+    PS > present
+
+- 至瀏覽器【[[http://127.0.0.1:3999][http://127.0.0.1:3999]]】點選【xxx.slide】進行投影片投放
+
+# --------------------------------------------------
+
+* （6）使用 Go 撰寫投影片（2／5）
+
+- Go present 可投放 Go 程式（甚至可直接編輯）
+
+.play -edit -numbers ./code/c05hello/hello.go
+
+# --------------------------------------------------
+
+* （6）使用 Go 撰寫投影片（3／5）
+
+- 還可透過 Go 嵌入程式直接在投影片中建立小型 http 伺服器
+
+- 註：只能在 [[http://127.0.0.1:3999/GTG22.slide#15][http://127.0.0.1:3999/]] 中執行，原因後述
+
+.play -edit -numbers ./code/c06http/http.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* （6）使用 Go 撰寫投影片（4／5）
+
+- 將 Go 投影片 Push 至 GitHub 上，可透過 [[http://go-talks.appspot.com/][http://go-talks.appspot.com/]] 或 [[https://talks.godoc.org/][https://talks.godoc.org/]] 來投放
+
+- 假設投影片放在 GitHub 上：
+
+.link https://github.com/oneleo/golang-cht/blob/master/s01_introduction.slide https://【github.com/oneleo/golang-cht】/blob/master【/s01_introduction.slide】
+
+- 只需將前方網址改成：
+
+【http://go-talks.appspot.com/】
++【github.com/oneleo/golang-cht】
++【/s01_introduction.slide】
+
+→ [[http://go-talks.appspot.com/github.com/oneleo/golang-cht/s01_introduction.slide][http://go-talks.appspot.com/github.com/oneleo/golang-cht/s01_introduction.slide]]
+→ [[https://talks.godoc.org/github.com/oneleo/golang-cht/s01_introduction.slide][https://talks.godoc.org/github.com/oneleo/golang-cht/s01_introduction.slide]]
+
+# --------------------------------------------------
+
+* （6）使用 Go 撰寫投影片（5／5）
+
+- 注意事項 1：請使用 [[http://127.0.0.1:3999/GTG22.slide#14][http://127.0.0.1:3999]] 來連，用 [[http://localhost:3999/GTG22.slide#14][http://localhost:3999]] 來連投影片中的嵌入程式會跑不出來
+
+- 注意事項 2：將 Go 投影片更新至 GitHub 上，在使用 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/GTG22.slide][http://go-talks.appspot.com]] 來投放投影片前需等待一段時間才會更新
+
+- 注意事項 3：因 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/GTG22.slide#15][http://go-talks.appspot.com]] 會擋 http port，所以執行投影片中的嵌入程式若有使用 net/http package 的程式會執行失敗，解決辦法為使用本地端 [[http://127.0.0.1:3999/GTG22.slide#15][http://127.0.0.1:3999]] 來投放
+
+- 注意事項 4：因 [[http://go-talks.appspot.com/github.com/Starfine/02.-Go-Present/GTG22.slide#25][http://go-talks.appspot.com]] 沒有建立 GCC 編譯環境，所以執行投影片中的嵌入程式若有使用 cgo 的程式會執行失敗，解決辦法為使用已安裝好 GCC 環境的本地端 [[http://127.0.0.1:3999/GTG22.slide#25][http://127.0.0.1:3999]] 來投放
+
+# --------------------------------------------------
+
+* （7）使用 Go Mobile 開發手機 APP（1／2）
+
+- 開發環境需可編譯 C/C++ 語言（要安裝 GCC 編譯套件）
+
+- 若要開發 Android APP，就要安裝 [[https://www.oracle.com/java/technologies/javase-downloads.html][JDK]]、[[https://developer.android.com/studio][SDK]]、[[https://developer.android.com/ndk/downloads][NDK]]，才可將 Go 語言編譯成 apk 檔
+
+- JNI 可視為 JAVA 與 C/C++ 橋樑，NDK 則可將 JAVA、C/C++ 程式打包成單一 apk 檔
+
+.image ./images/01/01.00.07-gomobile.jpg 338 600
+
+.link http://www.slideshare.net/takuyaueda967/go-for-mobile-games refference: Go for Mobile Game
+
+# --------------------------------------------------
+
+* （7）使用 Go Mobile 開發手機 APP（2／2）
+
+- GCC、Make 編譯套件安裝細節請參考 [[http://127.0.0.1:3999/s99_install_extensions.slide#2][s99_install_extensions]] 投影片第 2 頁（或是點選[[http://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide#2][此連結]]以進行線上查看）
+
+- [[https://www.oracle.com/java/technologies/javase-downloads.html][JDK]]、[[https://developer.android.com/studio][SDK]]、[[https://developer.android.com/ndk/downloads][NDK]] 安裝細節請參考 [[http://127.0.0.1:3999/s99_install_extensions.slide#31][s99_install_extensions]] 投影片第 31 頁（或是點選[[http://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide#31][此連結]]以進行線上查看）
+
+- GCC、Make、JDK、SDK、NDK 均安裝完成後可將 go 程式碼編譯成 Android 手機可安裝的 apk 檔，請輸入以下指令
+
+    PS > go get -u -v golang.org/x/mobile/cmd/gomobile  # 安裝官方 gomobile 套件
+    PS > gomobile build -target "android" -o "$ENV:USERPROFILE\Desktop\basic.apk"
+            golang.org/x/mobile/example/basic           # 將 basic 範例編譯成 apk 檔
+    PS > gomobile build -target "android" -o "$ENV:USERPROFILE\Desktop\flappy.apk"
+            golang.org/x/mobile/example/flappy          # 將 flappy 範例編譯成 apk 檔
+
+# --------------------------------------------------
+
+* （8）可將 C 語言嵌入到 Go 裡頭（1／3）
+
+- 注意事項 1：在 Windows 或 MacBook 均需要安裝 GCC 編譯套裝，請參考 [[http://127.0.0.1:3999/GTG22.slide#21][第 21 頁]]。安裝完成後請在所屬命令列中輸入下面指令確定己完成安裝
+
+    $> gcc --version
+
+- 注意事項 2：使用 cgo 關鍵語句【import "C"】上方不可以有其他空白列。
+
+    package main
+
+    /*
+    …
+    // C code here.
+    …
+    */
+    import "C" // 注意：此語句上方不能有其他空白列
+
+    func main() {
+    …
+    }
+
+# --------------------------------------------------
+
+* （8）可將 C 語言嵌入到 Go 裡頭（2／3）
+
+- 用 C 寫一個米字金字塔
+
+.play -edit -numbers ./code/c07cgo/cgo.go /OMIT START/,/OMIT END/
+
+# --------------------------------------------------
+
+* （8）可將 C 語言嵌入到 Go 裡頭（3／3）
+
+- 編譯程式
+    > go build -o "$ENV:USERPROFILE\Desktop\c07cgo.exe" github.com\oneleo\golang-cht\code\c07cgo
+
+- 執行編譯好的程式
+    > . "$ENV:USERPROFILE\Desktop\c07cgo.exe"
+    
+- 或直接使用 > go run 指令執行
+    > go run github.com\oneleo\golang-cht\code\c07cgo
+
+# --------------------------------------------------
+
+* 建立 Go 開發環境
+
+# --------------------------------------------------
+
+
+
+# --------------------------------------------------
+
+* 附錄：Golang 的環境變數說明
+
+- 參考：[[http://wiki.jikexueyuan.com/project/go-command-tutorial/0.14.html][Go 命令教程 - 標準命令詳解]]
+
+- 可使用 _>_ _go_ _env_ 指令來顯示所有 Go 相關的環境變數
+
+	名稱        說明
+	CGO_ENABLED 是否開啟 cgo 工具。
+	GOARCH      編譯程式時指定的作業系統。
+	GOBIN       可執行檔的路徑。即執行 go tool install 指令時的安裝位置。
+	GOCHAR      編譯程式時指定作業系統的架構。例 386 架構為 8、AMD64 架構為 6。
+	GOEXE       編譯出可執行檔的副檔名。
+	GOHOSTARCH  程式執行時的目標作業系統架構，為一常數。
+	GOOS        程序構建環境的目標操作系統。
+	GOHOSTOS    程式執行時的目標作業系統，為一常數。
+	GOPATH      使用者工作目錄路徑。
+	GORACE      用於平行計算時數據是否有衝突的檢測選項。
+	GOROOT      Go 語言的安裝目錄。
+	GOTOOLDIR   Go Tool 的存放目錄。其值為 $GOROOT/pkg/tool/$GOOS_$GOARCH。
+
+- 註：若想在 Raspberry Pi 上跑 Go，[[https://www.reddit.com/r/golang/comments/5o17c8/go_18_performance_improvements_on_arm_raspi/][效能可參考此連結]]（感謝 [[https://blog.wu-boy.com/][Bo-Yi Wu 大大]]熱心提供）
+
+# --------------------------------------------------
+
+* 附錄：go get 指令參數說明
+
+參考：[[https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/01.3.md][比 C 還簡、捷：使用 Go Web 快建網頁]]
+
+
+
+# --------------------------------------------------
+
+# --------------------------------------------------
+
+* 建立 Go 開發環境（以下 Windows & MacBook 均適用）
+
+- 「go get -u -v」套件下載指令需搭配 [[https://git-scm.com/downloads][Git]] 軟體
+
+- 安裝 [[https://golang.org/][Go]] 官方安裝程式
+
+- 安裝 IDE with Go [[https://code.visualstudio.com/][Visual Studio Code]]
+
+# --------------------------------------------------
+
+* Go 的環境變數
+
+- 測試是否設定完成
+
+    PS > echo $ENV:PATH
+    PS > echo $ENV:GOPATH
+
+# --------------------------------------------------
+
+* 附錄：如何查看 Windows or MacBook 的環境變數？
+
+- 註 3：如何察看 Windows 內的環境變數
+    CMD > set
+    PS > gci env:
+
+- 註 4：如何察看與 Go 有關的環境變數
+    PS > go env
+
+# --------------------------------------------------
+
+* 線上學習資源
+
+# --------------------------------------------------
+
+* 你的好鄰居：Google 大神
+
+- 注意：找尋相關資料時請使用關鍵字「[[https://www.google.com.tw/search?q=golang&oq=golang&aqs=chrome..69i57j69i60j69i61j69i60l3.247j0j1&sourceid=chrome&ie=UTF-8][golang]]」而非「go」
+
+.image ./images/GoogleGolang.png 588 900
+
+# --------------------------------------------------
+
+* 無論你從哪裡來都歡迎一起 Go：FromXToGo（英文）
+.link https://github.com/golang/go/wiki/FromXToGo
+
+.image ./images/FromXToGo.png 716 900
+
+# --------------------------------------------------
+
+* 最常用的網站參考：＊ API 查詢與 ＄ 熱門 GitHub 套件搜尋
+
+- ＊ [[https://godoc.org/][GoDoc]]
+- ＊ [[https://gowalker.org/][GoWalker]]
+- ＄ [[https://golanglibs.com/][GoLangLibs]]
+- ＄ [[https://awesome-go.com/][Awesome Go]]
+- ＄ [[https://github.com/trending/go][Trending in open source]]
+- ＄ [[https://goreportcard.com/][Go Report Card]]
+.image ./images/GoWalker.png 609 900
+
+# --------------------------------------------------
+
+* 免費中文資源
+
+- [[https://www.gitbook.com/book/bingohuang/effective-go-zh-en/details][《Effective Go》]] 中英雙語電子書
+
+- [[https://github.com/Unknwon/go-fundamental-programming][《Go 編程基礎》]] ★ 含影片教學
+
+- [[https://github.com/Unknwon/go-web-foundation][《Go Web 基礎》]] ★ 含影片教學
+
+- [[https://github.com/astaxie/build-web-application-with-golang/tree/master/zh][《Go Web 編程》]] 臺譯：比 C 還簡、捷：使用 Go Web 快建網頁
+
+- [[https://shifei.me/gopl-zh/][《Go 語言聖經》]] 中文翻譯電子書
+
+- [[http://mikespook.com/learning-go/][《學習 Go 語言》]] 中文翻譯電子書
+
+- [[https://github.com/qyuhen/book][《Go 學習筆記》]] 中文電子書
+
+- 註：可以使用 Google 大神查找 [[https://www.google.com.tw/search?q=golang+filetype:pdf&source=lnt&tbs=lr:lang_1zh-CN%7Clang_1zh-TW&lr=lang_zh-CN%7Clang_zh-TW&sa=X&ved=0ahUKEwiJw_3d7oTSAhXHi5QKHcziBDMQpwUIEg&biw=1440&bih=794][filetype:pdf 的中文資源]]
+
+# --------------------------------------------------
+
+* 推薦 Facebook 社團
+
+- Go 程式語言 (Golang Taiwan, Gopher Taipei) - Evan 大每月一場 GTG 盛會
+.link https://www.facebook.com/groups/269001993248363/
+
+- 線上 go 讀書會 - 相安大於 2017/02/24 開跑，不定期將有線上教學直播
+.link https://www.facebook.com/groups/1288435607857868
+
+# --------------------------------------------------
+
+* 其他推薦好康（1／3）
+
+- [[https://talks.golang.org/][官方新版本釋出前介紹]]（英文）
+
+- [[https://www.codeschool.com/courses/on-track-with-golang][Code School]]（英文）
+
+- [[https://www.youtube.com/channel/UCx9QVEApa5BKLw9r8cnOFEA/playlists][GopherCon YouTube]]（英文）
+
+- [[https://www.goin5minutes.com/screencasts/][Go In 5 Minutes Screencasts]]（英文）
+
+- [[https://github.com/golang/go/wiki/GoTalks][Go Talks]]（英文）
+
+- [[https://go-tour-zh-tw.appspot.com/welcome/1][官方程式練習]]
+
+- [[http://www.evanlin.com/][Evan Lin 大大的部落格文章]]
+
+- [[http://blog.twsiyuan.com/][工程師的寫作練習]]
+
+- [[https://blog.wu-boy.com/][小惡魔 – 電腦技術 – 工作筆記 – AppleBOY]]
+
+- [[http://colobu.com/][鳥窩-大道至簡]]
+
+# --------------------------------------------------
+
+* 其他推薦好康（2／3）
+
+- [[http://speakingbaicai.blog.51cto.com/][說話的白菜博客]]
+
+- [[http://www.flysnow.org/][飛雪無情的博客]]
+
+- [[http://www.nljb.net/][努力加貝]]
+
+- [[http://chuansong.me/account/golangchina][微信：Go 中國]]
+
+- [[https://xiequan.info/category/%E7%BC%96%E7%A8%8B/go/][謝權 SELF]]
+
+- [[https://www.itlipeng.cn/][IT LiPeng]]
+
+- [[http://studygolang.com/][Go 語言中文網]]
+
+- [[http://lib.csdn.net/base/go][Go 知識庫]]
+
+- [[https://segmentfault.com/t/golang][SegmentFault 社區 - Golang]]
+
+# --------------------------------------------------
+
+* 其他推薦好康（3／3）
+
+- [[http://wiki.jikexueyuan.com/list/go/][極客學院 - Go 語言]]
+
+- [[http://www.infoq.com/cn/go-web][InfoQ - Go]]
+
+- [[https://gocn.io/][GoCN Forum]]
+
+- [[http://blog.qiniu.com/][七牛雲]]
+
+- [[http://yanyiwu.com/][YanyiWu]]
+
+# --------------------------------------------------
+
+* 特別感謝
+
+# --------------------------------------------------
+
+* 本投影片製作特別感謝：
+
+- Evan 大：[[http://www.evanlin.com/til-golang-present/][來用 Golang Present 製造 Golang 專屬投影片]]、[[http://go-talks.appspot.com/github.com/kkdai/GolangTalks/gdgfest/gdgfest.slide][In Love with Golang]]
+
+- 相安大：[[https://www.facebook.com/groups/1288435607857868][線上 go 讀書會]]
+
+- 默司大：好的 IDE 帶你上天堂 [[https://youtu.be/rsaqfyDLzQM][Part 1]]、[[https://youtu.be/zGqICko2_uo][Part 2]]
+
+- Yu-han 大：[[https://youtu.be/0a4Lcpd1Dgw][五分鐘學會用 Present]]
+
+- 所有 Golang 社群夥伴：[[https://www.facebook.com/groups/269001993248363/][Go 程式語言]]、[[https://www.facebook.com/groups/1288435607857868][線上 go 讀書會]]
+
 
 # --------------------------------------------------
 
