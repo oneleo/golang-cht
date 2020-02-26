@@ -14,8 +14,15 @@ Now open your browser at [http://localhost:3999/](http://localhost:3999/) and yo
 
 ### (2) Open slides on any of the following links:
 
-- [https://talks.godoc.org/github.com/oneleo/golang-cht/00.TableOfContents.slide](https://talks.godoc.org/github.com/oneleo/golang-cht/00.TableOfContents.slide)
-- [https://go-talks.appspot.com/github.com/oneleo/golang-cht/00.TableOfContents.slide](https://go-talks.appspot.com/github.com/oneleo/golang-cht/00.TableOfContents.slide)
+#### Chapter 1: introduction
+
+- [https://talks.godoc.org/github.com/oneleo/golang-cht/s01_introduction.slide](https://talks.godoc.org/github.com/oneleo/golang-cht/s01_introduction.slide)
+- [https://go-talks.appspot.com/github.com/oneleo/golang-cht/s01_introduction.slide](https://go-talks.appspot.com/github.com/oneleo/golang-cht/s01_introduction.slide)
+
+#### Appendix: install extensions
+
+- [https://talks.godoc.org/github.com/oneleo/golang-cht/s99_install_extensions.slide](https://talks.godoc.org/github.com/oneleo/golang-cht/s99_install_extensions.slide)
+- [https://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide](https://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide)
 
 ## License
 

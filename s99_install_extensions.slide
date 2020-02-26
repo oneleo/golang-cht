@@ -33,6 +33,262 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 3、執行安裝程式後，請點選下方的【Next】鈕
+
+.image ./images/99/99.01.06.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 4、請勾選【I accept the terms in the License Agreement】鈕同意軟體使用條款
+
+- 接著請點選下方的【Next】鈕
+
+.image ./images/99/99.01.07.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 5、請直接點選【Next】鈕將 Go 語言程式安裝在預設位置「C:\Go\」內
+
+.image ./images/99/99.01.08.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 6、請點選【Install】鈕開始安裝 Go 課言程式
+
+.image ./images/99/99.01.09.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 7、安裝完成後請直接點選【Finish】
+
+.image ./images/99/99.01.10.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 8、Go 的工作區位置在環境變數「GOPATH」內，在這裡我們使用 PowerShell 來查看
+
+- 請在「開始選單」上按【滑鼠右鍵】→ 再點選【Windows PowerShell(I)】
+
+.image ./images/99/99.01.11.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 9、請依序在「PS C:\Users\user> 」右方輸入下列指令 → 並按下鍵盤的【Enter】鍵來執行，即可以得知環境變數「GOPATH」等同於「%USERPROFILE%\go」路徑（註：而環境變數「USERPROFILE」則等同於「C:\Users\<使用者名稱>」路徑）
+
+- 註：輸入指令時不包含最左邊的「PS > 」字元，此字元表示這行是要輸入的「指令」
+
+    PS > go env
+
+.image ./images/99/99.01.12-gopath.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 另外 go 還有哪一些指令可使用，可使用 go help 指令來查看
+
+    PS > go help
+
+.image ./images/99/99.01.13-gohelp.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 值得注意的是 Go 的工作區 %GOPATH% 其結構包含以下目錄：
+
+- src：參照的外部套件目錄
+
+- pkg：編譯時，生成的物件檔案目錄
+
+- bin：編譯後可執行的程式目錄
+
+    %GOPATH%
+        bin/
+            hello                           # 生成的執行檔
+        pkg/
+            linux_amd64/                    # 編譯的平臺名稱（如 darwin_amd64、linux_amd64 等）
+                github.com/golang/example/
+                    stringutil.a            # 編譯時，生成的對象檔案
+        src/
+            github.com/golang/example/
+                hello/
+                    hello.go                # Git 庫的程式碼
+                stringutil/
+                    reverse.go              # Git 庫的程式碼
+                    reverse_test.go         # Git 庫的程式碼（測試用的程式）
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 10、接下來我們要參考[[https://golang.org/doc/install#testing][官方手冊]]來建置第一支 Go 的範例程式
+
+- 請在「開始選單」上按【滑鼠右鍵】→ 再點選【檔案總管(E)】
+
+.image ./images/99/99.01.14.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 11、接著請在上方「路徑」中輸入【%GOPATH%】→ 按下鍵盤上的【Enter】鍵
+
+.image ./images/99/99.01.15-gopath.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 12、可以直接進到 Go 的工作目錄「%USERPROFILE%\go」中，但目前尚無「src」參照的外部套件目錄，所以我們要建置一個出來
+
+.image ./images/99/99.01.16.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 13、請點選上方【常用】→ 再點選【新增資料夾】
+
+.image ./images/99/99.01.17-NewFolder.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 13、請輸入新資料夾的名稱為【src】→ 再點選鍵盤上的【Enter】鍵完成目錄建置
+
+.image ./images/99/99.01.18.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 14、請進到剛才新增的【%GOPATH%\src】目錄中
+
+.image ./images/99/99.01.19.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 15、請進到剛才新增的【%GOPATH%\src】目錄中再新增一個名為【hello】的資料夾來作為此測試專案的名稱
+
+.image ./images/99/99.01.21-NewProject.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 16、此時要建立第一支 go 檔案，請點選上方【常用】→ 再點選【新增項目】→ 選擇【文字文件】
+
+.image ./images/99/99.01.22.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 17、我們先將此「文字文件」命名為【hello】→ 再開啟此【hello.txt】檔
+
+.image ./images/99/99.01.23.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 18、請在此「hello.txt」輸入下列程式碼
+
+.code -numbers ./code/c01hello/hello.go
+
+.image ./images/99/99.01.24.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 19、再請點選最右上角【關閉】鈕 → 點選【儲存(S)】
+
+.image ./images/99/99.01.25.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 20、因為 Go 語言無法認得「.txt」檔，故要修改其副檔名為「.go」
+
+- 請先點選左上方【檢視】→ 勾選右側的【副檔名】以利將檔案副檔名修正
+
+.image ./images/99/99.01.26.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 21、請將原先完整檔名為「hello.txt」修正成【hello.go】→ 再點選【是(Y)】確定要完成此次變更
+
+.image ./images/99/99.01.27.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+.image ./images/99/99.01.28.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 22、緊接著要「編譯」及「執行」我們建立完成的 Go 程式碼
+
+- 請在「開始選單」上按【滑鼠右鍵】→ 再點選【Windows PowerShell(I)】
+
+.image ./images/99/99.01.29.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 23、因程式碼放置在工作區「%GOPATH%\src\*hello*」內，所以可輸入下方指令
+
+    PS > go run hello
+
+- 可看到我們建立的程式碼已順利編譯完成及執行，執行結果為輸出「hello, world」
+
+- 註：若是放到非 Go 語言的工作區「%GOPATH%」，則需給予完整路徑，例如「PS > go run "$ENV:GOPATH/src/hello/hello.go"」，但不建議
+
+.image ./images/99/99.01.30.png
+
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Go 語言官方安裝程式
+
+- 24、當我們要下載官方或第三方 Go 語言套件時，必須要使用「go get」指令
+
+- 但是當我們嘗試使用下方指令下載第三方套件時會發生「go: missing Git command.」錯誤，代表我們沒有安裝「Git」版本控管軟體
+
+    PS > go get -u -v github.com\oneleo\golang-cht
+
+- 註：參數「-u」表示一律下載最新版本，參數「-v」是顯示下載結果
+
+.image ./images/99/99.01.31.01-PowerShell.png
+
+# --------------------------------------------------
+
 * 2、在 Windows 內安裝 Git 版本控管軟體
 
 # --------------------------------------------------
@@ -583,14 +839,14 @@ https://www.facebook.com/oneleo760823
 
 - 請依序在「PS C:\Users\user> 」右方輸入下列指令 → 並按下鍵盤的【Enter】鍵來執行
 
-- 註：輸入指令時不包含最左邊的「> 」字元，此字元表示這行是「要輸入的指令」
+- 註：輸入指令時不包含最左邊的「PS > 」字元，此字元表示這行是要輸入的「指令」
 
-    > $ENV:JDK_TEMP = "C:\Program Files\Java\jdk-13.0.2"          # 請以實際安裝的 JDK 路徑來進行設置
-    > $ENV:SDK_TEMP = "%USERPROFILE%\AppData\Local\Android\Sdk"   # 請以實際安裝的 SDK 路徑來進行設置
-    > $ENV:NDK_TEMP = "%ANDROID_HOME%\ndk\21.0.6113669"           # 請以實際安裝的 NDK 路徑來進行設置
-    > [Environment]::SetEnvironmentVariable("JAVA_HOME", "$ENV:JDK_TEMP", "Machine")
-    > [Environment]::SetEnvironmentVariable("ANDROID_HOME", "$ENV:SDK_TEMP", "Machine")
-    > [Environment]::SetEnvironmentVariable("ANDROID_NDK_HOME", "$ENV:NDK_TEMP", "Machine")
+    PS > $ENV:JDK_TEMP = "C:\Program Files\Java\jdk-13.0.2"          # 請以實際安裝的 JDK 路徑來進行設置
+    PS > $ENV:SDK_TEMP = "%USERPROFILE%\AppData\Local\Android\Sdk"   # 請以實際安裝的 SDK 路徑來進行設置
+    PS > $ENV:NDK_TEMP = "%ANDROID_HOME%\ndk\21.0.6113669"           # 請以實際安裝的 NDK 路徑來進行設置
+    PS > [Environment]::SetEnvironmentVariable("JAVA_HOME", "$ENV:JDK_TEMP", "Machine")
+    PS > [Environment]::SetEnvironmentVariable("ANDROID_HOME", "$ENV:SDK_TEMP", "Machine")
+    PS > [Environment]::SetEnvironmentVariable("ANDROID_NDK_HOME", "$ENV:NDK_TEMP", "Machine")
 
 .image ./images/99/99.06.33.png
 
