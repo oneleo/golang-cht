@@ -17,7 +17,7 @@ https://www.facebook.com/oneleo760823
 
 * 在 Windows 內安裝 Go 語言官方安裝程式
 
-- 1、安裝 Go 語言安裝程式，請至 [[https://golang.org/][Golang]] 網站下載【go*.windows-amd64.msi】安裝程式
+- 1、安裝 Go 語言安裝程式，請至 [[https://golang.org/][Golang 網站]]下載【go*.windows-amd64.msi】安裝程式
 
 - 請先點選官方網站的【Download Go】鈕
 
@@ -93,7 +93,7 @@ https://www.facebook.com/oneleo760823
 
     PS > go env
 
-.image ./images/99/99.01.12-gopath.png
+.image ./images/99/99.01.12-gohelp.png
 
 # --------------------------------------------------
 
@@ -103,7 +103,7 @@ https://www.facebook.com/oneleo760823
 
     PS > go help
 
-.image ./images/99/99.01.13-gohelp.png
+.image ./images/99/99.01.13-gopath.png
 
 # --------------------------------------------------
 
@@ -272,7 +272,6 @@ https://www.facebook.com/oneleo760823
 
 .image ./images/99/99.01.30.png
 
-
 # --------------------------------------------------
 
 * 在 Windows 內安裝 Go 語言官方安裝程式
@@ -293,7 +292,336 @@ https://www.facebook.com/oneleo760823
 
 # --------------------------------------------------
 
+* 在 Windows 內安裝 Git 版本控管軟體
+
+- 1、安裝 Git 版本控管軟體，請至 [[https://git-scm.com/][Git 網站]]下載【Git-*-64-bit.exe】安裝程式
+
+- 請先點選官方網站的【Download * for Windows】鈕
+
+.image ./images/99/99.02.02.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+- 2、執行安裝程式後，請點選下方的【Next >】鈕
+
+.image ./images/99/99.02.04.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+- 3、請直接點選【Next >】鈕將 Git 軟體安裝在預設位置「C:\Program Files\Git」內
+
+.image ./images/99/99.02.05.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+- 4、因這裡 Git 只給「go get」做版本控管用，所以將「Windows Explorer integration」【取消勾選】以減少 Windows 滑鼠右鍵選單的數量
+
+.image ./images/99/99.02.06.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+5、取消勾選「Windows Explorer integration」後請點選【Next >】
+
+.image ./images/99/99.02.07.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+6、請直接點選【Next >】鈕，讓 Git 軟體在「開始選單」的顯示名稱為預設的「Git」
+
+.image ./images/99/99.02.08.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+7、請直接點選【Next >】鈕，讓 Git 軟體使用 Vim 軟體作為預設的文字編輯器
+
+.image ./images/99/99.02.09.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+8、請直接點選【Next >】鈕，預設讓 Windows 可直接使用「git」指令（加到 PATH 環境變數中）
+
+.image ./images/99/99.02.10.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+9、請直接點選【Next >】鈕，讓 Git 軟體遠端連線時使用預設的 OpenSSL 函式庫來進行加密連線
+
+.image ./images/99/99.02.11.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+10、請直接點選【Next >】鈕，讓 Git 軟體預設自動將 Windows 換行符號（CRLF = '\r\n'）及 Unix 換行符號（LF = '\n'）互相轉換，以避免版本控管的過程中出現衝突
+
+.image ./images/99/99.02.12.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+11、請直接點選【Next >】鈕，讓 Git 軟體預設使用 MSYS2（在 Windows 下模擬 Unix 的 Bash 介面）作為指令輸入介面
+
+.image ./images/99/99.02.13.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+12、請直接點選【Install】鈕開始安裝 Git，讓 Git 軟體使用預設的設定即可
+
+.image ./images/99/99.02.14.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+13、通常不需檢視 Git 釋出資訊，所以請直接將「View Release Notes」【取消勾選】
+
+.image ./images/99/99.02.15.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+14、「View Release Notes」【取消勾選】後，請直接點選【Next >】鈕完成 Git 的安裝
+
+.image ./images/99/99.02.16.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+15、最後要確認「go get」指令可以順利執行「git.exe」
+
+- 請在「開始選單」上按【滑鼠右鍵】→ 再點選【Windows PowerShell(I)】
+
+.image ./images/99/99.02.17.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Git 版本控管軟體
+
+16、請輸入下方指令以確認可以使用「go get」來下載放在 github 網站上的課程講義
+
+    PS > go get -u -v github.com/oneleo/golang-cht
+    PS > go run github.com/oneleo/golang-cht/code/c01hello
+
+- 可以看到講義已被順利下載下來，且可順利執行範例程式碼
+
+.image ./images/99/99.02.18.png
+
+# --------------------------------------------------
+
 * 3、在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 根據 [[https://blog.golang.org/survey2018-results#TOC_6.][2018 年 Golang 官方統計]]使用免費的 VSCode 開發 Go 佔總數第一名
+
+- 1、安裝 Visual Studio Code 整合開發環境，請至 安裝 [[https://code.visualstudio.com/][Visual Studio Code 網站]]下載【VSCodeUserSetup-x64-*.exe】安裝程式
+
+- 請先點選官方網站左側的【Download for Windows】鈕
+
+.image ./images/99/99.03.02.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 2、請勾選【我接受合約(A)】鈕同意軟體使用條款
+
+- 接著請點選下方的【下一步(N) >】鈕
+
+.image ./images/99/99.03.04.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+.image ./images/99/99.03.05.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 5、請直接點選【下一步(N) >】鈕將 Visual Studio Code 安裝在預設位置「%LOCALAPPDATA%\Programs\Microsoft VS Code」內
+
+.image ./images/99/99.03.06.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 6、請直接點選【下一步(N) >】鈕，讓 Visual Studio Code 軟體在「開始選單」的顯示名稱為預設的「Visual Studio Code」
+
+.image ./images/99/99.03.07.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 7、因 Go 語言開發通常以「目錄」為單位，所以【勾選】「將「以 Code 開啟」動作加入 Windows 檔案總管目錄的操作功能表中」以增加開發效率
+
+.image ./images/99/99.03.08.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 【勾選】好「將「以 Code 開啟」動作加入 Windows 檔案總管目錄的操作功能表中」之後請點選下方【下一步(N) >】鈕
+
+.image ./images/99/99.03.09-OpenWithCode.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 註：此選項會出現在「目錄」的滑鼠「右鍵選單」中，方便開啟 Go 語言專案
+
+.image ./images/99/99.03.10.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 8、請直接點選【安裝(I)】開始安裝 Visual Studio Code 整合開發環境
+
+.image ./images/99/99.03.11.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 9、請直接點選【完成(F)】，預設將會啟動 Visual Studio Code 整合開發環境
+
+.image ./images/99/99.03.12.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 11、到這邊還沒結束，接下來要在 Visual Studio Code 整合開發環境中安裝 [[https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go][Go Extension]]
+
+- 請點選上方的【View】→ 再點選【Extensions】選項
+
+.image ./images/99/99.03.13.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 12、請在「Seach Extensions in Marketplace」搜尋列中輸入【go】→ 再點選綠色的【Install】鈕
+
+.image ./images/99/99.03.16.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 「Go Extension」安裝完成後，尚需要安裝像是 gocode 下拉選單套件等相依套件
+
+.image ./images/99/99.03.17.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 13、請點選上方【View】→ 再點選【Command Palette…】會出現 Visual Studio Code 所有功能搜尋列
+
+.image ./images/99/99.03.18.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 14、請輸入【> Go: Install/Update Tools】→ 按下鍵盤的【Enter】鍵
+
+.image ./images/99/99.03.19.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 15、請【勾選】左上方的勾選方塊來選取所有的相依套件
+
+.image ./images/99/99.03.20.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+.image ./images/99/99.03.21.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 16、按下鍵盤的【Enter】鍵來確認安裝所有的「Go Extension」的相依套件
+
+- 出現「All tools successfully installed. You're ready to Go :).」表示所有的相依套件均安裝完成
+
+.image ./images/99/99.03.22.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 17、接下來要開啟在[[http://127.0.0.1:3999/s99_install_extensions.slide#20][第一節]]所建置之 hello 的 go 專案
+
+- 請點選左上角的【File】鈕 → 再點選【Open Folder…】選項
+
+.image ./images/99/99.03.23.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+18、請在上方「目錄」中輸入【%GOPATH%\src\hello】資料夾 → 按下鍵盤上的【Enter】鍵 → 再來點選【選擇資料夾】鈕
+
+.image ./images/99/99.03.24.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 19、請點選左側的【hello.go】檔案，即可在右側「編輯區」編輯程式內容
+
+.image ./images/99/99.03.25.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 20、請點選上方【Debug】鈕 → 再點選【Start Debugging】選項
+
+.image ./images/99/99.03.26.png
+
+# --------------------------------------------------
+
+* 在 Windows 內安裝 Visual Studio Code 整合開發環境
+
+- 21、即可在下方「DEBUG CONSOLE」看到程式的執行結果
+
+.image ./images/99/99.03.27.png
 
 # --------------------------------------------------
 
