@@ -1,0 +1,105 @@
+
+Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 28 Mar 2020
+Tags: Golang
+
+陳敬翔
+中華電信學院, 資訊學系培訓師
+oneleo@cht.com.tw
+https://www.facebook.com/oneleo760823
+@oneleo760823
+
+# --------------------------------------------------
+
+* 鎖
+
+    package main
+
+    import "fmt"
+
+    func main() { // 單個 go 協程自己死鎖
+        ch := make(chan int)
+        ch <- 789
+        num := <-ch
+        fmt.Println(num)
+    }
+
+# --------------------------------------------------
+
+* 鎖
+
+    package main
+
+    import "fmt"
+
+    func main() { // go 協程間 channel 坊問順序導致死鎖
+        ch := make(chan int)
+        num := <-ch
+        fmt.Println("num = ", num)
+        go func() {
+            ch <- 789
+        }()
+    }
+
+# --------------------------------------------------
+
+* 正確寫法
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        ch := make(chan int)
+        go func() {
+            ch <- 789
+        }()
+        num := <-ch
+        fmt.Println("num = ", num)
+    }
+
+# --------------------------------------------------
+
+* 鎖
+
+    package main
+
+    import "fmt"
+
+    func main() { // 多個 go 協程，多個 channel 交叉死鎖
+        ch1 := make(chan int)
+        ch2 := make(chan int)
+
+        go func() {
+            for {
+                select {
+                case num := <-ch1:
+                    ch2 <- num
+                }
+            }
+        }()
+
+        for {
+            select {
+            case num := <-ch2:
+                ch1 <- num
+            }
+        }
+    }
+
+# --------------------------------------------------
+
+* 參考資料
+
+.link https://larrylu.blog/golang-goroutine-parallel-processing-d382e6d34a14 2018/09/17 - 分而治之 — 在 Golang 使用 Goroutine 進行平行運算
+
+.link https://willh.gitbook.io/build-web-application-with-golang-zhtw/02.0/02.7 Go 語言基礎 - 併發
+
+.link https://ithelp.ithome.com.tw/articles/10242047 2020/09/22 - 進程、線程、協程，傻傻分得清楚！
+
+.link https://www.mdeditor.tw/pl/29Zi/zh-tw 2019/09/05 - golang 併發程式設計實戰
+
+.link https://www.chainnews.com/zh-hant/articles/686881130283.htm 2020/08/19 - 兩萬字 40 張圖帶你參透併發編程
+
+.link https://codertw.com/程式語言/651030/ 併發編程導論
