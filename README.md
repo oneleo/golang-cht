@@ -24,6 +24,9 @@ Now open your browser at [http://localhost:3999/](http://localhost:3999/) and yo
 - [https://talks.godoc.org/github.com/oneleo/golang-cht/s99_install_extensions.slide](https://talks.godoc.org/github.com/oneleo/golang-cht/s99_install_extensions.slide)
 - [https://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide](https://go-talks.appspot.com/github.com/oneleo/golang-cht/s99_install_extensions.slide)
 
+## References
+- [Go Talks](https://github.com/golang/talks)
+
 ## License
 
 License: [BSD 3-Clause License](<https://github.com/oneleo/golang-cht/blob/master/LICENSE.md>)

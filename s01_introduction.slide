@@ -24,18 +24,63 @@ https://www.facebook.com/oneleo760823
 - 原先對 Go 語言不以為意，用了後驚為天人，是我對 Go 語言的使用感想
 
 # --------------------------------------------------
+## 123
+### 1234
+* Go 是什麼？
+
+開發：
+- 由 Google 於 2009/11/10 推出
+- 在程式語言界算是相當年輕（C 語言是 1969 年被開發出來）
+
+特色：
+- [[https://zh.wikipedia.org/wiki/編譯語言][編譯式語言]]
+- [[https://zh.wikipedia.org/wiki/強弱型別][強型別]]（且有未用到的[[https://zh.wikipedia.org/wiki/变量_(程序设计)][變數]]
+- [[https://zh.wikipedia.org/wiki/软件包][套件]]會編譯失敗）
+- 高效[[https://zh.wikipedia.org/wiki/垃圾回收_(計算機科學)][垃圾回收]]
+- 可多[[https://zh.wikipedia.org/wiki/并发计算][並行計算]]
+- 支援 [[https://zh.wikipedia.org/wiki/UTF-8][UTF-8]]
+
+# --------------------------------------------------
 
 * Go 是什麼？
 
-- 開發：由 Google 於 2009/11/10 推出，在程式語言界算是相當年輕（C 語言是 1969 年被開發出來）
+設計：
+- [[https://en.wikipedia.org/wiki/Robert_Griesemer][Robert Griesemer 羅伯特．格瑞史莫]] - Google V8 JS Engine、HotSpot 開發者
+- [[https://zh.wikipedia.org/wiki/羅勃·派克][Rob Pike 羅勃．派克]] -		Unix 開發者、UTF-8 創始人
+- [[https://zh.wikipedia.org/wiki/肯·汤普逊][Ken Thompson 肯．湯普遜]] -	Unix 創始人、C 語言創始人、獲 1983 年圖靈獎
 
-- 設計：由 [[https://zh.wikipedia.org/wiki/肯·汤普逊][Ken Thompson]]（C 語言發明者之一）、[[https://zh.wikipedia.org/wiki/羅勃·派克][Rob Pike]]、Robert Griesemer → 原來 Go 和 C 這麼近
+.image ./images/01/01.00.02-go_creator.jpg
 
-- 特色：[[https://zh.wikipedia.org/wiki/編譯語言][編譯式語言]]、[[https://zh.wikipedia.org/wiki/強弱型別][強型別]]（且有未用到的[[https://zh.wikipedia.org/wiki/变量_(程序设计)][變數]]、[[https://zh.wikipedia.org/wiki/软件包][套件]]會編譯失敗）、高效[[https://zh.wikipedia.org/wiki/垃圾回收_(計算機科學)][垃圾回收]]、可多[[https://zh.wikipedia.org/wiki/并发计算][並行計算]]、支援 [[https://zh.wikipedia.org/wiki/UTF-8][UTF-8]]
+# --------------------------------------------------
 
-- 公司：較有名的[[https://github.com/golangtw/jobs][臺灣企業]]有 [[http://17.media/][17 直播]]、[[https://kktix.com/][KKTIX]]、[[https://www.dcard.tw/][Dcard]]、[[https://www.linkedin.com/company/9549268/][雪豹科技]]、[[https://www.catchplay.com/][CATCHPLAY]]、[[https://www.rayark.com/][雷亞遊戲]]、[[http://careers.carousell.com/][旋轉拍賣]]、[[http://www.trendmicro.tw/][Trend Micro]]、[[https://www.jkos.com/][街口支付]]、[[https://www.mediatek.com/][聯發科技]]、[[https://www.itri.org.tw/][工研院]]、[[https://www.zyxel.com/][合勤科技]]、[[http://www.foxconn.com.tw/][鴻海精密]]等招募 Go 語言工程師
+* Go 是什麼？
 
-- 服務：常見的有 [[https://github.com/moby/moby][Docker]]、[[https://github.com/kubernetes/kubernetes][Kubernetes]]、[[https://github.com/dropbox/godropbox][Dropbox]]、[[https://github.com/ethereum/go-ethereum][Go Ethereum]]、[[https://gitea.io/zh-tw/][Gitea]] 等均使用 Go 語言開發
+公司 - 較有名的[[https://github.com/golangtw/jobs][臺灣企業]]有在招募 Go 語言工程師：
+- [[http://17.media/][17 直播]]
+- [[https://kktix.com/][KKTIX]]
+- [[https://www.dcard.tw/][Dcard]]
+- [[https://www.linkedin.com/company/9549268/][雪豹科技]]
+- [[https://www.catchplay.com/][CATCHPLAY]]
+- [[https://www.rayark.com/][雷亞遊戲]]
+- [[http://careers.carousell.com/][旋轉拍賣]]
+- [[http://www.trendmicro.tw/][Trend Micro]]
+- [[https://www.jkos.com/][街口支付]]
+- [[https://www.mediatek.com/][聯發科技]]
+- [[https://www.itri.org.tw/][工研院]]
+- [[https://www.zyxel.com/][合勤科技]]、[[http://www.foxconn.com.tw/][鴻海精密]]
+
+# --------------------------------------------------
+
+* Go 是什麼？
+
+服務 - 常見的使用 Go 語言開發的服務有：
+- [[https://github.com/moby/moby][Docker]]
+- [[https://github.com/kubernetes/kubernetes][Kubernetes]]
+- [[https://github.com/dropbox/godropbox][Dropbox]]
+- [[https://github.com/ethereum/go-ethereum][Go Ethereum]]
+- [[https://gitea.io/zh-tw/][Gitea]]
+
+命名 - [[https://kknews.cc/zh-mo/design/gb3m8z9.html][https://kknews.cc/zh-mo/design/gb3m8z9.html]]
 
 # --------------------------------------------------
 
