@@ -33,17 +33,19 @@ https://github.com/oneleo
 ## Go 是什麼？
 
 1. 開發面：
-- 由 Google 於 2009/11/10 推出
-- 在程式語言界算是相當年輕（C 語言是 1969 年被開發出來）
+	- 由 Google 於 2009/11/10 推出
+	- 在程式語言界算是相當年輕（C 語言是 1969 年被開發出來）
 
 2. 創始人：
-- [Robert Griesemer 羅伯特．格瑞史莫](https://en.wikipedia.org/wiki/Robert_Griesemer) - Google V8 JS Engine、HotSpot 開發者
-- [Rob Pike 羅勃．派克](https://zh.wikipedia.org/wiki/羅勃·派克) - Unix 開發者、UTF-8 創始人
-- [Ken Thompson 肯．湯普遜](https://zh.wikipedia.org/wiki/肯·汤普逊) - Unix 創始人、C 語言創始人、獲 1983 年圖靈獎
+	- [Robert Griesemer 羅伯特．格瑞史莫][1] - Google V8 JS Engine、HotSpot 開發者
+	- [Rob Pike 羅勃．派克][2] - Unix 開發者、UTF-8 創始人
+	- [Ken Thompson 肯．湯普遜][3] - Unix 創始人、C 語言創始人、獲 1983 年圖靈獎
 
-.image ./images/01/01.00.02-go_creator.jpg _ 300
+[1]: https://en.wikipedia.org/wiki/Robert_Griesemer "Robert Griesemer 羅伯特．格瑞史莫"
+[2]: https://zh.wikipedia.org/wiki/羅勃·派克 "Rob Pike 羅勃．派克"
+[3]: https://zh.wikipedia.org/wiki/肯·汤普逊 "Ken Thompson 肯．湯普遜"
 
-//[1]: 
+.image ./images/01/01.00.02-go_creator.jpg _ 325
 
 : Rob Pike 和 Ken 是貝爾實驗室 Unix 小組的成員
 : Go 語言出自於具多年程式設計經驗的大師之手，且因應 Google 在開發上遇到的困難，所創造出來
@@ -52,20 +54,44 @@ https://github.com/oneleo
 
 ## Go 是什麼？
 
-3. 特色面：
+3. 誕生名：
 
-- [編譯式語言](https://zh.wikipedia.org/wiki/編譯語言)
-- [強型別](https://zh.wikipedia.org/wiki/強弱型別)語言（且有列出但未用到的[變數](https://zh.wikipedia.org/wiki/变量_(程序设计))、[套件](https://zh.wikipedia.org/wiki/软件包)會編譯失敗）
-- 高效[垃圾回收](https://zh.wikipedia.org/wiki/垃圾回收_(計算機科學))機制
-- 可進行[並行計算](https://zh.wikipedia.org/wiki/并发计算)
-- 原生支援 [UTF-8](https://zh.wikipedia.org/wiki/UTF-8) 編碼
+	Subject: Re: prog lang discussion\
+	From: Rob 'Commander' Pike\
+	Date: Tue, Sep 25, 2007 at 3:12 PM\
+	To: Robert Griesemer, Ken Thompson\
+	\
+	i had a couple of thoughts on the drive home.\
+	\
+	1\. name\
+	\
+	**_'go'_**. you can invent reasons for this name but it has nice properties.\
+	it's **_short, easy_** to type. tools: goc, gol, goa.\
+	if there's an interactive debugger/interpreter it could just be called 'go'. the suffix is .go
 
-[Hurricane][1] Erika was the strongest and longest-lasting tropical cyclone in the 1997 Atlantic [hurricane][1] season.
+.caption _Reference_ by [[https://kknews.cc/design/gb3m8z9.html][Go 語言：成長的十年]]
 
+// --------------------------------------------------
 
+## Go 是什麼？
 
-[1]:https://goo.gl/YEEHP0
+4. 特色面：
 
+	- [編譯式語言][1]
+	- [強型別][2]語言（且有宣告但未使用的[變數][3]、[套件][4]會編譯失敗）
+	- 高效[垃圾回收][5]機制
+	- 可進行[並發運算][6]
+	- 原生支援 [UTF-8][7] 編碼
+
+[1]: https://zh.wikipedia.org/wiki/編譯語言 "編譯式語言"
+[2]: https://zh.wikipedia.org/wiki/強弱型別 "強型別"
+[3]: https://zh.wikipedia.org/wiki/变量_(程序设计) "變數"
+[4]: https://zh.wikipedia.org/wiki/软件包 "套件"
+[5]: https://zh.wikipedia.org/wiki/垃圾回收_(計算機科學) "垃圾回收"
+[6]: https://zh.wikipedia.org/wiki/并发计算 "並發運算"
+[7]: https://zh.wikipedia.org/wiki/UTF-8 "UTF-8"
+
+// --------------------------------------------------
 
 ## 123
 
