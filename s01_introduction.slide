@@ -32,7 +32,11 @@ https://github.com/oneleo
 
 ## 關於 Go
 
-1. 歷史：
+// --------------------------------------------------
+
+## 關於 Go
+
+1. 歷史
 	- Google 編譯搜尋引擎上百萬行程式碼需耗一個小時以上
 	- 為提升產能於 2007/09 開展 Go， 2009/11/10 開源 Go
 	- 在程式語言界尚相當年輕（C 語言是 1969 年被開發出來）
@@ -45,12 +49,12 @@ https://github.com/oneleo
 
 ## 關於 Go
 
-2. 特色：
+2. 特色
 	- 省時 - 快速編寫、快速[編譯][1]
-	- 簡單 - 更少繁瑣的程式碼、關鍵字僅 [25 個][2]（[其他語言][3]：Python 有 35 個、Java 有 51 個、C++ 有 84 個）
+	- 簡單 - 精簡程式、關鍵字僅 [25 個][2]（[其他][3]：Python 35 個、Java 51 個、C++ 84 個）
 	- 高效 - 自動釋放閒置的記憶體空間（[垃圾回收機制][4]）、可使用[指標][5]存取記憶體
-	- 產能 - 輕鬆寫出可以[同步執行][6]不同工作的軟體（[並發][7]）
-	- 親民 - 對[多核心處理器][8]、[UTF-8 字元編碼][9]支援度高
+	- 產能 - 輕易[同步執行][6]不同工作（[並發][7]）、有物件導向[複合][8]（has a）無[繼承][9]（is a）
+	- 親民 - 對[多核心處理器][10]、[UTF-8 字元編碼][11]支援度高
 
 [1]: https://zh.wikipedia.org/wiki/編譯語言 "編譯式語言"
 [2]: https://golang.org/ref/spec#Keywords "Go 語言關鍵字"
@@ -59,10 +63,12 @@ https://github.com/oneleo
 [5]: https://golang.org/ref/spec#Pointer_types "指標型態"
 [6]: https://zh.wikipedia.org/wiki/并发计算 "並發運算"
 [7]: https://golang.org/doc/effective_go.html#goroutines "Goroutines"
-[8]: https://zh.wikipedia.org/wiki/多元處理 "多核心處理器"
-[9]: https://golang.org/ref/spec#Source_code_representation "UTF-8 字元編碼"
+[8]: https://golang.org/doc/effective_go.html#methods "Go 的複合（composition）實現 - 方法"
+[9]: https://zh.wikipedia.org/wiki/继承_(计算机科学) "繼承"
+[10]: https://zh.wikipedia.org/wiki/多元處理 "多核心處理器"
+[11]: https://golang.org/ref/spec#Source_code_representation "UTF-8 字元編碼"
 
-.image ./images/01/01.01.02-free_pack_illu_35.png _ 250
+.image ./images/01/01.01.03-free_pack_illu_35.png _ 300
 
 : 補充：
 : - 省時：
@@ -76,7 +82,7 @@ https://github.com/oneleo
 
 ## 關於 Go
 
-3. 創始人：
+3. 創始人
 	- [Robert Griesemer 羅伯特．格瑞史莫][1] - Google V8 JS Engine、HotSpot 開發者
 	- [Rob Pike 羅勃．派克][2] - Unix 開發者、UTF-8 創始人
 	- [Ken Thompson 肯．湯普遜][3] - Unix 創始人、C 語言創始人、獲 1983 年圖靈獎
@@ -85,7 +91,7 @@ https://github.com/oneleo
 [2]: https://zh.wikipedia.org/wiki/羅勃·派克 "Rob Pike 羅勃．派克"
 [3]: https://zh.wikipedia.org/wiki/肯·汤普逊 "Ken Thompson 肯．湯普遜"
 
-.image ./images/01/01.00.02-go_creator.jpg _ 600
+.image ./images/01/01.01.04-go_creator.jpg _ 600
 
 : 補充：
 : - Rob Pike 和 Ken 是貝爾實驗室 Unix 小組的成員
@@ -95,7 +101,7 @@ https://github.com/oneleo
 
 ## 關於 Go
 
-4. 誕生名：
+4. 誕生名
 
 	Subject: Re: prog lang discussion\
 	From: Rob 'Commander' Pike\
@@ -116,7 +122,7 @@ https://github.com/oneleo
 
 ## 關於 Go
 
-5. 服務面 - 常見的使用 Go 語言開發的服務有：
+5. 服務面 - 常見使用 Go 語言開發的服務
 
 - 容器 - [Docker](https://github.com/moby/moby)
 - 容器 - [Kubernetes](https://github.com/kubernetes/kubernetes)
@@ -142,17 +148,46 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 關於 Go - 簡單
+## 快速展示
 
 // --------------------------------------------------
 
-## 關於 Go - 高效
+## 快速展示
+
+1. 格式一致 - 使用 IDE 存檔時自動排版
+
+	- 因自動排版，所使用的 space 和 tab 鍵最少（Go 語言只用 tab 鍵）
+	- 因自動排版，團隊能量可集中在解決問題上 → 而不是看別人程式碼看到火大
+	- 線上展示：使用官方的 [The Go Playground][1] 平臺
+
+[1]: https://play.golang.org/p/uUANEh970a "Go 自動排版"
+
+.image ./images/01/01.01.05-go_fmt_demo.png _ 375
+
 
 // --------------------------------------------------
 
-## 關於 Go - 產能
+## 快速展示
+
+2. 句尾免分號 - 程式每列句尾不需使用分號結束
+
+	- PTT 鄉民自嘲：程式寫的好，要飯要到老（這是玩笑話）
+	- debug 時當局者迷，常常會忘了最基本的結尾
+	- 但，至少寫 Go 語言可以減少（ㄉ一 ㄐ一ˊ）錯誤的機會…
+
+.image ./images/01/01.00.05-semicolon.png 331 1000
 
 // --------------------------------------------------
+
+## 結論
+
+	- 假如您編寫的是命令列工具，Go 可以從同一個程式碼，建立成 Windows、macOS 以及 Linux 可用的執行檔。
+	- 假如您編寫的是網路伺服器，它可以幫助您搞定多使用者同時連線。
+	- 除此之外，無論您寫什麼，它會幫您確認您的程式碼是否更加地易於維護及成長。
+	- 等不及要開始了嗎？讓我們 Go 吧！
+
+// --------------------------------------------------
+
 ## Title of Slide or Section (must begin with ##)
 
 Some Text

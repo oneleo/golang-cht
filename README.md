@@ -8,7 +8,7 @@
     $ go install golang.org/x/tools/cmd/present
     $ git clone https://github.com/oneleo/golang-cht.git
     $ cd golang-cht
-    $ present
+    $ present -notes
 
 Now open your browser at [http://localhost:3999/](http://localhost:3999/) and you should see the slide(s).
 
