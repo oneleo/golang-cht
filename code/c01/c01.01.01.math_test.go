@@ -18,7 +18,7 @@ func TestMultiMath(t *testing.T) {
 	}{
 		// TODO: Add test cases.
 		{
-			name: "a = 1; b = 1",
+			name: "Test 1: a = 1; b = 1",
 			args: args{
 				a: 1,
 				b: 1,
@@ -27,7 +27,7 @@ func TestMultiMath(t *testing.T) {
 			wantMinus: 0,
 		},
 		{
-			name: "a = 2; b = 1",
+			name: "Test 2: a = 2; b = 1",
 			args: args{
 				a: 2,
 				b: 1,
@@ -36,7 +36,7 @@ func TestMultiMath(t *testing.T) {
 			wantMinus: 1,
 		},
 		{
-			name: "a = 1; b = 2",
+			name: "Test 3: a = 1; b = 2",
 			args: args{
 				a: 1,
 				b: 2,
@@ -45,7 +45,7 @@ func TestMultiMath(t *testing.T) {
 			wantMinus: -1,
 		},
 		{
-			name: "a = 2; b = 2",
+			name: "Test 4: a = 2; b = 2",
 			args: args{
 				a: 2,
 				b: 2,
