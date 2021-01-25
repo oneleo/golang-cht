@@ -1,7 +1,6 @@
 package c01
 
 import (
-	"C"
 	"fmt"
 	"testing"
 )
@@ -76,6 +75,12 @@ func TestAddMinusMultiply(t *testing.T) {
 	}
 }
 
+func BenchmarkAddMinusMultiply(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		AddMinusMultiply(n, n)
+	}
+}
+
 func ExampleAddMinusMultiply() {
 	a := 1
 	b := 1
@@ -130,6 +135,12 @@ func TestSum(t *testing.T) {
 				t.Errorf("Sum() = %v, want %v", gotSum, tt.wantSum)
 			}
 		})
+	}
+}
+
+func BenchmarkSum(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Sum([]int{10, 9, 8, 7, 6}...)
 	}
 }
 

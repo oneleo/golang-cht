@@ -52,5 +52,5 @@ func privateFunc() {
 }
 
 // 註：觀看文件的方式：
-// 1、godoc -http=:6060 -play
-// 2、https://pkg.go.dev/github.com/oneleo/golang-cht
+// 在本地端命令提示字元輸入：godoc -http=:6060 -play
+// 上傳至 Github 並在 Go 文件官網查看：https://pkg.go.dev/github.com/oneleo/golang-cht
