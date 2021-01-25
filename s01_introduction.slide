@@ -184,7 +184,7 @@ https://github.com/oneleo
 
 ## 快速展示
 
-3. 說明文件產生器
+3. 省時 - 說明文件產生器
 
 - 方法 1：在本地端執行 GoDoc 指令
 	```
@@ -207,12 +207,14 @@ https://github.com/oneleo
 
 ## 快速展示
 
-4. 程式測試方法
+4. 省時 - 內建程式測試工具
 	```
 		> go get -u -v github.com/oneleo/golang-cht			# 下載本課程投影片及範例
 		> go test -v -run . github.com\oneleo\golang-cht\code\c01		# 執行功能性測試
 		> go test -v -bench . github.com\oneleo\golang-cht\code\c01	# 執行效能測試
 	```
+
+.image ./images/i01/i01.01.08-gotest.png _ 1000
 
 // --------------------------------------------------
 
