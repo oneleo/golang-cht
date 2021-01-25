@@ -1,6 +1,7 @@
 package c01
 
 import (
+	"C"
 	"fmt"
 	"testing"
 )
