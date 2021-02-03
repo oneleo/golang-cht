@@ -30,11 +30,11 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 1. 歷史
 	- Google 編譯搜尋引擎上百萬行程式碼需耗一個小時以上
@@ -47,7 +47,7 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 2. 特色
 	- 省時 - 快速編寫、快速[編譯][1]、快速[測試程式][2]、快速產生[說明文件][3]
@@ -79,10 +79,14 @@ https://github.com/oneleo
 : 	- [格式一致](https://golang.org/doc/effective_go.html#formatting)
 : 	- [句尾免分號](https://golang.org/doc/effective_go.html#semicolons)
 : 	- [不允許宣告未用的套件及變數](https://golang.org/doc/effective_go.html#blank_unused)
+: - 產能：
+: 	- [官方 Go 投影片工具](https://pkg.go.dev/golang.org/x/tools/present)
+:	- [Go 語言內建 http 伺服器](https://golang.org/doc/articles/wiki/#tmp_3)
+:	- [在 Go 語言內執行 C 語言](https://golang.org/cmd/cgo/)
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 3. 創始人
 	- [Robert Griesemer 羅伯特．格瑞史莫][1] - Google V8 JS Engine、HotSpot 開發者
@@ -101,7 +105,7 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 4. 誕生名
 
@@ -122,7 +126,7 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 關於 Go
+## 關於 Go 語言
 
 5. 服務面 - 常見使用 Go 語言開發的服務
 
@@ -178,8 +182,6 @@ https://github.com/oneleo
 
 .image ./images/i01/i01.01.06-semicolon.png _ 1000
 
-
-
 // --------------------------------------------------
 
 ## 快速展示
@@ -207,7 +209,7 @@ https://github.com/oneleo
 
 ## 快速展示
 
-4. 省時 - 內建程式測試工具
+4. 省時 - 內建單元測試工具
 	```
 		> go get -u -v github.com/oneleo/golang-cht			# 下載本課程投影片及範例
 		> go test -v -run . github.com\oneleo\golang-cht\code\c01		# 執行功能性測試
@@ -218,50 +220,72 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## 結論
+## 快速展示
 
-	- 假如您編寫的是命令列工具，Go 可以從同一個程式碼，建立成 Windows、macOS 以及 Linux 可用的執行檔。
-	- 假如您編寫的是網路伺服器，它可以幫助您搞定多使用者同時連線。
-	- 除此之外，無論您寫什麼，它會幫您確認您的程式碼是否更加地易於維護及成長。
-	- 等不及要開始了嗎？讓我們 Go 吧！
+5. 產能 - 官方 Go 投影片工具
+
+- Go Present 的[說明文件][1]
+- 安裝 go present
+	```
+		> go get -u -v golang.org/x/tools/cmd/present		# 下載官方 go present
+		> go install golang.org/x/tools/cmd/present		# 安裝
+		> go get -u -v github.com/oneleo/golang-cht		# 下載本課程投影片及範例
+		> cd "$ENV:GOPATH/src/github.com/oneleo/golang-cht"	# 至本課程目錄
+    	> present -notes					# 啟動含備忘稿的 go present
+
+	```
+- 查看【[http://127.0.0.1:3999][2]】觀看投影片。
+- 點選鍵盤【N】鈕可查看備忘稿。
+
+[1]: https://pkg.go.dev/golang.org/x/tools/present "Go Present"
+[2]: http://127.0.0.1:3999 "Go Doc"
 
 // --------------------------------------------------
 
-## Title of Slide or Section (must begin with ##)
+## 快速展示
 
-Some Text
+5. 產能 - 官方 Go 投影片工具
 
-### Subsection {#anchor}
+- Go Present 特殊技：可直接在投影片中執行 Go 程式（甚至可直接編輯）
 
-- bullets
-- more bullets
-- a bullet continued
-  on the next line
+.play -numbers -edit ./code/c01/c01p02hello/hello.go /START OMIT/,/END OMIT/
 
-#### Sub-subsection
+.image ./images/i01/i01.01.09-free_pack_illu_10.png _ 350
 
-Some More text
+// --------------------------------------------------
 
-	Preformatted text (code block)
-	is indented (by one tab, or four spaces)
+## 快速展示
 
-Further Text, including command invocations.
+6. 產能 - Go 語言內建 http 伺服器
 
-## Section 2: Example formatting {#fmt}
+- Go 語言有內建 [http 伺服器][1]可快速建置網站前後端
 
-Formatting:
+[1]: https://golang.org/doc/articles/wiki/#tmp_3 "Introducing the net/http package (an interlude)"
 
-_italic_
-// A comment that is completely ignored.
-: Speaker notes.
-**bold**
-`program`
-Markup—_especially italic text_—can easily be overused.
-_Why use scoped\_ptr_? Use plain **\*ptr** instead.
+.play -numbers -edit ./code/c01/c01p03myhttp/myhttp.go /START OMIT/,/END OMIT/
 
-Visit [the Go home page](https://golang.org/).
+// --------------------------------------------------
 
-## Images
-.caption _Gopher_ by [[https://instagram.com/reneefrench][Renee French]]
+## 快速展示
 
-## Refferences
+7. 產能 - 可以[在 Go 語言內執行 C 語言][1]
+
+[1]: https://golang.org/cmd/cgo/ "cgo"
+
+.play -numbers -edit ./code/c01/c01p04mycgo/mycgo.go /START OMIT/,/END OMIT/
+
+: 注意：
+: - 若要在 Go 語言內執行 C 語言，執行環境需安裝如 [MinGW-W64](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/) 等 GCC compiler。
+
+// --------------------------------------------------
+
+## 準備好要來學習 Go 了嗎？
+
+- 假如您編寫的是命令列工具，Go 可以從同一個程式碼，建立成 Windows、macOS 以及 Linux 可用的執行檔。
+- 假如您編寫的是網路伺服器，它可以幫助您搞定多使用者同時連線。
+- 除此之外，無論您寫什麼，它會幫您確認您的程式碼是否更加地易於維護及成長。
+- 等不及要開始了嗎？讓我們開始 Go 吧！
+
+.image ./images/i01/i01.01.10-free_pack_goro_2.png _ 350
+
+// --------------------------------------------------

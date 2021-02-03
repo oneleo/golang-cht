@@ -1,4 +1,4 @@
-package c01
+package c01p01mymath
 
 import (
 	"fmt"

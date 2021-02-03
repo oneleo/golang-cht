@@ -1,14 +1,14 @@
 // 這裡不會顯示在 godoc 建立的說明文件中
 // 所以通常檔案的最上方會放置版權聲名及開發人員名單
 
-// Package c01 是在中華電信學院開設的 Go 語言課程第一章節所建立的套件，
+// Package c01c01mymath 是在中華電信學院開設的 Go 語言課程第一章節所建立的套件，
 /*
 此套件包含了 2 個函式，
 
 一個是有複合計算功能的函式 AddMinusMultiply，
 */
 // 另一個是加總計算功能的函式 Sum。
-package c01
+package c01p01mymath
 
 import "fmt"
 
