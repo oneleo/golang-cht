@@ -289,3 +289,37 @@ https://github.com/oneleo
 .image ./images/i01/i01.01.10-free_pack_goro_2.png _ 350
 
 // --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+1. 線上編譯器
+
+	- 官方的線上編譯器：[The Go Playground][1]
+	- 第三方的線上編譯器：[go-playground][2]
+
+[1]: https://play.golang.org/ "The Go Playground"
+[2]: https://goplay.tools/ "第三方的 Go Playground"
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+2. 建置 Go 語言開發環境
+
+	- 安裝 [git][1] 為可順利執行 go get 指令
+	- 安裝 [go 語言軟體][2]
+	- 安裝 [Visual Studio Code][3] - IDE 整合開發環境
+	- 安裝 [Go for Visual Studio Code][4] - vscode 套件
+
+[1]: https://git-scm.com/ "git"
+[2]: https://golang.org/ "Go"
+[3]: https://code.visualstudio.com/ "Visual Studio Code"
+[4]: https://marketplace.visualstudio.com/items?itemName=golang.Go "Go for Visual Studio Code"
+
+// --------------------------------------------------
+
+## 參考資料
+
+- 收集的[參考資料][1]
+
+[1]: https://github.com/oneleo/go-course-code
