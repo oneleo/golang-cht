@@ -45,25 +45,7 @@ https://github.com/oneleo
 
 - 您的第一支 Go 語言程式碼
 
-	```go
-	// ---------- （一）套件字句 ---------- //
-	// ↓ 這一行說該份檔案中所有的程式碼都歸屬於「main」套件。
-	package main
-
-	// ---------- （二）匯入段落 ---------- //
-	import (
-		// ↓ 這裡說我們即將從「fmt」套件使用可讓文字格式化的程式碼。
-		"fmt"
-	)
-
-	// ---------- （三）程式碼區 ---------- //
-	// ↓ 「main」是特別的函式；當您的程式啟動時它會第一個被執行。
-	func main() {
-		fmt.Println("Hello, playground")
-		// ↑ 這裡會調用「fmt」套件的函式「Println」；
-		// 會在您的終端機（或者網頁瀏覽器，假如您是用 Go 遊樂場）顯示印出。
-	}
-	```
+.play -numbers -edit ./code/c02/c02p01firstgo/firstgo.go /START OMIT/,/END OMIT/
 
 // --------------------------------------------------
 
@@ -112,9 +94,9 @@ https://github.com/oneleo
 	3. 安裝 [Visual Studio Code][3] - IDE 整合開發環境
 	4. 在 vscode 裡安裝 [Go for Visual Studio Code][4] - vscode go 套件
 	5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][5]
-	6. （非必須）安裝 [GCC 編譯器][6] - C 語言編譯器
+	6. （非必須）安裝 [GCC 編譯器][6] - C 語言編譯器（使用 cgo 時安裝）
 		- MinGW 安裝參數：Architecture=x86_64、Threads=posix、Exception=seh
-		- 並將 C:\Program Files\mingw-w64\x86_64-X.X.X-posix-seh-rt_vX-revX\mingw64\bin 加入至 path 環境變數內
+		- 並將 %ProgramFiles%\mingw-w64\x86_64-X.X.X-posix-seh-rt_vX-revX\mingw64\bin 加入至 path 環境變數內
 
 [1]: https://git-scm.com/ "git"
 [2]: https://golang.org/ "Go"
@@ -122,6 +104,31 @@ https://github.com/oneleo
 [4]: https://marketplace.visualstudio.com/items?itemName=golang.Go "Go for Visual Studio Code"
 [5]: https://marketplace.visualstudio.com/items?itemName=golang.go#quick-start "Go for Visual Studio Code Extension Depends"
 [6]: https://sourceforge.net/projects/mingw-w64/files/#mingw-w64-online-installer "GCC"
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+2. 透過安裝檔在本機端建置 Go 語言開發環境步驟
+
+- 在 vscode 裡安裝 [Go for Visual Studio Code][1] - vscode go 套件
+
+[1]: https://marketplace.visualstudio.com/items?itemName=golang.Go "Go for Visual Studio Code"
+
+.image ./images/i02/i02.00.02-vscode-go.png _ 900
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+2. 透過安裝檔在本機端建置 Go 語言開發環境步驟
+
+- 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][1]
+- 【View】→【Command Palette... Ctrl+Shift+P】→【> Go: Install/Update Tools】
+
+[1]: https://marketplace.visualstudio.com/items?itemName=golang.go#quick-start "Go for Visual Studio Code Extension Depends"
+
+.image ./images/i02/i02.00.03-vscode-gopackage.png _ 625
 
 // --------------------------------------------------
 
@@ -135,15 +142,14 @@ https://github.com/oneleo
 		> choco install -y git.install --params "/NoShellIntegration"
 		> git --version
 		```
-	3. 透過指令安裝 [Go 語言核心軟體][3]與 [Visual Studio Code][4]
+	3. 透過指令安裝 [Go 語言核心軟體][3]、[Visual Studio Code][4] 與 [vscode go 套件][5]
 		```PowerShell
-		> choco install -y golang vscode
+		> choco install -y golang vscode vscode-go
 		> go version
 		> code --version
 		```
-	4. 在 vscode 裡安裝 [Go for Visual Studio Code][5] - vscode go 套件
-	5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][6]
-	6. （非必須）透過指令安裝 [GCC 編譯器][7]
+	4. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][6]
+	5. （非必須）透過指令安裝 [GCC 編譯器][7]（使用 cgo 時安裝）
 		```PowerShell
 		> choco install -y mingw
 		> gcc --version
@@ -159,34 +165,78 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## Go 語言 Package 入門
+## Golang 安裝與環境設定
 
-- 以前所有的開放均要在 %GOPATH% 中進行
-- Go 語言在 1.11 版本推出 go module 功能
-- 隨意讓開發者 clone 專案到任何地方都可以，也統一個 Package 套件管理
+3. 透過指令在本機端建置 Go 語言開發環境步驟
 
-// --------------------------------------------------
+	- 使用指令的好處是：可製成一鍵式腳本建置 Go 環境
+	- 可參考 [installgo.cmd][1]
 
-## Go 語言 Package 入門
+[1]: ./code/c02/c02p02choco/installgo.cmd
 
-- 在 macOS、Linux
-	- $GOPATH
-- 在 Windows PowerShell
-	- $env:GOPATH
-- 在 Windows 命令提示字元（C:\WINDOWS\system32\cmd.exe）
-	- %GOPATH%
+.code ./code/c02/c02p02choco/installgo.cmd
 
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
 
-- 初始化 go 專案
-	- go mod init "PROJECT FULL NAME"
-		- 如 go mod init github.com/yourname/projectname
-	- go mod tidy   # 掃描有用到的套件，紀錄目前使用的套件版本
+// --------------------------------------------------
 
+## Go 語言 Package 入門
 
+- Go 1.11 版之前，程式碼均要在 _%GOPATH%\src_ 中開發
+	- macOS、Linux：在 _$GOPATH/src_ 內
+	- Windows PowerShell：在 _$env:GOPATH\src_ 內
+	- Windows 命令提示字元：在 _%GOPATH%\src_ 內
+- Go 1.11 版之後推出的 go module 可在任意處開發，亦統一了套件管理
 
+.image ./images/i02/i02.00.04-gopath.png _ 750
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 建置我的 go 專案（hello）
+
+	1. 建立 _%USERPROFILE%\Documents\hello_ 資料夾並使用 vscode 開啟
+	2. 建立 hello.go 檔案
+	3. 輸入以下程式碼並存檔（Ctrl+S）：
+		```go
+		package main
+		 import "fmt"
+		  func main() {
+		   a, b := "hello,", "world!"
+		    fmt.Println(a, b)
+		     }
+		```
+
+.image ./images/i02/i02.00.05-myfirstgo.png _ 525
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 建置我的 go 專案（hello）
+
+	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
+	5. 輸入以下指令
+		```powershell
+		> go run hello.go	# 執行
+		```
+
+.image ./images/i02/i02.00.06-myfirstgo2.png _ 750
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 建置我的 go 專案
+
+	3. 輸入以下指令
+		```powershell
+		> go mod init "github.com/myname/hello"	# 產生 go.mod 檔
+		> go mod tidy			# 掃描有用到的套件，紀錄目前使用的套件版本
+		```
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
@@ -202,3 +252,17 @@ https://github.com/oneleo
 	- go mod [replace][1]
 
 [1]: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive "When should I use the replace directive?"
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+{
+    "files.autoSave": "onFocusChange",
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.formatTool": "goimports",
+    "editor.fontSize": 16,
+    "editor.wordWrap": "on",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false
+}
