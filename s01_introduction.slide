@@ -109,6 +109,7 @@ https://github.com/oneleo
 
 4. 誕生名
 
+	```
 	Subject: Re: prog lang discussion\
 	From: Rob 'Commander' Pike\
 	Date: Tue, Sep 25, 2007 at 3:12 PM\
@@ -121,7 +122,7 @@ https://github.com/oneleo
 	**_'go'_**. you can invent reasons for this name but it has nice properties.\
 	it's **_short, easy_** to type. tools: goc, gol, goa.\
 	if there's an interactive debugger/interpreter it could just be called 'go'. the suffix is .go
-
+	```
 .caption _Reference_ by [[https://kknews.cc/design/gb3m8z9.html][Go 語言：成長的十年]]
 
 // --------------------------------------------------
@@ -189,13 +190,15 @@ https://github.com/oneleo
 3. 省時 - 說明文件產生器
 
 - 方法 1：在本地端執行 GoDoc 指令
+
+	```powershell
+	> go get -u -v golang.org/x/tools/cmd/godoc	# 下載說明文件產生器
+	> go install golang.org/x/tools/cmd/godoc	# 安裝說明文件產生器
+	> go get -u -v github.com/oneleo/golang-cht	# 下載本課程投影片及範例
+	> godoc -http=:6060 -play			# 啟動文件產生器
+	
 	```
-		> go get -u -v golang.org/x/tools/cmd/godoc	# 下載說明文件產生器
-		> go install golang.org/x/tools/cmd/godoc	# 安裝說明文件產生器
-		> go get -u -v github.com/oneleo/golang-cht	# 下載本課程投影片及範例
-		> godoc -http=:6060 -play			# 啟動文件產生器
-		
-	```
+
 	- 查看【[http://127.0.0.1:6060][1]】點選左上方【Third party】搜尋 c01 即可。
 - 方法 2：將程式碼上傳 [Github][2]，即可於 [Go 文件][3]官網查看。
 
@@ -210,10 +213,11 @@ https://github.com/oneleo
 ## 快速展示
 
 4. 省時 - 內建單元測試工具
-	```
-		> go get -u -v github.com/oneleo/golang-cht			# 下載本課程投影片及範例
-		> go test -v -run . github.com\oneleo\golang-cht\code\c01		# 執行功能性測試
-		> go test -v -bench . github.com\oneleo\golang-cht\code\c01	# 執行效能測試
+
+	```powershell
+	> go get -u -v github.com/oneleo/golang-cht			# 下載本課程投影片及範例
+	> go test -v -run . github.com\oneleo\golang-cht\code\c01	# 執行功能性測試
+	> go test -v -bench . github.com\oneleo\golang-cht\code\c01	# 執行效能測試
 	```
 
 .image ./images/i01/i01.01.08-gotest.png _ 1000
@@ -226,19 +230,23 @@ https://github.com/oneleo
 
 - Go Present 的[說明文件][1]
 - 安裝 go present
-	```
-		> go get -u -v golang.org/x/tools/cmd/present		# 下載官方 go present
-		> go install golang.org/x/tools/cmd/present		# 安裝
-		> go get -u -v github.com/oneleo/golang-cht		# 下載本課程投影片及範例
-		> cd "$ENV:GOPATH/src/github.com/oneleo/golang-cht"	# 至本課程目錄
-    	> present -notes					# 啟動含備忘稿的 go present
 
+	```powershell
+	> go get -u -v golang.org/x/tools/cmd/present	# 下載官方 go present
+	> go install golang.org/x/tools/cmd/present		# 安裝
+	> go get -u -v github.com/oneleo/golang-cht		# 下載本課程投影片及範例
+	> cd "$ENV:GOPATH/src/github.com/oneleo/golang-cht"	# 至本課程目錄
+	> present -notes					# 啟動含備忘稿的 go present
 	```
+
 - 查看【[http://127.0.0.1:3999][2]】觀看投影片。
 - 點選鍵盤【N】鈕可查看備忘稿。
 
 [1]: https://pkg.go.dev/golang.org/x/tools/present "Go Present"
 [2]: http://127.0.0.1:3999 "Go Doc"
+
+: 目前 talks.godoc.org 尚無法使用新 present 語法，
+: 可以追蹤此 issue：https://github.com/golang/gddo/issues/680
 
 // --------------------------------------------------
 

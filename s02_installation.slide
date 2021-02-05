@@ -1,4 +1,4 @@
-# Golang 簡介
+# Golang 安裝與環境設定
 為什麼我要學習 Go
 19:30 28 Mar 2020
 Tags: golang, go, cht
@@ -17,21 +17,89 @@ https://github.com/oneleo
 
 - 有 3 種方法可以編寫 Go 語言（均以 Windows 作業系統為例）
 
-    1. 使用線上 Go 語言編譯器
-    2. 透過安裝檔在本機端建置 Go 語言開發環境
-    3. 透過指令在本機端建置 Go 語言開發環境
+	1. 使用線上 Go 語言編譯器
+	2. 透過安裝檔在本機端建置 Go 語言開發環境
+	3. 透過指令在本機端建置 Go 語言開發環境
 
 // --------------------------------------------------
 
 ## Golang 安裝與環境設定
 
-1. 使用線上 Go 語言編譯器
+1. 使用 Go 語言遊樂場（線上編譯器）
 
 	- 官方的線上編譯器：[The Go Playground][1]
 	- 第三方的線上編譯器：[go-playground][2]
+		- 【Run】：在 Google 伺服器上編譯並執行程式碼。
+		- 【Format】：執行網頁版的 go fmt 標準格式化工具。
+		- 【Imports】：執行【Format】時自動增減程式碼中有無用到的套件。
+		- 【Share】：將當下的程式碼內容，產生獨一無二的分享連結。
 
 [1]: https://play.golang.org/ "The Go Playground"
 [2]: https://goplay.tools/ "第三方的 Go Playground"
+
+.image ./images/i02/i02.00.01-playground.png _ 375
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼
+
+	```go
+	// ---------- （一）套件字句 ---------- //
+	// ↓ 這一行說該份檔案中所有的程式碼都歸屬於「main」套件。
+	package main
+
+	// ---------- （二）匯入段落 ---------- //
+	import (
+		// ↓ 這裡說我們即將從「fmt」套件使用可讓文字格式化的程式碼。
+		"fmt"
+	)
+
+	// ---------- （三）程式碼區 ---------- //
+	// ↓ 「main」是特別的函式；當您的程式啟動時它會第一個被執行。
+	func main() {
+		fmt.Println("Hello, playground")
+		// ↑ 這裡會調用「fmt」套件的函式「Println」；
+		// 會在您的終端機（或者網頁瀏覽器，假如您是用 Go 遊樂場）顯示印出。
+	}
+	```
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	1. 刪除套件子句：_<del>package main</del>_
+		- ↪ 每個 Go 檔案必須以套件子句作為開頭
+
+	2. 刪除 import 陳述句：_<del>import "fmt"</del>_
+		- ↪ 每個 Go 檔案必須透過匯入的方式引用套件
+
+	3. 匯入第二個（沒用到的）套件：
+		```
+		import (
+			"fmt"
+			"strings"
+		)
+		```
+		- ↪ Go 必須只匯入有在程式中引用的套件（這讓您的程式碼編譯得更快！）
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	4. 重新命名為 main 函式：_func <del>main</del>hello_
+		- ↪ Go 會優先執行名為 main 的函式。
+
+	5. 把 Println 改為小後調用：_fmt.<del>P</del>println("Hello, playground")_
+		- ↪ Go 有區分大小寫，縱使 fmt.Println 可用，並不代表 fmt.println 也可行。 
+
+	6. 把 Println 之前的套件名稱刪除：<del>fmt.</del>Println("Hello, playground")
+		- ↪ Println 並不是 main 套件的函式，所以 Go 調用該函式需要它的套件名稱。
 
 // --------------------------------------------------
 
@@ -43,8 +111,10 @@ https://github.com/oneleo
 	2. 安裝 [go 語言核心軟體][2]
 	3. 安裝 [Visual Studio Code][3] - IDE 整合開發環境
 	4. 在 vscode 裡安裝 [Go for Visual Studio Code][4] - vscode go 套件
-    5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][5]
-    6. （非必須）安裝 [GCC 編譯器][6] - C 語言編譯器
+	5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][5]
+	6. （非必須）安裝 [GCC 編譯器][6] - C 語言編譯器
+		- MinGW 安裝參數：Architecture=x86_64、Threads=posix、Exception=seh
+		- 並將 C:\Program Files\mingw-w64\x86_64-X.X.X-posix-seh-rt_vX-revX\mingw64\bin 加入至 path 環境變數內
 
 [1]: https://git-scm.com/ "git"
 [2]: https://golang.org/ "Go"
@@ -59,24 +129,24 @@ https://github.com/oneleo
 
 3. 透過指令在本機端建置 Go 語言開發環境步驟
 
-    1. 透過 PowerShell（系統管理員權限）安裝 [Chocolatey][1] - Windows 套件管理工具
-    2. 透過指令安裝 [git][2]（指定參數：不要將 git 加入至右鍵選單）
-		```
+	1. 透過 PowerShell（系統管理員權限）安裝 [Chocolatey][1] - Windows 套件管理工具
+	2. 透過指令安裝 [git][2]（指定參數：不要將 git 加入至右鍵選單）
+		```PowerShell
 		> choco install -y git.install --params "/NoShellIntegration"
-        > git --version
+		> git --version
 		```
-    3. 透過指令安裝 [Go 語言核心軟體][3]與 [Visual Studio Code][4]
-		```
+	3. 透過指令安裝 [Go 語言核心軟體][3]與 [Visual Studio Code][4]
+		```PowerShell
 		> choco install -y golang vscode
-        > go version
-        > code --version
+		> go version
+		> code --version
 		```
 	4. 在 vscode 裡安裝 [Go for Visual Studio Code][5] - vscode go 套件
-    5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][6]
-    6. （非必須）透過指令安裝 [GCC 編譯器][7]
-		```
+	5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][6]
+	6. （非必須）透過指令安裝 [GCC 編譯器][7]
+		```PowerShell
 		> choco install -y mingw
-        > gcc --version
+		> gcc --version
 		```
 
 [1]: https://chocolatey.org/install "Chocolatey"
@@ -100,20 +170,20 @@ https://github.com/oneleo
 ## Go 語言 Package 入門
 
 - 在 macOS、Linux
-    - $GOPATH
+	- $GOPATH
 - 在 Windows PowerShell
-    - $env:GOPATH
+	- $env:GOPATH
 - 在 Windows 命令提示字元（C:\WINDOWS\system32\cmd.exe）
-    - %GOPATH%
+	- %GOPATH%
 
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
 
 - 初始化 go 專案
-    - go mod init "PROJECT FULL NAME"
-        - 如 go mod init github.com/yourname/projectname
-    - go mod tidy   # 掃描有用到的套件，紀錄目前使用的套件版本
+	- go mod init "PROJECT FULL NAME"
+		- 如 go mod init github.com/yourname/projectname
+	- go mod tidy   # 掃描有用到的套件，紀錄目前使用的套件版本
 
 
 
@@ -122,13 +192,13 @@ https://github.com/oneleo
 ## Go 語言 Package 入門
 
 - import 在 %GOPATH% 裡時
-    - 直接引用 src/ 內的連結即可
+	- 直接引用 src/ 內的連結即可
 
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
 
 - import 套件不是在 %GOPATH% 裡時
-    - go mod [replace][1]
+	- go mod [replace][1]
 
 [1]: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive "When should I use the replace directive?"
