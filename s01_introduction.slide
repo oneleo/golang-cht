@@ -17,12 +17,15 @@ https://github.com/oneleo
 
 - 請各位學員使用 Powershell 執行以下指令以開啟投影片
 	```
-	> go get -u github.com/oneleo/golang-cht
 	> go get -u golang.org/x/tools/cmd/present
 	> go install golang.org/x/tools/cmd/present
+	> go get -u github.com/oneleo/golang-cht
 	> cd $env:GOPATH/src/github.com/oneleo/golang-cht
 	> present -notes
 	```
+
+.image ./images/i01/i01.01.00-golang-cht.png _ 900
+
 // --------------------------------------------------
 
 ## 關於我

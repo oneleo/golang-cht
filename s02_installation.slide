@@ -176,6 +176,26 @@ https://github.com/oneleo
 
 .code ./code/c02/c02p02choco/installgo.cmd
 
+## 設置 vscode
+
+// --------------------------------------------------
+
+## 設置 vscode
+
+- 【File】→【Preferences】→【Settings Ctrl+,】
+
+	```json
+	{
+		"files.autoSave": "onFocusChange",
+		"go.useCodeSnippetsOnFunctionSuggest": true,
+		"go.formatTool": "goimports",
+		"editor.fontSize": 16,
+		"editor.wordWrap": "on",
+		"editor.detectIndentation": false,
+		"editor.insertSpaces": false
+	}
+	```
+
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
@@ -188,6 +208,7 @@ https://github.com/oneleo
 	- macOS、Linux：在 _$GOPATH/src_ 內
 	- Windows PowerShell：在 _$env:GOPATH\src_ 內
 	- Windows 命令提示字元：在 _%GOPATH%\src_ 內
+	- 其他的 Go 變數可以在命令提示字元中輸入 _`> go env`_ 查看
 - Go 1.11 版之後推出的 go module 可在任意處開發，亦統一了套件管理
 
 .image ./images/i02/i02.00.04-gopath.png _ 750
@@ -199,8 +220,7 @@ https://github.com/oneleo
 - 建置我的 go 專案（hello）
 
 	1. 建立 _%USERPROFILE%\Documents\hello_ 資料夾並使用 vscode 開啟
-	2. 建立 hello.go 檔案
-	3. 輸入以下程式碼並存檔（Ctrl+S）：
+	2. 建立 hello.go 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
 		```go
 		package main
 		 import "fmt"
@@ -221,7 +241,8 @@ https://github.com/oneleo
 	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
 	5. 輸入以下指令
 		```powershell
-		> go run hello.go	# 執行
+		> go mod init github.com/myname/hello
+		> go run hello.go	# 編譯並執行指定的指令原始程式檔案
 		```
 
 .image ./images/i02/i02.00.06-myfirstgo2.png _ 750
@@ -230,39 +251,106 @@ https://github.com/oneleo
 
 ## Go 語言 Package 入門
 
-- 建置我的 go 專案
+- 建置我的 go 專案（hello）
 
-	3. 輸入以下指令
+	- 其他 Go 的編譯相關的指令有
 		```powershell
-		> go mod init "github.com/myname/hello"	# 產生 go.mod 檔
-		> go mod tidy			# 掃描有用到的套件，紀錄目前使用的套件版本
+		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔
+		> ./hello.exe
+		> go install ./		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
+		> . $env:GOPATH\bin\hello.exe
+		> go clean ./		# 將 go build 產生的檔案清除
 		```
-// --------------------------------------------------
-
-## Go 語言 Package 入門
-
-- import 在 %GOPATH% 裡時
-	- 直接引用 src/ 內的連結即可
 
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
 
-- import 套件不是在 %GOPATH% 裡時
-	- go mod [replace][1]
+- 引用 go 套件（c01p01mymath）
 
+	1. 回到 _hello.go_，在 **func main(){這裡}** 內最下方增加以下程式碼
+		```go
+		c, d, e := c01p01mymath.AddMinusMultiply(1, 2)
+		fmt.Println(c, d, e)
+		```
+	2. 因為找不到 _c01p01mymath_ 套件，所以在 **import(這裡)** 內最下方增加以下程式碼
+		```go
+		"github.com/oneleo/golang-cht/code/c01/c01p01mymath"
+		```
+	3. 在下方【Terminal】中輸入以下指令：
+		```powershell
+		> go run hello.go
+		```
+		- 可以看到他正在下載所需要的程式碼，並且順利執行
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 建置我的 go 套件（mymath）
+
+	1. 繼續在 vscode 中建立 _hello\mymath_ 資料夾
+	2. 在 _hello\mymath_ 資料夾中輸入以下指令
+		```powershell
+		> cd ./mymath
+		> go mod init "github.com/myname/hello/mymath"	# 產生 go.mod 檔
+		```
+	3. 建立 coolmath.go 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
+		```
+		package mymath
+		 func AddMinusMultiply(a, b int) (add, minus, multiply int) {
+		  return a + b, a - b, a * b
+		   }
+		```
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 引用我的 go 套件（mymath）
+
+	1. 回到 _hello.go_，在 **func main(){這裡}** 內最下方增加以下程式碼
+		```go
+		f, g, h := mymath.AddMinusMultiply(1, 2)
+		fmt.Println(f, g, h)
+		```
+	2. 因為找不到我的 _mymath_ 套件，所以在 **import(這裡)** 內增加以下程式碼
+		```go
+		"github.com/oneleo/golang-cht/code/c01/c01p01mymath"
+		```
+	3. 在下方【Terminal】中輸入以下指令：
+		```powershell
+		> go run hello.go
+		```
+		- 可以看到編譯器還是無法找到 _github.com/myname/hello/mymath_ 套件，因為編譯器在 %GOPATH%\src 中找不到此套件
+		- 所以要告訴編譯器 _github.com/myname/hello/mymath_ 套件放在哪裡
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 引用我的 go 套件（mymath）
+
+	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
+	5. 輸入以下指令，讓編譯器知道 _github.com/myname/hello/mymath_ 的位置
+		```powershell
+		> go mod edit -replace="github.com/myname/hello/mymath=./mymath"
+		> go run hello.go		# 編譯並執行指定的指令原始程式檔案
+		```
+	6. 未來程式碼用到的套件會有刪減，可使用下方 Go Module 指令進行掃描
+		```powershell
+		> go mod tidy
+		```
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 結論
+	- 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同
+	- 若要 import 在 _%GOPATH%\src_ 裡的套件，直接引用（src/ 之後的）路徑即可
+	- 若要 import 非 _%GOPATH%\src_ 裡的套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器套件的位置，可參考[本篇文章][1]
+	
 [1]: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive "When should I use the replace directive?"
 
-// --------------------------------------------------
 
-## Go 語言 Package 入門
-
-{
-    "files.autoSave": "onFocusChange",
-    "go.useCodeSnippetsOnFunctionSuggest": true,
-    "go.formatTool": "goimports",
-    "editor.fontSize": 16,
-    "editor.wordWrap": "on",
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": false
-}
