@@ -260,6 +260,7 @@ https://github.com/oneleo
 [1]: https://pkg.go.dev/golang.org/x/tools/present "Go Present"
 [2]: http://127.0.0.1:3999 "Go Doc"
 
+: 補充：
 : 目前 talks.godoc.org 尚無法使用新 present 語法，
 : 可以追蹤此 issue：https://github.com/golang/gddo/issues/680
 
@@ -286,6 +287,12 @@ https://github.com/oneleo
 [1]: https://golang.org/doc/articles/wiki/#tmp_3 "Introducing the net/http package (an interlude)"
 
 .play -numbers -edit ./code/c01/c01p03myhttp/myhttp.go /START OMIT/,/END OMIT/
+
+: 補充：
+: http.Handler 介面定義 ServeHTTP(writer ResponseWriter, request *Request) 方法
+: io.Writer 介面定義 Write([]byte) (n int, err error) 方法
+: http.ResponseWriter 介面包含 io.Writer 介面
+: 參考：[Structural Typing: Compile Time Duck Typing](https://blog.carbonfive.com/structural-typing-compile-time-duck-typing/)
 
 // --------------------------------------------------
 

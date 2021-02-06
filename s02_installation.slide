@@ -87,6 +87,17 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
+- 您的第一支 Go 語言程式碼：改變套件的別名
+
+	1. 可將 "fmt" 設置一個別名「f」
+	2. 雖然可以設置省略別名「.」但是不建議，因為會和自己的函數混用
+
+.play -numbers -edit ./code/c02/c02p02firstgo/firstgo.go
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
 2. 透過安裝檔在本機端建置 Go 語言開發環境步驟
 
 	1. 安裝 [git][1] - 在於常用的 go get 指令會需要
@@ -176,23 +187,22 @@ https://github.com/oneleo
 
 .code ./code/c02/c02p02choco/installgo.cmd
 
-## 設置 vscode
-
 // --------------------------------------------------
 
 ## 設置 vscode
 
+// --------------------------------------------------
+
+## 設置 vscode 環境
+
 - 【File】→【Preferences】→【Settings Ctrl+,】
+- 建議設置頭 2 項設定：
 
 	```json
 	{
 		"files.autoSave": "onFocusChange",
 		"go.useCodeSnippetsOnFunctionSuggest": true,
-		"go.formatTool": "goimports",
-		"editor.fontSize": 16,
-		"editor.wordWrap": "on",
-		"editor.detectIndentation": false,
-		"editor.insertSpaces": false
+		"editor.fontSize": 16
 	}
 	```
 
@@ -239,7 +249,7 @@ https://github.com/oneleo
 - 建置我的 go 專案（hello）
 
 	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
-	5. 輸入以下指令
+	5. 輸入以下指令訂立一個 Module 的（含路徑）的「完整名稱」
 		```powershell
 		> go mod init github.com/yourname/hello
 		> go run hello.go	# 編譯並執行指定的指令原始程式檔案
@@ -255,7 +265,7 @@ https://github.com/oneleo
 
 	- 其他 Go 的編譯相關的指令有
 		```powershell
-		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔
+		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔（若無 main 程式套件，則會在 %GOPATH%\pkg 下產生函式庫 .a 檔）
 		> ./hello.exe
 		> go install ./		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
 		> . $env:GOPATH\bin\hello.exe
@@ -304,6 +314,12 @@ https://github.com/oneleo
 		  return a + b, a - b, a * b
 		   }
 		```
+		- package 命名規範：
+			- 名稱一定要和所處的資料夾名稱一致（main 是唯一例外）
+			- 可為數字、小寫英文、減號、底線，但應力求簡潔明瞭、易於了解，儘量和標準套件名稱不衝突
+			- 其他細節可參考此[官方文章][1]
+
+[1]: https://golang.org/doc/effective_go.html#package-names "Package Name"
 
 // --------------------------------------------------
 
@@ -350,10 +366,10 @@ https://github.com/oneleo
 
 - 結論
 	- 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同
-	- 若要 import 在 _%GOPATH%\src_ 裡的套件，直接引用（src/ 之後的）路徑即可
+	- 若要 import 在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可
 	- 若要 import 在 _github.com_ 網路上的套件，亦直接引用（https:// 之後的）路徑即可
 	- 若要 import 非 _%GOPATH%\src_ 裡的套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器套件的位置，可參考[本篇文章][1]
 	
 [1]: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive "When should I use the replace directive?"
 
-
+// --------------------------------------------------

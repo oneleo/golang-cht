@@ -1,0 +1,34 @@
+# Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 28 Mar 2020
+Tags: golang, go, cht
+Summary: This is a great document you want to read.
+OldURL: former-path-for-this-doc
+
+陳敬翔
+資訊學系培訓師, 中華電信學院
+oneleo@cht.com.tw
+https://github.com/oneleo
+@oneleo760823
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 變數、函式、結構、介面、方法命名
+
+	- 在 Go 程式中扮演資料儲存、傳遞的角色。
+    - 名稱只允許大小寫英文、數字與底線，但不建議使用底線，且第一個字元不能是數字
+    - 名稱開頭決定使用權限（是否可被其他套件引用），除了大寫英文開頭是 Public，其他開頭均為 Private
+    - 名稱不能被命名為 25 個[關鍵字][1]，且極不推薦命名為[保留字][2]（可以被更改別名的）
+	- 命名推薦採用駝峰式記法，如 MixedCaps、SetName 等，而不是用底線區隔
+    - 介面中只含一種方法（Structural Typing／Compile Time Duck Typing）習慣 -er 結尾，但儘量不與官方 Reader、Writer、Closer、Flusher、Stringer 等介面衝突
+    - 其他細節可參考此[官方文章][3]
+
+[1]: https://golang.org/ref/spec#Keywords
+[2]: https://github.com/golang/go/blob/master/src/builtin/builtin.go
+[3]: https://golang.org/doc/effective_go.html#names "Names"
