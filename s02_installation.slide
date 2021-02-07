@@ -89,8 +89,13 @@ https://github.com/oneleo
 
 - 您的第一支 Go 語言程式碼：改變套件的別名
 
-	1. 可將 "fmt" 設置一個別名「f」
-	2. 雖然可以設置省略別名「.」但是不建議，因為會和自己的函數混用
+	1. 可將 "fmt" [設置一個別名][1]「f」
+	2. 雖然可以設置省略別名[「.」][2]但是不建議，因為會和自己的函數混用
+	3. 有時套件時別名設置[「_」][3]表示不引用，僅執行此套件的 init() 函式
+
+[1]: https://golang.org/ref/spec#Import_declarations
+[2]: https://golang.org/doc/effective_go.html#package-names
+[3]: https://golang.org/doc/effective_go.html#blank_import
 
 .play -numbers -edit ./code/c02/c02p02firstgo/firstgo.go
 
@@ -341,8 +346,8 @@ https://github.com/oneleo
 		```powershell
 		> go run hello.go
 		```
-		- 可以看到編譯器還是無法在 _%GOPATH%\src_ 或 _github.com_ 網路上找到 _github.com/yourname/hello/mymath_ 套件
-		- 所以要告訴編譯器此 _github.com/yourname/hello/mymath_ 套件在本地端或是網路上的確切位置
+		- 可看到編譯器還是無法嘗試在網路空間 _github.com_ 上找到 _github.com/yourname/hello/mymath_ 套件（可能是私人網路，亦有可能是您的專案未上傳到對映的網址上）
+		- 所以要使用 go mod 告訴編譯器此 _github.com/yourname/hello/mymath_ 套件目前在「本地端」或「其他網路空間」的確切位置
 
 // --------------------------------------------------
 
@@ -360,6 +365,10 @@ https://github.com/oneleo
 		```powershell
 		> go mod tidy
 		```
+
+: 注意：
+: - 子套件（package）才可以使用 `go mod edit -replace=XXX` 來指定套件在本地端的路徑，因為子套件是跟著專案跑，所以可以一直使用相對路徑
+: - 若是跨專案，若亂指定一個不存在的本地專案路徑，就算網路上有此專案，也不會自動下載專案內容下來
 
 // --------------------------------------------------
 
@@ -380,7 +389,6 @@ https://github.com/oneleo
 		fmt.Println("Myfunc2 input =", input)
 	}
 	```
-
 
 // --------------------------------------------------
 
@@ -410,11 +418,23 @@ https://github.com/oneleo
 ## Go 語言 Package 入門
 
 - 結論
-	- 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同
-	- 若要 import 在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可
-	- 若要 import 在 _github.com_ 網路上的套件，亦直接引用（https:// 之後的）路徑即可
-	- 若要 import 非 _%GOPATH%\src_ 裡的套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器套件的位置，可參考[本篇文章][1]
-	
-[1]: https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive "When should I use the replace directive?"
+	1. 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同。
+	2. 使用 [Go Module][1] 進行專案管理
+		- 若要 import 在 _github.com_ 等網路空間專案的套件，直接引用（https:// 之後的）路徑即可，在編譯時（go run XXX）會自動下載需要的專案套件
+		- 若要 import 非 _%GOROOT%\src_ 裡（注意不是 _%GOPATH%\src_）及網路上專案套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在本地端或網路空間的位置，可參考[本篇文章][2]
+		- 若您的程式碼專案有版控或同步至網路空間，建議在 `go mod init XXX` 時使用網路完整的專案路徑（https:// 之後的）作為專案名稱，以表示其[專案的唯一可識別性][3]。
+		- 專案底下的每一個套件都要有一個 go.mod 檔，才能被其他專案引用
+
+[1]: https://golang.org/ref/mod
+[2]: https://golang.org/ref/mod#go-mod-file-replace "replace directive"
+[3]: https://golang.org/ref/mod#glos-module-path
 
 // --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 結論
+
+	3. 使用 Go 1.11 前的 _%GOPATH%\src_ 模式
+		- 若要 import 在 _github.com_ 等網路空間的套件，需要先使用 `go get -u XXX` 將套件下載到 _%GOPATH%\src_，再到程式內 import（src\ 之後的）套件路徑
+		- 若要 import 已在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可
