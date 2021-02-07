@@ -102,12 +102,13 @@ https://github.com/oneleo
 
 	1. 安裝 [git][1] - 在於常用的 go get 指令會需要
 	2. 安裝 [go 語言核心軟體][2]
+		- 環境變數必須設置 GOPATH，且 PATH 變數需有 GOPATH\bin
 	3. 安裝 [Visual Studio Code][3] - IDE 整合開發環境
 	4. 在 vscode 裡安裝 [Go for Visual Studio Code][4] - vscode go 套件
 	5. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][5]
 	6. （非必須）安裝 [GCC 編譯器][6] - C 語言編譯器（使用 cgo 時安裝）
 		- MinGW 安裝參數：Architecture=x86_64、Threads=posix、Exception=seh
-		- 並將 %ProgramFiles%\mingw-w64\x86_64-X.X.X-posix-seh-rt_vX-revX\mingw64\bin 加入至 path 環境變數內
+		- 並將 %ProgramFiles%\mingw-w64\x86_64-X.X.X-posix-seh-rt_vX-revX\mingw64\bin 加入至 PATH 環境變數內
 
 [1]: https://git-scm.com/ "git"
 [2]: https://golang.org/ "Go"
@@ -360,6 +361,50 @@ https://github.com/oneleo
 		> go mod tidy
 		```
 
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 舊版 Go 1.11 世界的 Package 引用
+
+	1. 建立 %GOPATH%\src\mymain\main.go 及 %GOPATH%\src\mypack\pack.go
+	2. 在 %GOPATH%\src\mypack\pack.go 撰寫以下程式碼
+	```go
+	package mypack
+	import "fmt"
+	var var1, Var2 int
+	func myfunc1(input int){
+		fmt.Println("myfunc1 input =", input)
+	}
+	func Myfunc2(input int){
+		fmt.Println("Myfunc2 input =", input)
+	}
+	```
+
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 舊版 Go 1.11 世界的 Package 引用
+
+	3. 在 %GOPATH%\src\mymain\main.go 撰寫以下程式碼
+	```go
+	package main
+	import (
+		"fmt"
+		"mypack"
+	)
+	func main(){
+		fmt.Println("mypack.var1 =", mypack.var1)	// private variable
+		fmt.Println("mypack.Var2 =", mypack.Var2)
+		mypack.myfunc1(4)				// private function
+		mypack.Myfunc2(3)	
+	}
+	```
+	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
+	5. go run .\
+	6. 請修正錯誤（改權限或註解掉），並觀察大小寫英文開頭、套件引用情形。
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
