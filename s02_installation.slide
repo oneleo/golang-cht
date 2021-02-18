@@ -411,8 +411,26 @@ https://github.com/oneleo
 	}
 	```
 	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
-	5. go run .\
+	5. _`go run .\`_
 	6. 請修正錯誤（改權限或註解掉），並觀察大小寫英文開頭、套件引用情形。
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
+- 如何指定不同的 Go 版本來編譯？[參考文件][1]
+
+	1. 【Terminal】→【New Terminal Ctrl+Shift+`】
+	2. 執行以下程式碼（以指定安裝 go 1.16 版本為例）
+	```powershell
+	> go get golang.org/dl/go1.16
+	> go1.16 download
+	> go1.16 version
+	```
+[1]: https://golang.org/doc/manage-install#installing-multiple
+
+.image ./images/i02/i02.00.07-installgo1.16.png _ 375
+
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
