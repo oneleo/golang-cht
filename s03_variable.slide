@@ -22,13 +22,78 @@ https://github.com/oneleo
 - 變數、函式、結構、介面、方法命名
 
 	- 在 Go 程式中扮演資料儲存、傳遞的角色。
-    - 名稱只允許大小寫英文、數字與底線，但不建議使用底線，且第一個字元不能是數字
-    - 名稱開頭決定使用權限（是否可跨套件引用、導入），除了大寫英文開頭是 Public，其他開頭（習慣上均用小寫英文）均為 private
-    - 名稱不能被命名為 25 個[關鍵字][1]，且"極"不推薦覆蓋命名為 37 個[保留字][2]（可以被更改別名的）
-	- 命名推薦採用駝峰式記法，如 MixedCaps、SetName 等，而不是用底線區隔
-    - 介面中只含一種方法（Structural Typing／Compile Time Duck Typing）習慣 -er 結尾，但儘量不與官方 Reader、Writer、Closer、Flusher、Stringer 等介面衝突
+    - 名稱只允許大小寫英文、數字與底線（不建議用底線），且第一個字元不能是數字
+    - 名稱開頭決定使用權限（是否可跨套件引用、導入），除了大寫英文開頭是 Public，其他開頭（習慣用小寫英文開頭）均為 private
+    - 名稱不能命名 25 個[關鍵字][1]，且不推薦命名 37 個（可被更改別名的）[保留字][2]
+	- 名稱命名推薦採駝峰式記法，如 MixedCaps、SetName 等，而不用底線區隔
+    - 介面（interface）命名習慣 -er 結尾，但不推薦與官方 Reader、Writer、Closer、Flusher、Stringer 等介面名衝突
     - 其他細節可參考此[官方文章][3]
 
 [1]: https://golang.org/ref/spec#Keywords
 [2]: https://github.com/golang/go/blob/master/src/builtin/builtin.go
 [3]: https://golang.org/doc/effective_go.html#names "Names"
+
+: 補充：
+: - 介面（interface）中建議只含一種方法（Structural Typing／Compile Time Duck Typing）
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+.play -numbers -edit ./code/c03/c03p01variables/variables.go /START OMIT/,/END OMIT/
+
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	1. 對同一個變數進行第二次宣告：
+		```go
+		quantity := 4
+		quantity := 4
+		```
+		- ↪ 同一個變數只能宣告一次（縱使您可以隨時指派新的值給它，您也可以在別的範圍（如：不同函式內）宣告同一個變數名稱。）
+		
+	2. 刪除短變數宣告的「:」：_quantity <del>:</del>= 4_
+		- ↪ 假如您忘了「:」，它會被當作指派而不是宣告，而您不能對還沒宣告的變數指派值。
+
+	3. 把 string 的值指派給 int 的變數：
+		```go
+		quantity := 4
+		quantity = "a"
+		```
+		- ↪ 變數只能指派同一個型別的值
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	4. 變數與值的數量不同：_length, width:=1.2<del>, 2.4</del>_
+		- ↪ 您得提供每一個變數相對應的值，反過來說每一個值都得對應到一個變數。
+
+	5. 移除有用到變數的程式碼：_<del>fmt.Println(customerName)</del>_
+		- ↪ 所有的變數都應該在您的程式中被使用到。假如您移除了用到變數的程式碼，您也得移除該變數的宣告。（或使用「_」符號來忽略）
+		
+			```go
+			quantity, length, width, _ := declaration03()
+			```
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 25 個關鍵字
+
+.image ./images/i03/i03.00.01-keywords.png _ 500
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 39 個保留字
+
+.image ./images/i03/i03.00.02-predeclared.png _ 500

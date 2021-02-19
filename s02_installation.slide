@@ -60,7 +60,7 @@ https://github.com/oneleo
 		- ↪ 每個 Go 檔案必須透過匯入的方式引用套件
 
 	3. 匯入第二個（沒用到的）套件：
-		```
+		```go
 		import (
 			"fmt"
 			"strings"
@@ -374,6 +374,14 @@ https://github.com/oneleo
 
 ## Go 語言 Package 入門
 
+- Go Modules 指令說明
+
+.image ./images/i02/i02.00.07-gomod.png _ 500
+
+// --------------------------------------------------
+
+## Go 語言 Package 入門
+
 - 舊版 Go 1.11 世界的 Package 引用
 
 	1. 建立 %GOPATH%\src\mymain\main.go 及 %GOPATH%\src\mypack\pack.go
@@ -429,7 +437,7 @@ https://github.com/oneleo
 	```
 [1]: https://golang.org/doc/manage-install#installing-multiple
 
-.image ./images/i02/i02.00.07-installgo1.16.png _ 375
+.image ./images/i02/i02.00.08-installgo1.16.png _ 375
 
 // --------------------------------------------------
 
