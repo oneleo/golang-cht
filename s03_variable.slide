@@ -27,7 +27,7 @@ https://github.com/oneleo
     - 名稱不能命名 25 個[關鍵字][1]，且不推薦命名 37 個（可被更改別名的）[保留字][2]
 	- 名稱命名推薦採駝峰式記法，如 MixedCaps、SetName 等，而不用底線區隔
     - 介面（interface）命名習慣 -er 結尾，但不推薦與官方 Reader、Writer、Closer、Flusher、Stringer 等介面名衝突
-    - 其他細節可參考此[官方文章][3]
+    - 註：其他細節可參考此[官方文章][3]
 
 [1]: https://golang.org/ref/spec#Keywords
 [2]: https://github.com/golang/go/blob/master/src/builtin/builtin.go
@@ -40,8 +40,16 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
-.play -numbers -edit ./code/c03/c03p01variables/variables.go /START OMIT/,/END OMIT/
+- 變數宣告
 
+.image ./images/i03/i03.00.03-memory.png _ 500
+
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+.play -numbers -edit ./code/c03/c03p01variables/variables.go /START OMIT/,/END OMIT/
 
 // --------------------------------------------------
 
@@ -81,7 +89,6 @@ https://github.com/oneleo
 			```go
 			quantity, length, width, _ := declaration03()
 			```
-
 // --------------------------------------------------
 
 ## Golang 安裝與環境設定
@@ -95,24 +102,23 @@ https://github.com/oneleo
 ## Golang 安裝與環境設定
 
 - 39 個保留字
+	- 這些內部預先定義的名字不是關鍵字，您可以再重新定義它們。
+	- 但不建議重新定義保留字，除了增加維護上困難，且易引起語義混亂。
 
-.image ./images/i03/i03.00.02-predeclared.png _ 750
+.play -numbers -edit ./code/c03/c03p02predeclared/predeclared.go /START OMIT/,/END OMIT/
 
-// --------------------------------------------------
+.image ./images/i03/i03.00.02-predeclared.png _ 500
 
-## Golang 安裝與環境設定
-
-- 記憶體
-
-.image ./images/i03/i03.00.03-memory.png _ 500
-
-
+: 補充：
+: - 每一個記憶體位址指向一個 8 bits 空間。
 
 // --------------------------------------------------
 
 ## Golang 安裝與環境設定
 
 - 變數範圍
+
+.play -numbers -edit ./code/c03/c03p03overflow/overflow.go /START OMIT/,/END OMIT/
 
 .image ./images/i03/i03.00.04-range.png _ 1000
 
@@ -122,18 +128,20 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
-- 操作
+- 運算符號
 
 .image ./images/i03/i03.00.05-operators.png _ 1000
-
 
 // --------------------------------------------------
 
 ## Golang 安裝與環境設定
 
-- 優先度
+- 變數範圍
+	- [逸出符號][1]
 
-.image ./images/i03/i03.00.06-precedence.png _ 500
+[1]: https://pkg.go.dev/fmt
+
+.play -numbers -edit ./code/c03/c03p04operators/operators.go /START OMIT/,/END OMIT/
 
 
 
@@ -144,3 +152,76 @@ https://github.com/oneleo
 - 邏輯
 
 .image ./images/i03/i03.00.07-logical.png _ 1000
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 優先度
+
+.image ./images/i03/i03.00.06-precedence.png _ 500
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- iota 只能在常數中使用
+
+.play -numbers -edit ./code/c03/c03p05iota/iota.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 註解（comments）：不會計入真正的程式碼，所以可用一般文字敘述來撰寫。
+	- Go 程式碼中的註解有兩種：
+		- 單行註解，以雙鈄線（//）開頭，後面跟著註解敘述。
+		- 多行註解，前後使用「/*」與「*/」包夾的區塊。
+
+	- Go 註解的其他功能
+		- 建立套件文件（在 package mypack 之前撰寫註解文件）
+			```go
+			// Package c01c01mymath 是在中華電信學院開設的 Go 語言課程第一章節所建立的套件，…
+			package c01p01mymath
+			```
+		- 建立函式文件（在 func myfunc 之前撰寫註解文件）
+			```go
+			// Sum 是一個加總計算功能的函式，…
+			func Sum(in ...int) (sum int) {
+			```
+		- [指定套件編譯平臺][1]（在 Go 程式碼檔案第一行撰寫註解平臺）
+			```go
+			// +build linux darwin
+			// +build !windows
+			```
+[1]: https://golang.org/cmd/go/#hdr-Build_constraints "Build constraints"
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 註解（comments）
+
+	- Go 註解的其他功能
+		- [在 Go 投影片中決定要顯示開頭及結尾][1]
+			```go
+			// START OMIT
+			func main() {
+			…
+			// END OMIT
+			```
+		- [在 Go 投影片中決定此行是否粗體顯示][1]
+			```go
+			…
+			m.HandleFunc("/", helloHandler) // HL
+			…
+			```
+		- 撰寫 C 程式碼（在 import "C" 之前撰寫註解 C 程式碼）
+			```go
+			/*
+			#include <stdio.h>
+			…
+			*/
+			import "C"
+			```
+[1]: https://pkg.go.dev/golang.org/x/tools/present#hdr-Command_Invocations
