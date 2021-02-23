@@ -225,3 +225,15 @@ https://github.com/oneleo
 			import "C"
 			```
 [1]: https://pkg.go.dev/golang.org/x/tools/present#hdr-Command_Invocations
+
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 字串
+
+在已有字串陣列的場合，使用能有比較好的性能strings.Join()
+在一些性能要求較高的場合，盡量使用 以獲得更好的性能buffer.WriteString()
+較少字串連接的場景下性能最好，而且代碼更簡短清晰，可讀性更好
+如果需要拼接的不僅僅是字串，還有數位之類的其他需求的話，可以考慮 fmt.Sprintf
