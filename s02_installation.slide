@@ -258,26 +258,23 @@ https://github.com/oneleo
 	5. 輸入以下指令訂立一個 Module 的（含路徑）的「完整名稱」
 		```powershell
 		> go mod init github.com/yourname/hello
+		> go mod tidy
 		> go run hello.go	# 編譯並執行指定的指令原始程式檔案
 		```
 
 .image ./images/i02/i02.00.06-myfirstgo2.png _ 750
 
 // --------------------------------------------------
-
 ## Go 語言 Package 入門
-
 - 建置我的 go 專案（hello）
-
 	- 其他 Go 的編譯相關的指令有
-		```powershell
-		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔（若無 main 程式套件，則會在 %GOPATH%\pkg 下產生函式庫 .a 檔）
-		> ./hello.exe
-		> go install ./		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
-		> . $env:GOPATH\bin\hello.exe
-		> go clean ./		# 將 go build 產生的檔案清除
-		```
-
+ 		```powershell
+ 		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔
+ 		> ./hello.exe
+ 		> go install ./		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
+ 		> . $env:GOPATH\bin\hello.exe
+ 		> go clean ./		# 將 go build 產生的檔案清除
+ 		```
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
@@ -295,9 +292,11 @@ https://github.com/oneleo
 		```
 	3. 在下方【Terminal】中輸入以下指令：
 		```powershell
+		> go get github.com/oneleo/golang-cht/code/c01/c01p01mymath
 		> go run hello.go
 		```
-		- 可以看到他正在網路上下載所需要的程式碼（相對網址為：[**github.com/oneleo/golang-cht**/tree/\<branchname\>/**code/c01/c01p01mymath**][1]），並且順利執行
+		- 註：將下載至 %GOPATH%\pkg\mod\github.com\oneleo\golang-cht\code\c01\c01p01mymath@v0.0.0-XXXXXXXXXXXXXX-XXXXXXXXXXXX 內
+//		 - 可以看到他正在網路上下載所需要的程式碼（相對網址為：[**github.com/oneleo/golang-cht**/tree/\<branchname\>/**code/c01/c01p01mymath**][1]），並且順利執行
 
 [1]: https://github.com/oneleo/golang-cht/tree/master/code/c01/c01p01mymath
 
@@ -359,7 +358,8 @@ https://github.com/oneleo
 	5. 輸入以下指令，讓編譯器知道 _github.com/yourname/hello/mymath_ 的位置
 		```powershell
 		> go mod edit -replace="github.com/yourname/hello/mymath=./mymath"
-		> go run hello.go		# 編譯並執行指定的指令原始程式檔案
+		> go get github.com/yourname/hello/mymath	# 加入 Module Require 列表中
+		> go run hello.go				# 編譯並執行指定的指令原始程式檔案
 		```
 	6. 未來程式碼規模增加，引用到的套件必然會有增減，可使用下方 Go Module 指令進行掃描，自動在 go.mod 紀錄會用到的套件
 		```powershell
@@ -382,7 +382,7 @@ https://github.com/oneleo
 
 ## Go 語言 Package 入門
 
-- 舊版 Go 1.11 世界的 Package 引用
+- 舊版 Go v1.11 世界的 Package 引用（GOPATH 參數已在 Go v1.16 取消，下面實作已失效）
 
 	1. 建立 %GOPATH%\src\mymain\main.go 及 %GOPATH%\src\mypack\pack.go
 	2. 在 %GOPATH%\src\mypack\pack.go 撰寫以下程式碼
@@ -402,7 +402,7 @@ https://github.com/oneleo
 
 ## Go 語言 Package 入門
 
-- 舊版 Go 1.11 世界的 Package 引用
+- 舊版 Go v1.11 世界的 Package 引用（GOPATH 參數已在 Go v1.16 取消，下面實作已失效）
 
 	3. 在 %GOPATH%\src\mymain\main.go 撰寫以下程式碼
 	```go
@@ -446,7 +446,7 @@ https://github.com/oneleo
 - 結論
 	1. 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同。
 	2. 使用 [Go Module][1] 進行專案管理
-		- 若要 import 在 _github.com_ 等網路空間專案的套件，直接引用（https:// 之後的）路徑即可，在編譯時（go run XXX）會自動下載需要的專案套件
+		- 若要 import 在 _github.com_ 等網路空間專案的套件，直接引用（https:// 之後的）路徑即可，在編譯時（go run XXX）會提示下載需要的專案套件
 		- 若要 import 非 _%GOROOT%\src_ 裡（注意不是 _%GOPATH%\src_）及網路上專案套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在本地端或網路空間的位置，可參考[本篇文章][2]
 		- 若您的程式碼專案有版控或同步至網路空間，建議在 `go mod init XXX` 時使用網路完整的專案路徑（https:// 之後的）作為專案名稱，以表示其[專案的唯一可識別性][3]。
 		- 專案底下的每一個套件都要有一個 go.mod 檔，才能被其他專案引用
@@ -461,6 +461,6 @@ https://github.com/oneleo
 
 - 結論
 
-	3. 使用 Go 1.11 前的 _%GOPATH%\src_ 模式
+	3. 使用 Go 1.11 前的 _%GOPATH%\src_ 模式（GOPATH 參數已在 Go v1.16 取消，下面結論已失效）
 		- 若要 import 在 _github.com_ 等網路空間的套件，需要先使用 `go get -u XXX` 將套件下載到 _%GOPATH%\src_，再到程式內 import（src\ 之後的）套件路徑
 		- 若要 import 已在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可
