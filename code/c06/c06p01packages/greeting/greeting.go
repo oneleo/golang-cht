@@ -1,3 +1,4 @@
+// START OMIT
 package greeting
 
 import "fmt"
@@ -8,3 +9,5 @@ func Hello() {
 func Hi() {
 	fmt.Println("Hi!")
 }
+
+// END OMIT

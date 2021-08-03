@@ -1,0 +1,47 @@
+# Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 28 Mar 2020
+Tags: golang, go, cht
+Summary: This is a great document you want to read.
+OldURL: former-path-for-this-doc
+
+陳敬翔
+資訊學系培訓師, 中華電信學院
+oneleo@cht.com.tw
+https://github.com/oneleo
+@oneleo760823
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+// --------------------------------------------------
+
+## 條件式與迴圈
+
+- 請在 %GOPATH%\\src\\greeding\\ 目錄裡新增 greeting.go 檔
+
+.code -numbers -edit ./code/c06/c06p01packages/greeting/greeting.go /START OMIT/,/END OMIT/ 
+
+- 請在 %GOPATH%\\src\\hi\\ 目錄裡新增 main.go 檔
+
+.play -numbers -edit ./code/c06/c06p01packages/hi/main.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	1. 改變 greeding 目錄的名稱：_%GOPATH%\\src\\<del>greeding</del>salutation\\greeting.go_
+		- ↪ Go 工具把匯入的路徑作為套件的目錄名稱來讀取套件的程式碼。假如名稱與路徑並不符合，預期的程式碼就不會被存取。
+
+    2. 改變 greeting.go 檔案中 package 那行的名稱：_package <del>greeting</del> salutation_
+		- ↪ greeting 目錄中的內容實際上會被存取成名為 salutation 的套件。然而在 main.go 依然會調用 greeting 套件，於是發生錯誤。
+
+    3. 改變 greeting.go 以及 main.go 中的函式名稱都為首字母小寫：
+		- 改寫在 greeting.go 中的：_func <del>H</del>hello()_、_func <del>H</del>hi()_
+		- 改寫在 main.go 中的：_greeting.<del>H</del>hello()_、_greeting.<del>H</del>hi()_
+		- ↪ 首字員為小寫的函式名稱是不會被匯出的，也就是說，它們只能在自己的套件內被調用。如果要在不同套件中使用函式，它的名稱應該為首字母大寫才會被匯出。
+
+// --------------------------------------------------
