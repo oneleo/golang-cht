@@ -1,19 +1,52 @@
-
-Golang 安裝與環境設定
+# Golang 安裝與環境設定
 為什麼我要學習 Go
 19:30 28 Mar 2020
-Tags: Golang
+Tags: golang, go, cht
+Summary: This is a great document you want to read.
+OldURL: former-path-for-this-doc
 
 陳敬翔
-中華電信學院, 資訊學系培訓師
+資訊學系培訓師, 中華電信學院
 oneleo@cht.com.tw
-https://www.facebook.com/oneleo760823
+https://github.com/oneleo
 @oneleo760823
 
-# --------------------------------------------------
+// --------------------------------------------------
 
-* 鎖
+## 條件式與迴圈
 
+.play -numbers -edit ./code/c15/c15p01goroutines/main.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	1. 在 main 函式傳遞值給通道：_<del>go greeting(myChannel)</del> myChannel <- "hi from main"_
+		- ↪ 您會得到「all goroutines are asleep - deadlock!」的錯誤。這個錯誤來自於 main goroutine 已經被鎖定了，等待通道接收其他 goroutine 的值。然而其他的 goroutine 仍未進行任何接收的運作，所以 main groutine 維持鎖定。
+
+    2. 從調用 greeting 的地方移除 go 鍵詞：_<del>go </del>greeting(myChannel)_
+		- ↪ 這會讓 greeting 函式在 main 的 goroutine 內執行。這也會造成鎖死的錯誤，跟上面的原因一樣：在 greeting 內的傳遞操作導致 main groutine 鎖定，但是並沒有任何一個 goroutine 執行接收的操作，所以這會停在鎖定狀態。
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+    3. 移除傳遞值給通道的這一行程式碼：_func greeting(myChannel chan string) { <del>myChannel <- "hi"</del> }_
+		- ↪ 這也會造成鎖死，但是以不同的原因：main goroutine 嘗試接收值，但是沒有任何傳遞的操作。
+ 
+    4. 移除從通道接收值的程式碼：_<del>fmt.Println(<-myChannel)</del>_
+		- ↪ 在 greeting 內的傳遞操作導致 goroutine 鎖定。但是由於並沒有接收的操作來讓 main goroutine 也被鎖定，main 會立即終止，並且程式在沒有任何輸出的情況下結束。
+
+// --------------------------------------------------
+
+// --------------------------------------------------
+
+## 鎖
+```go
     package main
 
     import "fmt"
@@ -24,11 +57,11 @@ https://www.facebook.com/oneleo760823
         num := <-ch
         fmt.Println(num)
     }
+```
+// --------------------------------------------------
 
-# --------------------------------------------------
-
-* 鎖
-
+## 鎖
+```go
     package main
 
     import "fmt"
@@ -41,11 +74,11 @@ https://www.facebook.com/oneleo760823
             ch <- 789
         }()
     }
+```
+// --------------------------------------------------
 
-# --------------------------------------------------
-
-* 正確寫法
-
+## 正確寫法
+```go
     package main
 
     import "fmt"
@@ -58,11 +91,11 @@ https://www.facebook.com/oneleo760823
         num := <-ch
         fmt.Println("num = ", num)
     }
+```
+// --------------------------------------------------
 
-# --------------------------------------------------
-
-* 鎖
-
+## 鎖
+```go
     package main
 
     import "fmt"
@@ -87,10 +120,10 @@ https://www.facebook.com/oneleo760823
             }
         }
     }
+```
+// --------------------------------------------------
 
-# --------------------------------------------------
-
-* 參考資料
+## 參考資料
 
 .link https://larrylu.blog/golang-goroutine-parallel-processing-d382e6d34a14 2018/09/17 - 分而治之 — 在 Golang 使用 Goroutine 進行平行運算
 

@@ -1,0 +1,41 @@
+# Golang 安裝與環境設定
+為什麼我要學習 Go
+19:30 28 Mar 2020
+Tags: golang, go, cht
+Summary: This is a great document you want to read.
+OldURL: former-path-for-this-doc
+
+陳敬翔
+資訊學系培訓師, 中華電信學院
+oneleo@cht.com.tw
+https://github.com/oneleo
+@oneleo760823
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+// --------------------------------------------------
+
+## 條件式與迴圈
+
+.play -numbers -edit ./code/c13/c13p01interfaces/main.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 您的第一支 Go 語言程式碼：假如您這麼做… **會發生錯誤！**
+
+	1. 從具象型別調用沒在介面定義的方法：_device<del>.TurnOn()</del>.Brew()_
+		- ↪ 一旦在具備介面型別的變數中存有值的時候，不管具象型別額外定義了多少方法，您只能調用定義在介面的方法。
+
+    2. 從型別移除符合介面的方法：_<del>func (c CoffeePot) TurnOn() { fmt.Println(c, "- Powering up") }</del>_
+		- ↪ 假如某個型別並沒有滿足介面，您不能指派該型別的值給使用該介面當作型別的變數。
+
+    3. 為符合介面的方法添加新的回傳值或者參數：_func (f Fan) TurnOn() **error** { fmt.Println(f, "- Spinning") **return nil** }_
+		- ↪ 假如具象型別以及介面所定義的方法之間，所有的參數或者回傳值的數量並沒有一致時，具象型別就沒有滿足介面。
+
+// --------------------------------------------------
+
+// --------------------------------------------------
