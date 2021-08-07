@@ -131,19 +131,34 @@ https://github.com/oneleo
 - 運算符號
 
 .image ./images/i03/i03.00.05-operators.png _ 1000
+// --------------------------------------------------
+
 
 // --------------------------------------------------
 
 ## Golang 安裝與環境設定
 
-- 變數範圍
-	- [逸出符號][1]
+- 運算符號
 
 [1]: https://pkg.go.dev/fmt
 
 .play -numbers -edit ./code/c03/c03p04operators/operators.go /START OMIT/,/END OMIT/
 
+// --------------------------------------------------
 
+## Golang 安裝與環境設定
+
+- 常數與變數
+
+.code -numbers -edit ./code/c03/c03p04constant/constant.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 變數零值
+
+.play -numbers -edit ./code/c03/c03p04zerovalue/zerovalue.go /START OMIT/,/END OMIT/
 
 // --------------------------------------------------
 
@@ -231,9 +246,169 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
-- 字串
+- 字串與字串操作
+	- 字串是一系列代表著字元的位元組。
+	- 在雙引號（"）之間擺放文字，Go 就會視為字串。
+	- _len()_ 是計算 **Bytes** 數，_utf8.RuneCountInString()_ 才是計算**字數**，處理中文要注意
 
-在已有字串陣列的場合，使用能有比較好的性能strings.Join()
-在一些性能要求較高的場合，盡量使用 以獲得更好的性能buffer.WriteString()
-較少字串連接的場景下性能最好，而且代碼更簡短清晰，可讀性更好
-如果需要拼接的不僅僅是字串，還有數位之類的其他需求的話，可以考慮 fmt.Sprintf
+.play -numbers -edit ./code/c03/c03p06string/string.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 字串轉數字
+	- _strconv.Itoa()_ 及 _strconv.Atoi()_ 是較常用的數字、字串轉換函數
+
+.play -numbers -edit ./code/c03/c03p07atoi/atoi.go /START OMIT/,/END OMIT/
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 字串間串接，有多個不同功用的函式可呼叫
+```go
+	// 1-1、使用 fmt.Sprintf 進行接續串接
+	func BenchmarkFmtSprintf(b *testing.B) {
+		var s string
+		for i := 0; i < b.N; i++ {
+			s = fmt.Sprintf("%s%s%s", s, "hello", "world")
+		}
+	}
+	// 1-2、使用 + 運算進行接續串接
+	func BenchmarkStrAdd(b *testing.B) {
+		var s string
+		for i := 0; i < b.N; i++ {
+			s += "hello" + "world"
+		}
+	}
+	// 使用 fmt.Sprintf 進行接續串接
+	func BenchmarkStrJoin(b *testing.B) {
+		var s string
+		for i := 0; i < b.N; i++ {
+			s = strings.Join([]string{s, "hello", "world"}, "")
+		}
+	}
+```
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+- 字串間串接，有不同功用的函式可呼叫
+```go 
+	// 1-4、使用 bytes.Buffer 進行接續串接
+	func BenchmarkStrBuffer(b *testing.B) {
+		var buffer bytes.Buffer
+		for i := 0; i < b.N; i++ {
+			buffer.WriteString("hello")
+			buffer.WriteString("world")
+		}
+	}
+	// 2-1、使用 fmt.Sprintf 進行單一串接
+	func BenchmarkFmtSprintfOne(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			s := fmt.Sprintf("%s%s", "hello", "world")
+			_ = s
+		}
+	}
+	// 2-2、使用 + 運算進行單一串接
+	func BenchmarkStrAddOne(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			s := "hello" + "world"
+			_ = s
+		}
+	}
+```
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+- 字串間串接，有不同功用的函式可呼叫
+```go
+	// 2-3、使用 strings.Join 進行單一串接
+	func BenchmarkStrJoinOne(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			s := strings.Join([]string{"hello", "world"}, "")
+			_ = s
+		}
+	}
+	// 2-4、使用 bytes.Buffer 進行單一串接
+	func BenchmarkStrBufferOne(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			var b bytes.Buffer
+			b.WriteString("hello")
+			b.WriteString("world")
+		}
+	}
+```
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+- 字串串接評測
+
+	1. 有大量字串串接需求時，使用 bytes.Buffer 會有極高效能
+	2. 少量字串連接的場景下，直接使用 + 運算性能最好，且程式簡短清晰，可讀性佳
+	3. 如果不只要串接字串，還有整數等變數（數字轉字串），可考慮用 fmt.Sprintf
+
+.play -numbers -edit ./code/c03/c03p08stringjoin/stringjoin.go /START OMIT/,/END OMIT/
+
+
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+
+
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- _fmt.Printf("%d", int(9))_ 及 _fmt.Sprintf("%s", "str")_ 使用的格式化字元（傳承自 C 語言）
+
+	- 以下列出常用的，完整版格式化字元可參考 [fmt 官方說明文件][1]
+		- %v	變數預設格式表示
+		- %T	變數類型的 Go 語法表示
+		- %%	印出百分比符號号
+		- %b	印出二進制數值
+		- %d	印出十進制數值
+		- %o    印出八進制數值
+
+[1]: https://pkg.go.dev/fmt#hdr-Printing
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- _fmt.Printf("%d", int(9))_ 及 _fmt.Sprintf("%s", "str")_ 使用的格式化字元（傳承自 C 語言）
+	- 以下列出常用的，完整版格式化字元可參考 [fmt 官方說明文件][1]
+		- %x    印出十六進制數值
+		- %e    顯示科學符號表法，如：-1.234e+56
+		- %f    顯示符點數，如：123.456
+		- %9.2f	顯示數值的寬度固定為 9，顯示精度為 2
+		- %s    印出字串
+		- %p    印出指標，格式固定為：0x + 十六進制 10 碼以表示記憶體起頭位置
+		- 指定輸出順序：_fmt.Sprintf("%[2]d %[1]d\n", 11, 22)_ 則會印出：22 11
+
+[1]: https://pkg.go.dev/fmt#hdr-Printing
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+- 透過字串，像是字串、跳位（tab）或者其他不易在程式碼中引用的字元，可以透過跳脫序列（escape sequences）來呈現
+
+.play -numbers -edit ./code/c03/c03p09escape/escape.go /START OMIT/,/END OMIT/
+
+.image ./images/i03/i03.00.08-escape.png _ 500
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 控制字元與顯示字元
+
+.play -numbers -edit ./code/c03/c03p10runes/runes.go /START OMIT/,/END OMIT/
+.image ./images/i03/i03.00.09-USASCII.png _ 435
+
+.caption _Reference_ by [[https://zh.wikipedia.org/wiki/ASCII][ASCII]]

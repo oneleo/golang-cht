@@ -21,7 +21,7 @@ const (
 func main() {
 	fmt.Println("One =", One, "\tTwo =", Two, "\tFour =", Four)
 	var police uint8 = 0b0111 // HL
-	fmt.Printf("File police = %.4b:\n", police)
+	fmt.Printf("File policy = %.4b:\n", police)
 	police = police &^ Writable // 符合則清除 // HL
 	fmt.Printf("Readable\t\t?\t%t\n", police&Readable == Readable)
 	fmt.Printf("Writable\t\t?\t%t\n", police&Writable == Writable)
