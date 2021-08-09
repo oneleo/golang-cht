@@ -15,9 +15,9 @@ func main() {
 	var q8 map[int]string // 映射類型：nil
 	var q9 func(int) int  // 函式類型：nil
 
-	fmt.Printf("q1 = %v\t\tq2 = %v\t\tq3 = %v\n", q1, q2, q3)
-	fmt.Printf("q4 = %v\t\tq5 = %v\t\tq6 = %v\n", q4, q5, q6)
-	fmt.Printf("q7 = %v\tq8 = %v\tq9 = %v\n", q7, q8, q9)
+	fmt.Printf("q1=0? %v\tq2=0? %v\tq3=false? %v\n", q1 == 0, q2 == 0, q3 == false)
+	fmt.Printf("q4=\"\"? %v\tq5=[0]? %v\tq6=nil? %v\n", q4 == "", q5 == [1]int{0}, q6 == nil)
+	fmt.Printf("q7=nil? %v\tq8=nil? %v\tq9=nil? %v\n", q7 == nil, q8 == nil, q9 == nil)
 }
 
 // END OMIT

@@ -406,9 +406,17 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
-- 控制字元與顯示字元
+- 控制字元與顯示字元（ASCII）
 
 .play -numbers -edit ./code/c03/c03p10runes/runes.go /START OMIT/,/END OMIT/
 .image ./images/i03/i03.00.09-USASCII.png _ 435
 
-.caption _Reference_ by [[https://zh.wikipedia.org/wiki/ASCII][ASCII]]
+.caption _Reference_ by [[https://zh.wikipedia.org/wiki/ASCII][Wikipedia - ASCII]]
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 指標
+
+
