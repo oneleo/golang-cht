@@ -419,4 +419,24 @@ https://github.com/oneleo
 
 - 指標
 
+.image ./images/i03/i03.00.10-pointer.png _ 400
 
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 指標
+
+
+.play -numbers -edit ./code/c03/c03p12reference/reference.go /START OMIT/,/END OMIT/
+.image ./images/i03/i03.00.11-reference.png _ 900
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 指標
+
+.play -numbers -edit ./code/c03/c03p11pointer/pointer.go /START OMIT/,/END OMIT/
+.image ./images/i03/i03.00.12-dereference.png _ 400
