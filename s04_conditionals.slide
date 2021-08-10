@@ -19,6 +19,21 @@ https://github.com/oneleo
 
 ## 條件式與迴圈
 
+- 條件表示式 if 和 else
+	- 條件表示式沒有括號
+	- 支援一個初始化表達式，且支援單行多變數賦值
+	- 左右大括號必須和條件式或 else 在同一行
+	- 注意初始化陳述句中變數的區塊範圍，且外部若有同名變數則外部變數會暫時隱藏
+
+.play -numbers -edit ./code/c04/c04p01if/if.go /START OMIT/,/END OMIT/
+
+
+// --------------------------------------------------
+
+## 條件式與迴圈
+
+- 迴圈
+
 .play -numbers -edit ./code/c04/c04p01conditionals/c04p01conditionals.go /START OMIT/,/END OMIT/
 
 // --------------------------------------------------
