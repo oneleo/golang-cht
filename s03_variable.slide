@@ -148,6 +148,22 @@ https://github.com/oneleo
 
 ## Golang 安裝與環境設定
 
+- 邏輯
+
+.image ./images/i03/i03.00.07-logical.png _ 1000
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
+- 優先度
+
+.image ./images/i03/i03.00.06-precedence.png _ 500
+
+// --------------------------------------------------
+
+## Golang 安裝與環境設定
+
 - 常數與變數
 
 .code -numbers -edit ./code/c03/c03p04constant/constant.go /START OMIT/,/END OMIT/
@@ -162,21 +178,7 @@ https://github.com/oneleo
 
 // --------------------------------------------------
 
-## Golang 安裝與環境設定
 
-- 邏輯
-
-.image ./images/i03/i03.00.07-logical.png _ 1000
-
-// --------------------------------------------------
-
-## Golang 安裝與環境設定
-
-- 優先度
-
-.image ./images/i03/i03.00.06-precedence.png _ 500
-
-// --------------------------------------------------
 
 ## Golang 安裝與環境設定
 
