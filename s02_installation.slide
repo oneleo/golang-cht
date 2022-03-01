@@ -161,9 +161,10 @@ https://github.com/oneleo
 		```
 	3. 透過指令安裝 [Go 語言核心軟體][3]、[Visual Studio Code][4] 與 [vscode go 套件][5]
 		```PowerShell
-		> choco install -y golang vscode vscode-go
+		> choco install -y golang vscode
 		> go version
 		> code --version
+		> code --force --install-extension golang.go
 		```
 	4. 在 vscode 裡安裝 Go for Visual Studio Code 的[相依性 Go 語言套件][6]
 	5. （非必須）透過指令安裝 [GCC 編譯器][7]（使用 cgo 時安裝）
@@ -229,6 +230,10 @@ https://github.com/oneleo
 
 .image ./images/i02/i02.00.04-gopath.png _ 750
 
+: 註：若想使用 Go 1.11 前的 Module 模式：
+:	- 要 import 在 _github.com_ 等網路空間的套件，需要先使用 `go get -u XXX` 將套件下載到 _%GOPATH%\src_，再到程式內 import（src\ 之後的）套件路徑
+:	- 要 import 已在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可
+
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
@@ -236,7 +241,8 @@ https://github.com/oneleo
 - 建置我的 go 專案（hello）
 
 	1. 建立 _%USERPROFILE%\Documents\hello_ 資料夾並使用 vscode 開啟
-	2. 建立 _hello.go_ 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
+	2. 在 vscode 中建立 _cmd_ 資料夾
+	3. 建立 _cmd\hello.go_ 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
 		```go
 		package main
 		 import "fmt"
@@ -259,7 +265,7 @@ https://github.com/oneleo
 		```powershell
 		> go mod init github.com/yourname/hello
 		> go mod tidy
-		> go run hello.go	# 編譯並執行指定的指令原始程式檔案
+		> go run .\cmd\hello.go	# 編譯並執行指定的指令原始程式檔案
 		```
 
 .image ./images/i02/i02.00.06-myfirstgo2.png _ 750
@@ -269,11 +275,11 @@ https://github.com/oneleo
 - 建置我的 go 專案（hello）
 	- 其他 Go 的編譯相關的指令有
  		```powershell
- 		> go build ./		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔
- 		> ./hello.exe
- 		> go install ./		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
+ 		> go build .\cmd\hello.go		# 編譯指定的 main 程式套件，並在當前目錄下產生可執行檔
+ 		> .\hello.exe
+ 		> go install .\cmd\hello.go		# 編譯指定的 main 程式套件，並在 %GOPATH%\bin 下產生可執行檔
  		> . $env:GOPATH\bin\hello.exe
- 		> go clean ./		# 將 go build 產生的檔案清除
+ 		> go clean .\cmd\hello.go		# 將 go build 產生的檔案清除
  		```
 // --------------------------------------------------
 
@@ -281,19 +287,19 @@ https://github.com/oneleo
 
 - 引用 go 套件（c01p01mymath）
 
-	1. 回到 _hello.go_，在 **func main(){這裡}** 內最下方增加以下程式碼
+	1. 回到 _cmd\hello.go_，在 **func main(){這裡}** 內最下方增加以下程式碼
 		```go
 		c, d, e := c01p01mymath.AddMinusMultiply(1, 2)
 		fmt.Println(c, d, e)
 		```
-	2. 因為找不到 _c01p01mymath_ 套件，所以在 **import(這裡)** 內最下方增加以下程式碼
+	2. 因為找不到 _c01p01mymath_ 套件，所以在 **import "fmt"** 下方增加以下程式碼
 		```go
-		"github.com/oneleo/golang-cht/code/c01/c01p01mymath"
+		import "github.com/oneleo/golang-cht/code/c01/c01p01mymath"
 		```
 	3. 在下方【Terminal】中輸入以下指令：
 		```powershell
 		> go get github.com/oneleo/golang-cht/code/c01/c01p01mymath
-		> go run hello.go
+		> go run .\cmd\hello.go
 		```
 		- 註：將下載至 %GOPATH%\pkg\mod\github.com\oneleo\golang-cht\code\c01\c01p01mymath@v0.0.0-XXXXXXXXXXXXXX-XXXXXXXXXXXX 內
 //		 - 可以看到他正在網路上下載所需要的程式碼（相對網址為：[**github.com/oneleo/golang-cht**/tree/\<branchname\>/**code/c01/c01p01mymath**][1]），並且順利執行
@@ -307,22 +313,17 @@ https://github.com/oneleo
 - 建置您自己的 go 套件（mymath）
 
 	1. 繼續在 vscode 中建立 _mymath_ 資料夾
-	2. 在下方【Terminal】中輸入以下指令
-		```powershell
-		> cd .\mymath\	# 切換目錄至 .\mymath\
-		> go mod init "github.com/yourname/hello/mymath"	# 產生 go.mod 檔
-		```
-	3. 建立 _mymath\coolmath.go_ 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
+	2. 建立 _mymath\coolmath.go_ 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
 		```
 		package mymath
 		 func AddMinusMultiply(a, b int) (add, minus, multiply int) {
 		  return a + b, a - b, a * b
 		   }
 		```
-		- package 命名規範：
-			- 名稱一定要和所處的資料夾名稱一致（main 是唯一例外）
-			- 可為數字、小寫英文、減號、底線，但應力求簡潔明瞭、易於了解，儘量和標準套件名稱不衝突
-			- 其他細節可參考此[官方文章][1]
+	3. 註：package 命名規範：
+		- 名稱一定要和所處的資料夾名稱一致（main 是唯一例外）
+		- 可為數字、小寫英文、減號、底線，但應力求簡潔明瞭、易於了解，儘量和標準套件名稱不衝突
+		- 其他細節可參考此[官方文章][1]
 
 [1]: https://golang.org/doc/effective_go.html#package-names "Package Name"
 
@@ -343,33 +344,12 @@ https://github.com/oneleo
 		```
 	3. 在下方【Terminal】中輸入以下指令：
 		```powershell
-		> go run hello.go
+		> go run .\cmd\hello.go
 		```
-		- 可看到編譯器還是無法嘗試在網路空間 _github.com_ 上找到 _github.com/yourname/hello/mymath_ 套件（可能是私人網路，亦有可能是您的專案未上傳到對映的網址上）
-		- 所以要使用 go mod 告訴編譯器此 _github.com/yourname/hello/mymath_ 套件目前在「本地端」或「其他網路空間」的確切位置
-
-// --------------------------------------------------
-
-## Go 語言 Package 入門
-
-- 引用您自己建的 go 套件（mymath）
-
-	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
-	5. 輸入以下指令，讓編譯器知道 _github.com/yourname/hello/mymath_ 的位置
-		```powershell
-		> go mod edit -replace="github.com/yourname/hello/mymath=./mymath"
-		> go get github.com/yourname/hello/mymath	# 加入 Module Require 列表中
-		> go run hello.go				# 編譯並執行指定的指令原始程式檔案
-		```
-	6. 未來程式碼規模增加，引用到的套件必然會有增減，可使用下方 Go Module 指令進行掃描，自動在 go.mod 紀錄會用到的套件
+	4. 未來程式碼規模增加，引用到的套件必然會有增減，可使用下方 Go Module 指令進行掃描，自動在 go.mod 紀錄會用到的套件
 		```powershell
 		> go mod tidy
 		```
-
-: 注意：
-: - 子套件（package）才可以使用 `go mod edit -replace=XXX` 來指定套件在本地端的路徑，因為子套件是跟著專案跑，所以可以一直使用相對路徑
-: - 若是跨專案，若亂指定一個不存在的本地專案路徑，就算網路上有此專案，也不會自動下載專案內容下來
-
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
@@ -382,45 +362,56 @@ https://github.com/oneleo
 
 ## Go 語言 Package 入門
 
-- 舊版 Go v1.11 世界的 Package 引用（GOPATH 參數已在 Go v1.16 取消，下面實作已失效）
+- 公私有變數及函數
 
-	1. 建立 %GOPATH%\src\mymain\main.go 及 %GOPATH%\src\mypack\pack.go
-	2. 在 %GOPATH%\src\mypack\pack.go 撰寫以下程式碼
-	```go
-	package mypack
-	import "fmt"
-	var var1, Var2 int
-	func myfunc1(input int){
-		fmt.Println("myfunc1 input =", input)
-	}
-	func Myfunc2(input int){
-		fmt.Println("Myfunc2 input =", input)
-	}
-	```
+	1. 繼續在 vscode 中建立 _mypack_ 資料夾
+	2. 建立 _mypack\pack.go_ 檔案，並輸入以下程式碼後存檔（Ctrl+S）：
+		```go
+		package mypack
+		 import "fmt"
+		  var var1, Var2 int
+		   func myfunc1(input int){
+			fmt.Println("myfunc1 input =", input)
+		     }
+		      func Myfunc2(input int){
+			   fmt.Println("Myfunc2 input =", input)
+		        }
+		```
 
 // --------------------------------------------------
 
 ## Go 語言 Package 入門
 
-- 舊版 Go v1.11 世界的 Package 引用（GOPATH 參數已在 Go v1.16 取消，下面實作已失效）
+- 公私有變數及函數
 
-	3. 在 %GOPATH%\src\mymain\main.go 撰寫以下程式碼
-	```go
-	package main
-	import (
-		"fmt"
-		"mypack"
-	)
-	func main(){
+	1. 回到 _cmd/hello.go_，在 **func main(){這裡}** 內最下方增加以下程式碼
+		```go
 		fmt.Println("mypack.var1 =", mypack.var1)	// private variable
 		fmt.Println("mypack.Var2 =", mypack.Var2)
 		mypack.myfunc1(4)				// private function
 		mypack.Myfunc2(3)	
-	}
-	```
-	4. 【Terminal】→【New Terminal Ctrl+Shift+`】
-	5. _`go run .\`_
-	6. 請修正錯誤（改權限或註解掉），並觀察大小寫英文開頭、套件引用情形。
+		```
+	2. 在下方【Terminal】中輸入以下指令：
+		```powershell
+		> go run .\cmd\hello.go
+		```
+	3. 請修正錯誤（改權限或註解掉），並觀察大小寫英文開頭、套件引用情形。
+
+: 注意：
+: 若需將 mymath 及 mypack 被其他非 github.com/yourname/hello 專案引用，則要進行以下設置
+: ```powershell
+: > cd .\mymath
+: > go mod init "github.com/yourname/hello/mypack"
+: > cd ..\mypack
+: > go mod init "github.com/yourname/hello/mypack"
+: > cd ..\
+: > go mod edit -replace="github.com/yourname/hello/mymath=./mymath"
+: > go mod edit -replace="github.com/yourname/hello/mypack=./mypack"
+: > go get github.com/yourname/hello/mymath
+: > go get github.com/yourname/hello/mypack
+: ```
+: 意即：
+: 若要 import 非 _%GOROOT%\src_ 裡的套件（注意不是 _%GOPATH%\src_）或 import 非公開在網路上的套件（可能在私人網路，或您要的專案未上傳到對映的網址上），就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在「本地端」的確切位置，可參考[本篇文章][https://golang.org/ref/mod#go-mod-file-replace]
 
 // --------------------------------------------------
 
@@ -447,20 +438,10 @@ https://github.com/oneleo
 	1. 套件的名稱（package XXX）一定要和所在的資料夾同名，但套件所處檔案的檔案名稱（XXX.go）不用和套件的名稱相同。
 	2. 使用 [Go Module][1] 進行專案管理
 		- 若要 import 在 _github.com_ 等網路空間專案的套件，直接引用（https:// 之後的）路徑即可，在編譯時（go run XXX）會提示下載需要的專案套件
-		- 若要 import 非 _%GOROOT%\src_ 裡（注意不是 _%GOPATH%\src_）及網路上專案套件，就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在本地端或網路空間的位置，可參考[本篇文章][2]
-		- 若您的程式碼專案有版控或同步至網路空間，建議在 `go mod init XXX` 時使用網路完整的專案路徑（https:// 之後的）作為專案名稱，以表示其[專案的唯一可識別性][3]。
-		- 專案底下的每一個套件都要有一個 go.mod 檔，才能被其他專案引用
+		- 若您的程式碼專案有版控或同步至網路空間，建議在 `go mod init XXX` 時使用網路完整的專案路徑（https:// 之後的）作為專案名稱，以表示其[專案的唯一可識別性][2]。
+		- 專案底下要有一個 go.mod 檔，才能被其他專案引用
 
 [1]: https://golang.org/ref/mod
-[2]: https://golang.org/ref/mod#go-mod-file-replace "replace directive"
-[3]: https://golang.org/ref/mod#glos-module-path
+[2]: https://golang.org/ref/mod#glos-module-path
 
 // --------------------------------------------------
-
-## Go 語言 Package 入門
-
-- 結論
-
-	3. 使用 Go 1.11 前的 _%GOPATH%\src_ 模式（GOPATH 參數已在 Go v1.16 取消，下面結論已失效）
-		- 若要 import 在 _github.com_ 等網路空間的套件，需要先使用 `go get -u XXX` 將套件下載到 _%GOPATH%\src_，再到程式內 import（src\ 之後的）套件路徑
-		- 若要 import 已在 _%GOPATH%\src_ 裡的套件，直接引用（src\ 之後的）路徑即可

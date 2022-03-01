@@ -15,16 +15,26 @@ https://github.com/oneleo
 
 ## 在開始課程之前…
 
-- 請各位學員使用 Powershell 執行以下指令以開啟投影片
+- 請各位學員使用 PowerShell 執行以下指令以開啟投影片
+	- 快速安裝 golang 環境
 	```
-	> go get -u golang.org/x/tools/cmd/present
-	> go install golang.org/x/tools/cmd/present
-	> go get -u github.com/oneleo/golang-cht
-	> cd $env:GOPATH/src/github.com/oneleo/golang-cht
-	> present -notes
+	> choco install -y git.install --params "/NoShellIntegration"	# 安裝 Git 版控
+	> choco install -y golang vscode mingw		# 安裝 Golang、VSCode、MinGW 軟體
+
+	```
+	- 請重新啟動 PowerShell 後再執行以下指令
+	```
+	> go install golang.org/x/tools/cmd/present			# 安裝 go present 簡報軟體
+	> git clone https://github.com/oneleo/golang-cht.git # 下載簡報檔
+	> cd ./golang-cht		# 開啟簡報檔資料夾
+	> present -notes 執行簡報
 	```
 
 .image ./images/i01/i01.01.00-golang-cht.png _ 900
+
+: 補充：
+: 若不想重新啟動 PowerShell，可直接執行以下指令以重新載入 Path 環境變數
+: > $env:Path = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine) + ";" + [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User);
 
 // --------------------------------------------------
 

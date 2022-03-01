@@ -2,9 +2,9 @@ package mypack
 
 import "fmt"
 
-var var1, Var2 int
+var Var1, Var2 int
 
-func myfunc1(input int) {
+func Myfunc1(input int) {
 	fmt.Println("myfunc1 input =", input)
 }
 func Myfunc2(input int) {
