@@ -33,9 +33,15 @@ https://github.com/oneleo
 
 .image ./images/i01/i01.01.00-golang-cht.png _ 900
 
-: 補充：
+: 補充 1：
 : 若不想重新啟動 PowerShell，可直接執行以下指令以重新載入 Path 環境變數
 : > $env:Path = [System.Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine) + ";" + [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::User);
+: 補充 2：設置中華電信 OA Proxy 環境變數（使用 CMD）
+: > setx http_proxy http://10.160.3.88:8080
+: > setx https_proxy http://10.160.3.88:8080
+: 補充 3：設置中華電信 OA Proxy 環境變數（使用 PowerShell）
+: > [Environment]::SetEnvironmentVariable("http_proxy", "http://10.160.3.88:8080", 'User')
+: > [Environment]::SetEnvironmentVariable("https_proxy", "http://10.160.3.88:8080", 'User')
 
 // --------------------------------------------------
 
