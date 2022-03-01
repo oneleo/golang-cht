@@ -26,9 +26,9 @@ https://github.com/oneleo
 	```
 	> go install golang.org/x/tools/cmd/present@latest			# 安裝 go present 簡報軟體
 	> cd $env:USERPROFILE
-	> git clone https://github.com/oneleo/golang-cht.git # 下載簡報檔
-	> cd ./golang-cht		# 開啟簡報檔資料夾
-	> present -notes 執行簡報
+	> git clone https://github.com/oneleo/golang-cht.git		# 下載本課程投影片及範例
+	> cd ./golang-cht		# 至本課程目錄
+	> present -notes		# 啟動含備忘稿的 go present 簡報
 	```
 
 .image ./images/i01/i01.01.00-golang-cht.png _ 900
@@ -222,7 +222,7 @@ https://github.com/oneleo
 	> cd $env:USERPROFILE
 	> git clone https://github.com/oneleo/golang-cht.git	# 下載本課程投影片及範例
 	> cd .\golang-cht
-	> godoc -http=:6060 -play			# 啟動文件產生器
+	> godoc -http=:6060 -play				# 啟動文件產生器
 
 	```
 
@@ -243,9 +243,9 @@ https://github.com/oneleo
 
 	```powershell
 	> cd $env:USERPROFILE
-	> git clone https://github.com/oneleo/golang-cht.git			# 下載本課程投影片及範例
+	> git clone https://github.com/oneleo/golang-cht.git				# 下載本課程投影片及範例
 	> cd golang-cht
-	> go test -v -run . github.com\oneleo\golang-cht\code\c01\c01p01mymath	# 執行功能性測試
+	> go test -v -run . github.com\oneleo\golang-cht\code\c01\c01p01mymath		# 執行功能性測試
 	> go test -v -bench . github.com\oneleo\golang-cht\code\c01\c01p01mymath	# 執行效能測試
 	```
 
@@ -261,11 +261,11 @@ https://github.com/oneleo
 - 安裝 go present
 
 	```powershell
-	> go get -u -v golang.org/x/tools/cmd/present	# 下載官方 go present
-	> go install golang.org/x/tools/cmd/present		# 安裝
+	> go install golang.org/x/tools/cmd/present@latest	# 安裝 go present 簡報軟體
+	> cd $env:USERPROFILE
 	> go get -u -v github.com/oneleo/golang-cht		# 下載本課程投影片及範例
-	> cd "$ENV:GOPATH/src/github.com/oneleo/golang-cht"	# 至本課程目錄
-	> present -notes					# 啟動含備忘稿的 go present
+	> cd ./golang-cht					# 至本課程目錄
+	> present -notes					# 啟動含備忘稿的 go present 簡報
 	```
 
 - 查看【[http://127.0.0.1:3999][2]】觀看投影片。
@@ -312,7 +312,7 @@ https://github.com/oneleo
 
 ## 快速展示
 
-7. 產能 - 可以[在 Go 語言內執行 C 語言][1]
+7. 產能 - 可以[在 Go 語言內執行 C 語言][1]（須先安裝 MinGW-W64 等 GCC compiler）
 
 [1]: https://golang.org/cmd/cgo/ "cgo"
 

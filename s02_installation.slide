@@ -411,7 +411,7 @@ https://github.com/oneleo
 : > go get github.com/yourname/hello/mypack
 : ```
 : 意即：
-: 若要 import 非 _%GOROOT%\src_ 裡的套件（注意不是 _%GOPATH%\src_）或 import 非公開在網路上的套件（可能在私人網路，或您要的專案未上傳到對映的網址上），就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在「本地端」的確切位置，可參考[本篇文章][https://golang.org/ref/mod#go-mod-file-replace]
+: 若要 import 非 _%GOROOT%\src_ 裡的套件（注意不是 _%GOPATH%\src_）或 import 非公開在網路上的套件（可能在私人網路，或您要的專案未上傳到對映的網址上），就要使用 _`go mod edit -replace="XXX"`_ 指令告訴編譯器專案的套件在「本地端」的確切位置，可參考[本篇文章](https://golang.org/ref/mod#go-mod-file-replace)
 
 // --------------------------------------------------
 
